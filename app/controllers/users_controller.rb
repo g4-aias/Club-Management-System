@@ -9,9 +9,11 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
-    @user.email = @user.email + "@sfu.ca"
+   
     if @user.save
-      flash[:success] = "Welcome to Our App!"
+       @user.email = @user.email + "@sfu.ca"
+       @user.save
+       flash[:success] = "Welcome to Our App!"
       redirect_to @user
       # equivalent to redirect_to user_url(@user)
       # Handle a successful save.
