@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     if @user.save
        @user.email = @user.email + "@sfu.ca"
        @user.save
+       log_in @user
        flash[:success] = "Welcome to Our App!"
       redirect_to @user
       # equivalent to redirect_to user_url(@user)
