@@ -1,10 +1,15 @@
-<div class="center jumbotron">
-  <h1>Welcome!!</h1>
-
+<div id="welcome">
+  Welcome!
   
+  <p>Organize your clubs here and become part of SFU</p>
+  <%= image_tag('sfu4.png', :class =>"l4") %>
+  <%= image_tag('sfu3.png', :class =>"l3") %>
+  <%= image_tag('sfu2.png', :class =>"l2") %>
+  <%= image_tag('sfu.png', :class =>"l1") %>
+  
+  
+  <p>
+      <%= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %>
+  </p>
 
-  <%= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %>
 </div>
-
-<%= link_to image_tag("rails.png"),
-            'https://upload.wikimedia.org/wikipedia/bar/2/27/Hello_Kitty_logo.svg' %>
