@@ -15,7 +15,13 @@ class WelcomeControllerTest < ActionController::TestCase
   test "should get terms" do
     get :terms
     assert_response :success
-    assert_select "title", "#{@base_title} | Terms of Use"
+    assert_select "title", "#{@base_title} | Terms"
+  end
+  
+  test "should get privacy" do
+    get :privacy
+    assert_response :success
+    assert_select "title", "#{@base_title} | Privacy"
   end
   
   test "should get about" do
