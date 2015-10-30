@@ -197,6 +197,7 @@ input {
 }
 
 /* container background */
+
 .jumbo {
   background-color: #D9D9C7;
   border-radius: 12px;
@@ -217,4 +218,16 @@ input {
   padding-left: 25px;
   padding-top: 10px;
   font-weight: bold;
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
 }
