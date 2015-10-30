@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
 
   get 'welcome/terms'
+  get 'welcome/privacy'
   get 'welcome/about'
   get 'welcome/contact'
   get 'welcome/help'
