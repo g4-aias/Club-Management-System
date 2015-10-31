@@ -25,3 +25,26 @@ second_user:
   name: t95
   email: toic
   password_digest: <%= User.digest('password') %>
+  
+third_user:
+  firstname: lana
+  lastname: kane
+  name: lan
+  email: lanak
+  password_digest: <%= User.digest('password') %>
+
+fourth_user:
+  firstname: mallo
+  lastname: arch
+  name: mala
+  email: mallloar
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  firstname: <%= "firstname #{n}" %>
+  lastname: <%= "lastname #{n}" %>
+  name:  <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>

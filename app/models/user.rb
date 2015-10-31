@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
     attr_accessor :remember_token
     before_save { self.email = email.downcase }
-    validates :firstname,  presence: true, length: { maximum: 15 }
-    validates :lastname,  presence: true, length: { maximum: 15 }
-    validates :name,  presence: true, length: { maximum: 15 },
+    validates :firstname,  presence: true, length: { maximum: 50 }
+    validates :lastname,  presence: true, length: { maximum: 50 }
+    validates :name,  presence: true, length: { maximum: 50 },
                         uniqueness: { case_sensitive: false }
     
     validates :email, presence: true, length: { maximum: 250 },

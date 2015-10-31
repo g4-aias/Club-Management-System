@@ -39,18 +39,18 @@ class UserTest < ActiveSupport::TestCase
   #max length test
   
   test "firstname should not be too long" do
-    @user.firstname = ("a" * 16)
+    @user.firstname = ("a" * 51)
     assert_not @user.valid?
   end
   
   
   test "lastname should not be too long" do
-    @user.lastname = ("a" * 16)
+    @user.lastname = ("a" * 51)
     assert_not @user.valid?
   end
   
   test "name should not be too long" do
-    @user.name = ("a" * 16)
+    @user.name = ("a" * 51)
     assert_not @user.valid?
   end
 
