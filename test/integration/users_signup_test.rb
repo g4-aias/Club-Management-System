@@ -28,12 +28,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   test "valid signup information with account activation" do
     get new_user_path
     assert_difference 'User.count', 1 do
-      post users_path, user: { firstname:"Bobby",
-                                            lastname: "Chan",
-                                            name:  "BobDaBomb",
-                                            email: "user@example.com",
-                                            password:              "password",
-                                            password_confirmation: "password" }
+      post users_path, user: {firstname:"Bobby",
+                              lastname: "Chan",
+                              name:  "BobDaBomb",
+                              email: "user@example.com",
+                              password:              "password",
+                              password_confirmation: "password" }
     end
     #assert_template 'users/show'
     #assert is_logged_in?

@@ -22,11 +22,11 @@ class UsersController < ApplicationController
        @user.email = @user.email + "@sfu.ca"
        @user.save
        # UserMailer.account_activation(@user).deliver_now
-      @user.send_activation_email
-      flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
-      # equivalent to redirect_to user_url(@user)
-      # Handle a successful save.
+       @user.send_activation_email
+       flash[:info] = "Please check your email to activate your account."
+       redirect_to root_url
+       # equivalent to redirect_to user_url(@user)
+       # Handle a successful save.
     else
       render 'new'
     end
