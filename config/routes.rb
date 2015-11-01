@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
  
-  get 'password_resets/new'
-
-  get 'password_resets/edit'
-
-  get 'sessions/new'
+  
   #get 'user/1' => 'users#show'
 
   resources :users
@@ -25,12 +21,17 @@ Rails.application.routes.draw do
   get 'welcome/help'
   get 'signup' =>'user#new'
 
+  get 'sessions/new'
+
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  get 'password_resets/new'
+  get 'password_resets/edit'
 
 
+  
 
 
   # Example of regular route:
