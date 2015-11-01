@@ -15,7 +15,9 @@ User.create!(firstname: "first",
              email: "example@sfu.ca",
              password:              "foobar",
              password_confirmation: "foobar",
-             admin: true)
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
 
 99.times do |n|
   firstname = "first #{n+1}"
@@ -28,5 +30,7 @@ User.create!(firstname: "first",
                name:  name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               activated: true,
+               activated_at: Time.zone.now)
 end
