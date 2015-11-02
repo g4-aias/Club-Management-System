@@ -19,8 +19,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-       # @user.email = @user.email + "@sfu.ca"
-       #@user.save
+       @user.email = @user.email + "@sfu.ca"
+       @user.save
        # UserMailer.account_activation(@user).deliver_now
        @user.send_activation_email
        flash[:info] = "Please check your email to activate your account."
