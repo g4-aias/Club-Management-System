@@ -5,6 +5,15 @@
       <h1>
        Welcome to <%= @club.name%>
       </h1>
+      <%= link_to "Create new post", new_club_post_path %>
     </section>
   </aside>
 </div>
+
+<% @posts.each do |post| %>
+  <% @post = post %>
+  <br> </br>
+  <%= render partial: 'posts/heading' %>
+<% end %>
+
+<%= will_paginate @posts %>

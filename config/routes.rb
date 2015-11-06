@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :clubs, only: [:new, :create]
+  resources :posts, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -35,6 +36,9 @@ Rails.application.routes.draw do
   
   get 'p/:path' => 'clubs#show', as: :view_club
   get 'commit' => 'clubs#new'
+  
+  get 'p/:path/newpost' => 'posts#new', as: :new_club_post
+  get 'p/:path/:post_id' => 'posts#show', as: :view_club_post
 
   
 

@@ -1,0 +1,16 @@
+<%= form_for(@post) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+    
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+      
+      <%= f.label :context %>
+      <%= f.text_area :context, class: 'form-control' %>
+    
+      <%= f.label :url %>
+      <%= f.text_field :url, class: 'form-control' %>
+
+      <%= hidden_field_tag :club_path, @club.path %>
+
+      <%= f.submit "Create post", class: "btn btn-primary" %>
+    <% end %>

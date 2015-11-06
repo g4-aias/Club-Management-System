@@ -1,0 +1,9 @@
+
+
+<% if @post.url.blank? %>
+<%= link_to raw(@post.title), build_post_path(@post)%>
+<%else%>
+<%= link_to raw(@post.title), @post.url%>
+<%end%>
+<br>
+<%= link_to "go", build_post_path(@post)%>

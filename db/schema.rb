@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151106005246) do
+ActiveRecord::Schema.define(version: 20151106015856) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20151106005246) do
 
   add_index "clubs", ["user_id"], name: "index_clubs_on_user_id"
 
+  create_table "memberships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "memberships", ["club_id"], name: "index_memberships_on_club_id"
+  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id"
+
   create_table "moderations", force: :cascade do |t|
     t.integer  "club_id"
     t.integer  "user_id"
@@ -34,6 +44,19 @@ ActiveRecord::Schema.define(version: 20151106005246) do
 
   add_index "moderations", ["club_id"], name: "index_moderations_on_club_id"
   add_index "moderations", ["user_id"], name: "index_moderations_on_user_id"
+
+  create_table "posts", force: :cascade do |t|
+    t.text     "context"
+    t.string   "title"
+    t.string   "url"
+    t.integer  "user_id"
+    t.integer  "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "posts", ["club_id"], name: "index_posts_on_club_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "firstname"

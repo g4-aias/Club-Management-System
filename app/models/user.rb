@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
     has_many :clubs
     has_many :modClubs, through: :moderations
     has_many :moderations, dependent: :destroy
+    has_many :posts
+    has_many :memClubs, through: :memberships
+    has_many :memberships, dependent: :destroy
     
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save   :downcase_email

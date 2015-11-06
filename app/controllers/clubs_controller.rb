@@ -18,6 +18,8 @@ class ClubsController < ApplicationController
     end
     
     def show
+        #returns all posts that belongs to the club
+        @posts = @club.posts.paginate(page: params[:page])
     end
     
     private
