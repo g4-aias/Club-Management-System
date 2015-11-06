@@ -1,0 +1,15 @@
+<%= form_for(@club) do |f| %>
+      <%= render 'shared/error_messages',object: f.object %>
+    
+      <%= f.label :name, "Club's Name" %>
+      <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.label :description, "Description" %>
+      <%= f.text_field :description, class: 'form-control' %>
+    
+      <%= f.label :genre %>
+      <%= f.text_field :genre, class: 'form-control' %>
+
+
+      <%= f.submit "Create New Club", class: "btn btn-primary" %>
+    <% end %>
