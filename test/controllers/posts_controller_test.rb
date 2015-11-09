@@ -4,6 +4,7 @@ class PostsControllerTest < ActionController::TestCase
 
   def setup
     @post = posts(:first_post)
+    @other_post = posts(:second_post)
   end
 
   test "should redirect create when not logged in" do
@@ -13,4 +14,9 @@ class PostsControllerTest < ActionController::TestCase
     assert_redirected_to login_url
   end
 
+  test "should get show" do
+    get :show
+    assert_response :success
+  end
+  
 end
