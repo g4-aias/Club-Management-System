@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyString
-  genre: MyString
-  user_id: 
-  path: MyString
+first_club:
+  name: BobsFirstClub
+  description: Club for all the Bobs out there!
+  genre: Spiritual
+  user_id: 1
+  path: p/bobsfirstclub
 
-two:
-  name: MyString
-  description: MyString
-  genre: MyString
-  user_id: 
-  path: MyString
+second_club:
+  name: BobsSecondClub
+  description: Only join if you're named Bobby Chan
+  genre: Political
+  user_id: 1
+  path: p/bobssecondclub

@@ -1,15 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  context: MyText
-  title: MyString
-  url: MyString
-  user_id: 
-  club_id: 
+first_post:
+  context: Bob Is Great
+  title: I'm great
+  url: 
+  user_id: 1
+  club_id: 1
+  created_at: <%= 20.minutes.ago %>
 
-two:
-  context: MyText
-  title: MyString
-  url: MyString
-  user_id: 
-  club_id: 
+second_post:
+  context: the second post
+  title: Second Post
+  url: 
+  user_id: 1
+  club_id: 1
+  created_at: <%= 10.minutes.ago %>
+
+most_recent:
+  context: "Writing a short test"
+  title: The Most Recent
+  url:
+  user_id: 1
+  club_id: 1
+  created_at: <%= Time.zone.now %>
