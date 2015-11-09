@@ -18,7 +18,6 @@ class PostsController < ApplicationController
         
         @post.club = @club
         @post.user_id = current_user.id
-        
         if @post.save
             flash[:success] = "Post created!"
             #the path for post#show is

@@ -96,22 +96,30 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-darker;
+  background-color: white;
   color: black;
   a {
     color: black;
+    background-color: white;
     &:hover {
       color: navy;
     }
   }
   small {
     float: left;
+    padding: 0px 3px;
+    background-color: white;
   }
   ul {
     float: right;
     list-style: none;
+    background-color: white;
+    padding-left: 0px;
     li {
       float: left;
       margin-left: 15px;
+      margin-right: 10px;
+      margin-bottom: 1px;
     }
   }
 }
@@ -152,6 +160,7 @@ aside {
 
 .gravatar_edit {
   margin-top: 15px;
+  margin-left: 30px;
 }
 
 /* forms */
@@ -196,10 +205,26 @@ input {
   margin-left: 0;
 }
 
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+
+
 /* container background */
 
 .jumbo {
-  background-color: white; /*#D9D9C7*/
+  border: solid;
+  background-color: white;
   border-radius: 12px;
 }
 
@@ -214,13 +239,113 @@ input {
   padding-top: 10px;
   font-weight: bold;
 }
+
 .jumbo h4 {
   padding-left: 25px;
   padding-top: 10px;
   font-weight: bold;
 }
 
-/* Users index */
+.jumbo2 {
+  background-color: white; /*#D9D9C7*/
+  border: solid;
+  border-radius: 12px;
+  width: 800px;
+  margin: auto; 
+  margin-top: 60px;
+  padding-top: 10px;
+}
+
+.jumbo2 .username {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 500px;
+  margin: auto;
+  margin-bottom: 30px;
+  font-size: 35px;
+  font-family: Verdana, Geneva, sans-serif;
+  color: white;
+  text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+  letter-spacing: 1px;
+  border-bottom: double;
+  border-color: black;
+  border-bottom-right-radius: 10em 1em;
+  border-bottom-left-radius: 10em 1em;
+}
+
+
+
+.jumbo2 img {
+  float: left;
+  margin-left: 8px;
+}
+
+
+.jumbo2 .p1 {
+  text-align: left;
+  width: 200x;
+  margin-left: 90px;
+  float: left;
+}
+
+
+.jumbo2 .p2 {
+  width: 400px;
+  position: relative;
+  left: 130px;
+  float: left;
+}
+
+.jumbo2 span {
+  display: block;
+  padding: 10px;
+}
+
+
+/* posts index */
+
+.posts {
+  list-style: none;
+  margin-top: 50px;
+  li {
+    overflow: auto;
+    border: solid;
+    width: 230px;
+    height: 200px;
+    display: inline-block;
+    margin: 10px;
+    font-size: 18px;
+    padding-left: 5px;
+
+  }
+}
+
+
+
+.headings {
+  text-align: center;
+  background-color: white;
+  width: 690px;
+  margin: auto;
+  padding-top: 12px;
+}
+
+.posts {
+  list-style: none;
+  margin-top: 50px;
+  li {
+    overflow: auto;
+    border: solid;
+    width: 230px;
+    height: 200px;
+    display: inline-block;
+    margin: 10px;
+    font-size: 18px;
+    padding-left: 5px;
+
+  }
+}
+
 
 .users {
   list-style: none;
@@ -231,5 +356,4 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
-
 

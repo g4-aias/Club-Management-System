@@ -5,11 +5,18 @@
       <%= f.text_field :name, class: 'form-control' %>
       
       <%= f.label :description, "Description" %>
-      <%= f.text_field :description, class: 'form-control' %>
+      <%= f.text_area :description, class: 'form-control', rows: "5" %>
     
       <%= f.label :genre %>
-      <%= f.text_field :genre, class: 'form-control' %>
-
-
+      <%= f.select(:genre, options_for_select([['Arts','Arts'],
+                              ['Career Development', 'Career Development'], ['Charitable', 'Charitable'], 
+                              ['Cultural', 'Cultural'], ['Other', 'Other'], ['Political', 'Political'],
+                              ['Social', 'Social'], ['Social Justice/Activism', 'Social Justice/Activism'],
+                              ['Special Interst/Hobby', 'Special Interst/Hobby'], ['Sport', 'Sport'],
+                              ['Spiritual', 'Spiritual']])) %>
+      
+      
+     
+      
       <%= f.submit "Create New Club", class: "btn btn-primary" %>
     <% end %>

@@ -1,6 +1,13 @@
 class ClubsController < ApplicationController
     before_action :logged_in_user, only: [:create, :new]
     before_action :find_club_path, only: :show
+    #before_action :show_all_clubs,     only: :index
+    
+    def index
+    @clubs = Club.all
+    #@clubs = Clubs.paginate(page: params[:page])
+    end
+    
     
     def new 
         @club=Club.new
@@ -17,10 +24,19 @@ class ClubsController < ApplicationController
         end
     end
     
+
+    
+    
+    
     def show
         #returns all posts that belongs to the club
         @posts = @club.posts.paginate(page: params[:page])
     end
+    
+    
+
+    
+    
     
     private
     def club_params
@@ -31,7 +47,6 @@ class ClubsController < ApplicationController
         @club = Club.by_path(params[:path])
     end
     
-    
-    
+
 end
 

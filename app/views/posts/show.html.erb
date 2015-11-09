@@ -1,3 +1,14 @@
-<h1>Hello :D. I belong in <%=@post.club.name %>, my owner is <%=@post.user.email%></h1>
+<h1 class="headings">
+    <%=@post.club.name %>
+</h1>
 
-<%= link_to 'back?', view_club_path%>
+<div class="jumbo2">
+    <span>
+        <%= @post.context %>
+    </span>
+    <span>
+        <%= link_to 'See All Posts', view_club_path %>
+    </span>
+</div>
+
+

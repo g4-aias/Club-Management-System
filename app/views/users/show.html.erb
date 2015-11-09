@@ -1,12 +1,38 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.email %>
-        <%= link_to "Creat new club", commit_path %>
-      </h1>
-    </section>
-  </aside>
-</div>
+
+ 
+<h1 class="headings">
+  <%= @user.name %>
+</h1>
+
+<aside class="jumbo2">
+  <div class="row">      
+      <p class="p1">
+        <br>
+        <img> <%= gravatar_for @user %></img>
+        <br>
+        <br>
+        <br>
+        <br>
+        <span><%= link_to "Change Profile Photo", '#' %></span>
+        <span><%= link_to "Edit Profile", edit_user_path %></span>
+        <span><%= link_to "Create new club", commit_path %></span>
+      </p>
+      
+      <p class="p2">
+        <span>Email: <%= @user.email %></span>
+        <span>First Name: <%= @user.firstname %></span>
+        <span>Last Name: <%= @user.lastname %></span>
+        <span>Gender: <%= @user.gender %></span>
+        <span>Birthday: </span>
+        <span>Phone Number: <%= @user.phone %></span>
+        <span>Degree: <%= @user.degree %></span>
+        <span>Major: <%= @user.major %></span>
+        <span>Clubs:</span>
+      </p>
+      
+      
+  
+ 
+  </div>
+</aside>

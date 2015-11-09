@@ -1,0 +1,19 @@
+<% provide(:title, 'All Clubs') %>
+<h1 class="headings">
+  All Clubs
+</h1>
+
+
+<div class="jumbo2">
+  <% @clubs.each do |club| %>
+    <% @club = club %>
+    
+   
+    
+    <span>
+      <%#= gravatar_for club, size: 50 %>
+      <%= link_to club.name, build_club_path(club) %>
+    </span>
+  <% end %>
+  <%#= will_paginate @clubs %>
+</div>

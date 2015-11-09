@@ -1,6 +1,6 @@
 class Club < ActiveRecord::Base
   belongs_to :user
-  
+
   
   
   
@@ -10,11 +10,17 @@ class Club < ActiveRecord::Base
   has_many :members, through: :memberships
   has_many :memberships
   
+  
+  
   after_create :make_owner_mod
   after_create :downcase_path
   before_save :set_club_path
   after_create :make_owner_member
   
+  validates :name,  presence: true, length: { maximum: 70 },
+                        uniqueness: { case_sensitive: false }
+  validates :description,  presence: true, length: { maximum: 50 }
+
   
   
   
