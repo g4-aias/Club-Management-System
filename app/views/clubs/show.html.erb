@@ -17,7 +17,12 @@
     <% @post = post %>
     <li>
       <%= render partial: 'posts/heading' %>
+      <br>
+      <%= @create = post.created_at %>
     </li>
+
+
+
   <% end %>
       
   <%= will_paginate @posts %>
