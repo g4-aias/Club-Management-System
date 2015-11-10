@@ -8,9 +8,6 @@
   <ul>
   <% @clubs.each do |club| %>
     <% @club = club %>
-   
-   
-    
     <h4>
       <%#= gravatar_for club, size: 50 %>
       <%= link_to club.name, build_club_path(club) %>

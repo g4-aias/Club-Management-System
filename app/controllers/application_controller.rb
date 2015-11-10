@@ -7,11 +7,12 @@ class ApplicationController < ActionController::Base
   def build_club_path(club)
         view_club_path(path: club.path)
   end
+  helper_method :build_club_path
   
   def build_post_path(post)
     view_club_post_path(path: post.club.path, post_id: post.id)
   end
-  
+  helper_method :build_post_path
   
    private
    # Confirms a logged-in user.

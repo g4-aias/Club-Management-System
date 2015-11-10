@@ -1,12 +1,8 @@
 class PostsController < ApplicationController
     
-<<<<<<< HEAD
-    before_action :logged_in_user, only: :create
-    before_action :authorized_member?, only: [:create, :new]
-=======
     before_action :logged_in_user, only: [:create, :destroy]
     before_action :correct_user,   only: :destroy
->>>>>>> bb90cc8e4ea3d72d247d0d71e58722666fce0ed9
+    before_action :authorized_member?, only: [:create, :new]
     
     def new
         @club = nil
@@ -59,7 +55,6 @@ class PostsController < ApplicationController
         params.require(:post).permit(:context, :title, :url, :club_id, :picture)
     end
     
-<<<<<<< HEAD
     def authorized_member?
         @club = Club.by_path(params[:path]) if params[:path]
         unless @club.is_member?(current_user)
@@ -67,7 +62,6 @@ class PostsController < ApplicationController
         redirect_to build_club_path(@club)
         end
     end
-=======
 
     def correct_user
       @post = current_user.posts.find_by(id: params[:id])
@@ -75,5 +69,4 @@ class PostsController < ApplicationController
     end
     
     
->>>>>>> bb90cc8e4ea3d72d247d0d71e58722666fce0ed9
 end
