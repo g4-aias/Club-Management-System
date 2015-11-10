@@ -6,6 +6,7 @@ class PostsController < ApplicationController
         @club = nil
         @club = Club.by_path(params[:path]) if params[:path]
         @post = Post.new
+
     end
     
     def create

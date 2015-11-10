@@ -8,7 +8,6 @@ class ClubsController < ApplicationController
     #@clubs = Clubs.paginate(page: params[:page])
     end
     
-    
     def new 
         @club=Club.new
     end
@@ -24,19 +23,10 @@ class ClubsController < ApplicationController
         end
     end
     
-
-    
-    
-    
     def show
         #returns all posts that belongs to the club
         @posts = @club.posts.paginate(page: params[:page])
     end
-    
-    
-
-    
-    
     
     private
     def club_params

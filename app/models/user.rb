@@ -8,7 +8,11 @@ class User < ActiveRecord::Base
     
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save   :downcase_email
+    before_save   :format_email
     before_create :create_activation_digest
+    
+    
+    
     validates :firstname,  presence: true, length: { maximum: 50 }
     validates :lastname,  presence: true, length: { maximum: 50 }
     validates :name,  presence: true, length: { maximum: 50 },
@@ -16,12 +20,6 @@ class User < ActiveRecord::Base
     
     validates :email, presence: true, length: { maximum: 250 },
                         uniqueness: { case_sensitive: false }
-    
-    
-    
-                
-    
-    
     
                         
     has_secure_password
@@ -114,5 +112,11 @@ class User < ActiveRecord::Base
     def create_activation_digest
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
+    end
+    
+    #sets user email before saving
+    def format_email
+      return if email.include?('@sfu.ca')
+      self.email = "#{email}@sfu.ca"
     end
 end
