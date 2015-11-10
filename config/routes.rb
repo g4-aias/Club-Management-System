@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
  
   
+  get 'memberships/create'
+
+  get 'memberships/destroy'
+
   #get 'user/1' => 'users#show'
 
-  resources :users
+  resources :users do
+    member do
+     get 'manage'
+    end
+  end
+  
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :clubs, only: [:new, :create, :index]
@@ -30,12 +39,12 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   
 
-
+ 
   get 'password_resets/new'
   get 'password_resets/edit'
   
-  get 'p/:path' => 'clubs#show', as: :view_club
   get 'commit' => 'clubs#new'
+  get 'p/:path' => 'clubs#show', as: :view_club
   get 'p/index' => 'clubs#index', as: :club_index
   
   get 'p/:path/newpost' => 'posts#new', as: :new_club_post

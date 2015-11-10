@@ -5,11 +5,11 @@ first_club:
   description: Club for all the Bobs out there!
   genre: Spiritual
   user_id: 1
-  path: p/bobsfirstclub
+  path: bobsfirstclub
 
 second_club:
   name: BobsSecondClub
   description: Only join if you're named Bobby Chan
   genre: Political
   user_id: 1
-  path: p/bobssecondclub
+  path: bobssecondclub

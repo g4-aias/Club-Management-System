@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
     
     before_action :logged_in_user, only: :create
+    before_action :authorized_member?, only: [:create, :new]
     
     def new
         @club = nil
@@ -45,11 +46,17 @@ class PostsController < ApplicationController
     end
 
 
-
-
     private
+    
     def post_params
         params.require(:post).permit(:context, :title, :url, :club_id)
     end
     
+    def authorized_member?
+        @club = Club.by_path(params[:path]) if params[:path]
+        unless @club.is_member?(current_user)
+        flash[:danger] = "Only members can create posts."
+        redirect_to build_club_path(@club)
+        end
+    end
 end

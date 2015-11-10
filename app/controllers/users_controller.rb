@@ -47,7 +47,12 @@ class UsersController < ApplicationController
   end
   
   
-
+  def manage
+    @user = User.find(params[:id])
+    @clubs = @user.clubs
+    #@group = Group.find(params[:id])
+    #@members = @group.users # this will find the group users
+  end
   
   
   

@@ -16,6 +16,8 @@ class PostTest < ActiveSupport::TestCase
     assert @post.valid?
   end
 
+  # presence tests
+  
   test "user id should be present" do
     @post.user_id = nil
     assert_not @post.valid?
@@ -36,6 +38,8 @@ class PostTest < ActiveSupport::TestCase
     assert_not @post.valid?
   end
   
+  # length tests
+  
   test "context should be at most 1000 characters" do
     @post.context = "a" * 1001
     assert_not @post.valid?
@@ -45,6 +49,8 @@ class PostTest < ActiveSupport::TestCase
     @post.title = "a" * 61
     assert_not @post.valid?
   end
+  
+  # other
   
   test "order should be most recent first" do
     assert_equal posts(:most_recent), Post.first

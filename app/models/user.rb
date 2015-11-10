@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  
     has_many :clubs
     has_many :modClubs, through: :moderations
     has_many :moderations, dependent: :destroy
@@ -67,6 +68,10 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(digest).is_password?(token)
   end
   
+  # 
+  def display_clubs(user, club)
+    
+  end
   
    # Forgets a user.
   def forget

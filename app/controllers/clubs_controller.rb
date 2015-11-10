@@ -9,7 +9,7 @@ class ClubsController < ApplicationController
     end
     
     def new 
-        @club=Club.new
+        @club = Club.new
     end
     
     def create
