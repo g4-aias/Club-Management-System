@@ -241,6 +241,12 @@ input {
   font-weight: bold;
 }
 
+.jumbo h2 {
+  padding-left: 25px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+
 .jumbo h4 {
   padding-left: 25px;
   padding-top: 10px;
@@ -306,20 +312,30 @@ input {
 /* posts index */
 
 .posts {
-  list-style: none;
   margin-top: 50px;
-  li {
-    overflow: auto;
-    border: solid;
-    width: 230px;
-    height: 200px;
-    display: inline-block;
-    margin: 10px;
-    font-size: 18px;
-    padding-left: 5px;
-
-  }
+  height: 1500px;
+  width: 1160px;
+  font-size: 12px;
+  /*border: solid;*/
+  background-color: white;
+  display: block;
 }
+
+.posts img {
+    width: 210px;
+    height: 175px;
+  }
+.posts li {
+    /*border: solid;*/
+    height: 280px;
+    width: 220px;
+    /*color: navy;*/
+}
+
+.posts li span {
+    font-size: 12px;
+}
+
 
 
 
@@ -358,7 +374,3 @@ input {
   }
 }
 
-
-.pictures {
-  background-image: url("<%= image_tag @post.picture.url %>");
-}

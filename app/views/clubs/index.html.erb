@@ -5,15 +5,16 @@
 
 
 <div class="jumbo">
+  <ul>
   <% @clubs.each do |club| %>
     <% @club = club %>
-    
+   
    
     
-    <span>
+    <h4>
       <%#= gravatar_for club, size: 50 %>
       <%= link_to club.name, build_club_path(club) %>
-    </span>
+    </h4>
   <% end %>
   <%#= will_paginate @clubs %>
 </div>
