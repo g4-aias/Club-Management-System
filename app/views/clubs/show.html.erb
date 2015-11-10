@@ -4,19 +4,26 @@
 <h1 class="headings">
   Welcome to <%= @club.name%>
 </h1>
-    
-<p class="p1">
-  <%= link_to "Create new post", new_club_post_path %>
-</p>
 
-<ul class="posts">
+
+<div class="posts">
+ <h4>
+   <%= link_to "Create new post", new_club_post_path %>
+ </h4>
+ 
+ 
   <% @posts.each do |post| %>
     <% @post = post %>
     <li>
-      <%= render partial: 'posts/heading' %>
+      <%= image_tag @post.picture.url %>
+      <span>
+        <%= render partial: 'posts/heading' %>
+        <br>
+        Posted at <%= @create = post.created_at %>
+      </span>
     </li>
+  
   <% end %>
-      
   <%= will_paginate @posts %>
-</ul>
+</div>
 

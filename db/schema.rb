@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109015628) do
+ActiveRecord::Schema.define(version: 20151110064335) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20151109015628) do
     t.integer  "club_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "picture"
   end
 
   add_index "posts", ["club_id"], name: "index_posts_on_club_id"

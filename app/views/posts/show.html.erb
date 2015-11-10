@@ -2,13 +2,42 @@
     <%=@post.club.name %>
 </h1>
 
-<div class="jumbo2">
+<!--<div class="jumbo2">
     <span>
-        <%= @post.context %>
+        <%#= @post.context %>
     </span>
     <span>
-        <%= link_to 'See All Posts', view_club_path %>
+        <%#= link_to 'See All Posts', view_club_path %>
     </span>
+</div>-->
+
+
+<div class="jumbo" >
+  <p>
+    <%= link_to 'See All Posts', view_club_path %>
+  </p>
+  
+  <h2>
+    <%= @post.title %>
+  </h2>
+  
+  <%#= link_to gravatar_for(post.user, size: 50), post.user %>
+  <!--<span class="user"><%#= link_to post.user.name, post.user %></span>-->
+  <span> 
+    <%= image_tag @post.picture.url if @post.picture? %>
+  </span> 
+  <br>
+  <br>
+  <p>
+    <%= @post.context %>
+  <p>
+    
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(@post.created_at) %> ago.
+    <% if current_user?(@post.user) %>
+      <%= link_to "delete", @post, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+
 </div>
-
-
