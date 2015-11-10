@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     
     validates :email, presence: true, length: { maximum: 250 },
                         uniqueness: { case_sensitive: false }
-    
+    validates :phone, length: {maximum: 10}
                         
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true

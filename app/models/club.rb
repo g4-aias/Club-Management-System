@@ -17,7 +17,7 @@ class Club < ActiveRecord::Base
   
   validates :name,  presence: true, length: { maximum: 70 },
                         uniqueness: { case_sensitive: false }
-  validates :description,  presence: true, length: { maximum: 50 }
+  validates :description,  presence: true, length: { maximum: 150 }
 
   
   def self.by_path(path)
