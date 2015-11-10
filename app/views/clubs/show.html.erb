@@ -7,24 +7,23 @@
 <h1 class="headings">
   Welcome to <%= @club.name%>
 </h1>
-    
-<p class="p1">
+
+
+<p class="jumbo2">
   <%= link_to "Create new post", new_club_post_path %>
 </p>
 
 <ul class="posts">
   <% @posts.each do |post| %>
     <% @post = post %>
+    <%= image_tag @post.picture.url %>
     <li>
+      
       <%= render partial: 'posts/heading' %>
       <br>
       <%= @create = post.created_at %>
     </li>
-
-
-
   <% end %>
-      
   <%= will_paginate @posts %>
 </ul>
 

@@ -358,3 +358,7 @@ input {
   }
 }
 
+
+.pictures {
+  background-image: url("<%= image_tag @post.picture.url %>");
+}

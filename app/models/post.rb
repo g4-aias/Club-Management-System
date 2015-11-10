@@ -5,13 +5,15 @@ class Post < ActiveRecord::Base
   before_save :format_website_url
   
   default_scope -> { order(created_at: :desc) }
+  mount_uploader :picture, PictureUploader
   #validates :url, :format => URI::regexp(%w(http https)), presence: false
   validates :context,  presence: true, length: { maximum: 5000 }
   validates :title,  presence: true, length: { maximum: 100 }
   validates :user_id, presence: true
   validates :club_id, presence: true
+
   
-  
+
   
   private 
   
