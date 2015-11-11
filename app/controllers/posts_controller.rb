@@ -41,8 +41,7 @@ class PostsController < ApplicationController
         end
     end
      
-    def destroy 
-        #@post = current_user.posts.find_by(id: params[:id])
+    def destroy #@post instance must be defined , the only way to find the @post is by id we use helper method
         unless @post.nil?
             if @post.is_owner?(current_user)
                 @post.destroy
