@@ -374,3 +374,28 @@ input {
   }
 }
 
+
+.sidebar {
+  border: solid;
+  background: white;
+  width: 220px;
+
+  position: absolute;
+  left: 130px;
+  top: 190px;
+  border-radius: 12px;
+}
+
+
+/* user avatar */
+.avatar {
+  top: -22px;
+  margin-right: -45px;
+  margin-left: 10px;
+  margin-bottom: -17px;
+}
+
+.avatar img {
+  width: 50%;
+  border-radius: 50%;
+}

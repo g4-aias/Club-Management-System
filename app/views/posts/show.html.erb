@@ -2,20 +2,20 @@
     <%=@post.club.name %>
 </h1>
 
-<!--<div class="jumbo2">
-    <span>
-        <%#= @post.context %>
-    </span>
-    <span>
-        <%#= link_to 'See All Posts', view_club_path %>
-    </span>
-</div>-->
 
+<div class="sidebar" >
+  <h1>
+    <%=@post.club.name %>
+  </h1>
+  <ul>
+    <%= link_to 'See All Posts', view_club_path %>
+  </ul>
+</div>
 
 <div class="jumbo" >
-  <p>
-    <%= link_to 'See All Posts', view_club_path %>
-  </p>
+  <!--<p>
+    <%#= link_to 'See All Posts', view_club_path %>
+  </p>-->
   
   <h2>
     <%= @post.title %>
@@ -41,3 +41,5 @@
   </span>
 
 </div>
+
+

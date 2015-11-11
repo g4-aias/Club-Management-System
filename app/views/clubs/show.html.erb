@@ -9,11 +9,13 @@
 </h1>
 
 
+
 <div class="posts">
+<% if logged_in? %>
  <h4>
    <%= link_to "Create new post", new_club_post_path %>
  </h4>
- 
+<% end %>
  
   <% @posts.each do |post| %>
     <% @post = post %>

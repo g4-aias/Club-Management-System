@@ -31,6 +31,10 @@
           <%= f.text_field :name, class: 'form-control' %>
           
           <%= f.label :gender, "Gender" %>
+        
+            <%#= f.radio_button :gender, true %> <%#= f.label :gender, "Female" %>
+            <%#= f.radio_button :gender, false %> <%#= f.label :gende, "Male" %>
+   
           <%= f.select(:gender, options_for_select([['Female','♀'],
                               ['Male', '♂']])) %>
                               
