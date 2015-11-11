@@ -13,9 +13,10 @@ class Post < ActiveRecord::Base
   validates :club_id, presence: true
 
   
-
+  def is_owner?(the_user)
+    user.id == user_id
+  end
   
-
   private 
   
   def format_website_url

@@ -17,7 +17,13 @@
   <% @posts.each do |post| %>
     <% @post = post %>
     <li>
+      
+      <% if @post.picture.blank? %>
+      <%= image_tag "logo2.jpg" %>
+      <% else %>
       <%= image_tag @post.picture.url %>
+      <% end %>
+     
       <span>
         <%= render partial: 'posts/heading' %>
         <br>

@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
     
     before_action :logged_in_user, only: [:create, :destroy]
-    before_action :correct_user,   only: :destroy
     before_action :authorized_member?, only: :new
+    before_action :set_post, only: :destroy
     
     def new
         @club = nil
@@ -41,10 +41,15 @@ class PostsController < ApplicationController
         end
     end
      
-    def destroy
-        @post.destroy
-        flash[:success] = "Post deleted"
-        redirect_to request.referrer || root_url
+    def destroy 
+        #@post = current_user.posts.find_by(id: params[:id])
+        unless @post.nil?
+            if @post.is_owner?(current_user)
+                @post.destroy
+                flash[:success] = "Post deleted"
+            end
+        end
+        redirect_to root_url
     end
 
 
@@ -63,9 +68,8 @@ class PostsController < ApplicationController
         end
     end
 
-    def correct_user
-      @post = current_user.posts.find_by(id: params[:id])
-      redirect_to root_url if @post.nil?
+    def set_post
+      @post = Post.find(params[:id])
     end
     
     

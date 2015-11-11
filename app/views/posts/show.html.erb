@@ -13,9 +13,7 @@
 </div>
 
 <div class="jumbo" >
-  <!--<p>
-    <%#= link_to 'See All Posts', view_club_path %>
-  </p>-->
+
   
   <h2>
     <%= @post.title %>
@@ -24,6 +22,7 @@
   <%#= link_to gravatar_for(post.user, size: 50), post.user %>
   <!--<span class="user"><%#= link_to post.user.name, post.user %></span>-->
   <span> 
+
     <%= image_tag @post.picture.url if @post.picture? %>
   </span> 
   <br>
@@ -34,9 +33,11 @@
     
   <span class="timestamp">
     Posted <%= time_ago_in_words(@post.created_at) %> ago.
-    <% if current_user?(@post.user) %>
+    <% if logged_in? %>
+      <% if @post.is_owner?(current_user) %>
       <%= link_to "delete", @post, method: :delete,
                                        data: { confirm: "You sure?" } %>
+      <% end %>
     <% end %>
   </span>
 
