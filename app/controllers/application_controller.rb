@@ -4,9 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   
-  def build_post_path(post)
-        view_club_post_path(path: post.club.path, post_id: post.id)
+  def build_club_path(club)
+        view_club_path(path: club.path)
   end
+  helper_method :build_club_path
+  
+  def build_post_path(post)
+    view_club_post_path(path: post.club.path, post_id: post.id)
+  end
+  helper_method :build_post_path
   
    private
    # Confirms a logged-in user.

@@ -13,8 +13,9 @@ class Post < ActiveRecord::Base
   validates :club_id, presence: true
 
   
-########################################################################################
+
   
+
   private 
   
   def format_website_url

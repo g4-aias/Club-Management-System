@@ -7,6 +7,8 @@ first_post:
   user_id: 1
   club_id: 1
   created_at: <%= 20.minutes.ago %>
+  club: first_club
+  user: first_user
 
 second_post:
   context: the second post
@@ -15,6 +17,8 @@ second_post:
   user_id: 1
   club_id: 1
   created_at: <%= 10.minutes.ago %>
+  club: first_club
+  user: first_user
 
 most_recent:
   context: "Writing a short test"
@@ -23,3 +27,5 @@ most_recent:
   user_id: 1
   club_id: 1
   created_at: <%= Time.zone.now %>
+  club: first_club
+  user: first_user

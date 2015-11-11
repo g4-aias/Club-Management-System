@@ -13,10 +13,6 @@ class PostsControllerTest < ActionController::TestCase
     end
     assert_redirected_to login_url
   end
-
-  test "should get show" do
-    get :show
-    assert_response :success
-  end
+  
   
 end
