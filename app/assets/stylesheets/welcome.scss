@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#welcome {
+/*#welcome {
     color: #003333;
     float: center;
     font-size: 120px;
@@ -12,12 +12,12 @@
     margin-top: 270px;
     text-shadow: #989898 0.1em 0.1em 0.2em;
 
-}
+}*/ 
 
-#welcome p {
+/*#welcome p {
     color: white;
     font-size: 30px; 
-}
+}*/
 
 #welcome img {
     min-height: 100%; 
@@ -52,27 +52,64 @@
     animation-name: FadeInOut;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-    animation-duration: 9s;
+    animation-duration: 10s;
     animation-direction: alternate;
  
 }
-
-#welcome img.l2 {
-    animation-name: FadeInOut;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-duration: 8s;
-    animation-direction: alternate;
-    animation-delay: 4.5s;
-}
-
 
 #welcome img.l3 {
     animation-name: FadeInOut;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-    animation-duration: 9s;
+    animation-duration: 7s;
+    animation-direction: alternate;
+    /*animation-delay: 4.5s;*/
+}
+
+
+/*#welcome img.l4 {
+    animation-name: FadeInOut;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
     animation-direction: alternate;
     animation-delay: 3s;
  
+}*/
+
+
+section#welcomeword {
+  background-color: white;
+  opacity: 0.4;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 820px;
+  z-index: -1;
+
+}
+
+
+#welcome p {
+    color: black;
+    font-size: 22px;
+    text-align: left;
+    vertical-align: center;
+    position: relative;
+    left: -190px;
+    margin: 0;
+    margin-bottom: 200px;
+    font-weight: bold;
+}
+
+#welcome h1 {
+    color: black;
+    font-size: 40px;
+    text-align: left;
+    vertical-align: center;
+    position: relative;
+    left: -190px;
+    margin-top: 380px;
+    font-weight: bold;
 }

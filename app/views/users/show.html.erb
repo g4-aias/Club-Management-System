@@ -9,17 +9,20 @@
   <div class="row">      
       <p class="p1">
         <br>
-        <img> <%= gravatar_for @user %></img>
+         <% @user = User.find(params[:id]) %>
+         <%= image_tag(@user.avatar.url(:thumb)) %>
         <br>
         <br>
         <br>
         <br>
-        <span><%= link_to "Change Profile Photo", '#' %></span>
-        <span><%= link_to "Edit Profile", edit_user_path %></span>
-        <span><%= link_to "Create new club", commit_path %></span>
-        <span><%= link_to "Manage your clubs", manage_user_path %></span>
-      </p>
-      
+        <br>
+        <% @user = User.find(params[:id]) %>
+        <% if @user==current_user %>
+          <span><%= link_to "Edit Profile", edit_user_path %></span>
+          <span><%= link_to "Create new club", commit_path %></span>
+          <span><%= link_to "Manage your clubs", manage_user_path %></span>
+        </p>
+        <% end %>
       <p class="p2">
         <span>Email: <%= @user.email %></span>
         <span>First Name: <%= @user.firstname %></span>
@@ -31,9 +34,7 @@
         <span>Major: <%= @user.major %></span>
         <span>Clubs:</span>
       </p>
-      
-      
-  
+
  
   </div>
 </aside>

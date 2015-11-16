@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     
     
     
+    has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => ":style/missing.png"
+    validates_attachment_content_type :avatar, :content_type => %w(image/jpeg image/jpg image/png)
+    
+    
     validates :firstname,  presence: true, length: { maximum: 50 }
     validates :lastname,  presence: true, length: { maximum: 50 }
     validates :name,  presence: true, length: { maximum: 50 },
@@ -106,6 +110,15 @@ class User < ActiveRecord::Base
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   private
   

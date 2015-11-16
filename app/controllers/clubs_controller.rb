@@ -4,10 +4,17 @@ class ClubsController < ApplicationController
     #before_action :show_all_clubs,     only: :index
     
     def index
-    @clubs = Club.all
-    #@clubs = Clubs.paginate(page: params[:page])
+        #@clubs = Club.all
+        @clubs = Club.all.paginate(page: params[:page], :per_page => 10)
+        if params[:search]
+            @clubs = Club.search(params[:search]).paginate(page: params[:page])
+        #elsif params[:sort].present?
+            #@clubs = Club.sort(params[:sort]).paginate(page: params[:page])
+        else
+            @clubs = Club.all.paginate(page: params[:page], :per_page => 10)
+        end
     end
-    
+
     def new 
         @club = Club.new
     end
@@ -27,6 +34,22 @@ class ClubsController < ApplicationController
         #returns all posts that belongs to the club
         @posts = @club.posts.paginate(page: params[:page])
     end
+    
+
+  
+  
+
+
+  
+
+    
+    
+    
+    
+    
+
+    
+    
     
     private
     def club_params

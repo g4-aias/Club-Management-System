@@ -1,19 +1,36 @@
 
 <% provide(:title, 'Welcome') %>
-<div id="welcome">
+<!--<div id="welcome">
   Welcome!
   
   <p>Organize your clubs here and become part of SFU</p>
-  <%= image_tag('sfu4.png', :class =>"l4") %>
-  <%= image_tag('sfu3.png', :class =>"l3") %>
-  <%= image_tag('sfu2.png', :class =>"l2") %>
-  <%= image_tag('sfu.png', :class =>"l1") %>
+  <%#= image_tag('sfu4.png', :class =>"l4") %>
+  <%#= image_tag('sfu3.png', :class =>"l3") %>
+  <%#= image_tag('sfu2.png', :class =>"l2") %>
+  <%#= image_tag('sfu.png', :class =>"l1") %>
   
   
   <p>
-      <%= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %>
+      <%#= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %>
   </p>
 
 
-</div>
+</div>-->
 
+<div id="welcome">
+  <%= image_tag('sfu4.png', :class =>"l4") %>
+  <%= image_tag('sfu3.png', :class =>"l3") %>
+  <%= image_tag('sfu.png', :class =>"l1") %>
+
+  
+  <section id="welcomeword">
+
+    
+  </section>
+
+    <h1>Welcome!</h1>
+    <p>Organize your clubs here and become part of SFU
+    <br>
+    <br>
+    <%= link_to "Sign up now!", new_user_path, class: "btn btn-lg btn-primary" %></p>
+</div>

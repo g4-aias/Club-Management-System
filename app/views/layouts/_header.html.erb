@@ -8,7 +8,7 @@
         <li><%= link_to "Help",   welcome_help_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Users", users_path %></li>
-          <li class="avatar"><img><%= gravatar_for @current_user %></img></li>
+          <li class="avatar"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= current_user.name %> <b class="caret"></b>
