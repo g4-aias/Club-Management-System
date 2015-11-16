@@ -1,3 +1,4 @@
+<!--
 <footer class="footer">
   <small>
     Copyright &copy CMPT276 G4 - Fall 2015 All Rights reserved.
@@ -12,3 +13,48 @@
     </ul>
   </nav>
 </footer>
+-->
+
+<!--<div class="g4-footer">
+  <div class="container">
+    <div class="footer-logo">
+      <a href="/"><img><%= image_tag('logo.png', id: "logo") %></img></a>
+      </div>
+      <div class="footer-group-primary"><ul class="footer-nav"><li><a href="/contact">Contact Biola</a>
+      </li>
+      <li><a href="/about/location/maps">Maps &amp; Directions</a>
+      </li>
+      <li><a href="http://emergency.biola.edu">Emergency Info</a>
+      </li>
+      <li><a href="/privacy">Privacy Policy</a>
+      </li>
+      <li><a href="/title-ix">Title IX</a>
+      </li>
+      </ul>
+      <p class="footer-info">Copyright &copy CMPT276 G4 - Fall 2015 All Rights reserved.</p>
+ -->
+ 
+<div class = "g4-footer">
+  <div class = "container">
+    <div class = "footer-logo">
+        <img><%= image_tag('logo.png', id: "logo") %></img>
+      </div>
+      <div class = "footer-group-primary">
+        <ul class = "footer-nav">
+          <li><%= link_to "Terms",   welcome_terms_path %></li>
+          <li><%= link_to "Privacy", welcome_privacy_path %></li>
+          <li><%= link_to "Help",   welcome_help_path %></li>
+          <li><%= link_to "About",   welcome_about_path %></li>
+          <li><%= link_to "Contact", welcome_contact_path %></li>
+        </ul>
+        <p class="footer-info">
+            Copyright &copy CMPT276 G4 - Fall 2015 All Rights reserved.
+        </p>
+      </div>
+      
+    
+  </div>
+</div>
+
+
+
