@@ -32,6 +32,7 @@
      -moz-transition: opacity 1s ease-in-out;
     -o-transition: opacity 1s ease-in-out;
     transition: opacity 1s ease-in-out;
+    text-align: left;
 }
 
 
@@ -93,23 +94,25 @@ section#welcomeword {
 
 #welcome p {
     color: black;
-    font-size: 22px;
-    text-align: left;
+    font-size: 20px;
+
     vertical-align: center;
-    position: relative;
+    /*position: relative;
     left: -190px;
-    margin: 0;
+    margin: 0;*/
     margin-bottom: 200px;
     font-weight: bold;
+    margin-left: -80px;
 }
 
 #welcome h1 {
     color: black;
     font-size: 40px;
     text-align: left;
-    vertical-align: center;
+
     position: relative;
-    left: -190px;
+  
     margin-top: 380px;
     font-weight: bold;
+    margin-left: -80px;
 }
