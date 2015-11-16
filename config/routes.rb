@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   
 
   get 'welcome/terms'
+  get 'welcome/api'
   get 'welcome/privacy'
   get 'welcome/about'
   get 'welcome/contact'
