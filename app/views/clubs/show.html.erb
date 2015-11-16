@@ -1,37 +1,52 @@
 <% provide(:title, @club.name) %>
 
-
 <h1 class="headings">
   Welcome to <%= @club.name%>
 </h1>
 
-
-
-<div class="posts">
-<% if logged_in? %>
- <h4>
-   <%= link_to "Create new post", new_club_post_path %>
- </h4>
+<% if logged_in? and current_user.memClubs.include?(@club) %>
+<h4><%= link_to "Create new post", new_club_post_path %></h4>
 <% end %>
- 
+
+<!-- Check if the user is already a member -->
+<% if logged_in? and current_user.memClubs.include?(@club) %>
+      <!--If current user is not a mod , then show the unsubscribe button-->
+      <% unless @club.is_moderator?(current_user) %>
+        <%= link_to 'unsubscribe', membership_path(0, club_id: @club.id), method: :delete, data: { confirm: "Are you sure you want to leave?" } , class: 'btn btn-danger' %>
+      <% end %>  
+    <% else %>
+      <%= link_to 'subscribe', member_requests_path(club_id: @club.id), method: :post, class: 'btn btn-success' %>
+<% end %>
+
+<div id = "posts" class = "transitions-enabled" >
   <% @posts.each do |post| %>
-    <% @post = post %>
-    <li>
-      
-      <% if @post.picture.blank? %>
-      <%= image_tag "logo2.jpg" %>
-      <% else %>
-      <%= image_tag @post.picture.url %>
-      <% end %>
-     
-      <span>
-        <%= render partial: 'posts/heading' %>
-        <br>
-        Posted at <%= @create = post.created_at %>
-      </span>
-    </li>
+  <% @post = post %>
   
+    <div class = "box panel panel-default">
+        <% if @post.picture?  %>
+          <%= link_to (image_tag @post.picture), build_post_path(@post) %>
+        <% else %>
+          <% if @post.image?  %>
+          <%= link_to (image_tag @post.image.url), build_post_path(@post) %>
+          <%end%>
+        <%end%>
+        
+        <div class = "panel-body">
+            <% if @post.url.blank? %>
+                <h4><%= link_to raw(@post.title), build_post_path(@post)%></h4>
+            <%else%>
+                <h4><%= link_to raw(@post.title), @post.url%></h4>
+            <%end%>
+        </div>
+        
+    </div>  
+    
   <% end %>
-  <%= will_paginate @posts %>
+  <br>
 </div>
 
+    
+
+  
+  
+<%= will_paginate @posts %>

@@ -7,6 +7,10 @@ class Club < ActiveRecord::Base
   has_many :members, through: :memberships
   has_many :memberships
   
+  
+  has_many :requesting_users, through: :member_requests
+  has_many :member_requests
+  
   after_create :make_owner_mod
   after_create :make_owner_member
   #after_create :downcase_path

@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
  
-  
-  get 'memberships/create'
-
-  get 'memberships/destroy'
 
   #get 'user/1' => 'users#show'
 
@@ -13,8 +9,12 @@ Rails.application.routes.draw do
     end
   end
   
+  
+  resources :member_requests, only: [:create, :destroy]
+  resources :memberships, only: [:create, :destroy]
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  
   resources :clubs, only: [:new, :create, :index]
   resources :posts, only: [:create, :destroy]
 
@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   
   get 'commit' => 'clubs#new'
   get 'p/:path' => 'clubs#show', as: :view_club
+  get 'p/:path/manage' => 'clubs#manage', as: :manage_club
   get 'p/index' => 'clubs#index', as: :club_index
   
   get 'p/:path/newpost' => 'posts#new', as: :new_club_post

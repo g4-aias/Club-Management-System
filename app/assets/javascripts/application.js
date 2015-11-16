@@ -12,10 +12,12 @@
 //
 
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//= require masonry/jquery.masonry
 //= require bootstrap-sprockets
 //= require_tree .
+//= require turbolinks
 
 ( function( $ ) {
 $( document ).ready(function() {
@@ -38,5 +40,7 @@ $('.verticalmenu li.has-sub>a').on('click', function(){
 	});
 });
 } )( jQuery );
+
+
 
 

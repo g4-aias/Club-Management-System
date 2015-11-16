@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
     has_many :memClubs, through: :memberships
     has_many :memberships, dependent: :destroy
     
+    has_many :club_requests, through: :member_requests
+    has_many :member_requests
+    
     attr_accessor :remember_token, :activation_token, :reset_token
     before_save   :downcase_email
     before_save   :format_email
