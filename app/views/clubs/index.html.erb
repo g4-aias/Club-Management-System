@@ -4,14 +4,102 @@
 </h1>
 
 
-<div class="jumbo">
-  <ul>
-  <% @clubs.each do |club| %>
-    <% @club = club %>
-    <h4>
-      <%#= gravatar_for club, size: 50 %>
-      <%= link_to club.name, build_club_path(club) %>
-    </h4>
-  <% end %>
-  <%#= will_paginate @clubs %>
-</div>
+
+
+
+<body class="club_body">
+
+	<section id="body" class="width">
+		<aside id="sidebar" class="column-left">
+    		<header>
+    				<h1>Club Directory</h1>
+    		</header>
+    
+                <nav class='verticalmenu'>
+                    <ul>
+                        <%= form_tag(clubs_path, :method => "get", id: "search-form") do %>
+                            <%= text_field_tag :search, params[:search], placeholder: "Search Clubs" %>
+                            <%= submit_tag "Search" %>
+                        <% end %>
+                       <li><a href=' <%#= clubs_path %>'>All Clubs</a></li>
+                       <li class='active has-sub'><a href='#'>Sort Clubs</a>
+                          <ul>
+                             <li class='has-sub'><a href='#'>by Alphabetical Order</a>
+                                <ul>
+                                   <li><a href='#'>Ascending</a></li>
+                                   <li class='last'><a href='#'>Descending</a></li>
+                                </ul>
+                             </li>
+                             <li class='has-sub'><a href='#'>by Genre</a>
+                                <ul>
+                                   <li><a href=' # '>Arts</a></li>
+                                   <li><a href='#'>Charitable</a></li>
+                                   <li><a href='#'>Cultural</a></li>
+                                   <li><a href='#'>Other</a></li>
+                                   <li class='last'><a href= >Art</a></li>
+                                </ul>
+                             </li>
+                          </ul>
+                       </li>
+                       <li><a href='#'>About</a></li>
+                       <li class='last'><a href='#'>Contact</a></li>
+                    </ul>
+                </nav>
+		</aside>
+		<section id="content" class="column-right">
+    	    <article>
+    			<h1>All Clubs</h1>
+                <% if @clubs.present? %>
+                    <%= render @clubs %>
+                <% else %>
+                    <p>There are no results found.</p>
+                <% end %>
+    
+                <% @clubs.each do |club| %>
+                    <% @club = club %>
+                    <div class= "clubindex">
+                        <%= gravatar_forc club, size: 120 %>
+                        <h3>
+                            <%= link_to club.name, build_club_path(club) %>
+                        </h3>
+                        <%= club.genre %>
+                        <br>
+                        <%= club.description %>
+                    </div>
+                <% end %>
+                <%= will_paginate @clubs %>
+    
+    		</article>
+    		
+		</section>
+	</section>
+</body>
+
+
+
+
+<!--<%# if @clubs.present? %>
+  <%#= render @clubs %>
+<%# else %>
+  <p>There are no results found.</p>
+<%# end %>
+
+  
+<%# @clubs.each do |club| %>
+  <%# @club = club %>
+  <div class= "clubindex">
+    <%#= gravatar_forc club, size: 120 %>
+    <h3>
+      <%#= link_to club.name, build_club_path(club) %>
+    </h3>
+    <%#= club.genre %>
+    <br>
+    <%#= club.description %>
+  </div>
+<%# end %>
+<%#= will_paginate @clubs %>-->
+
+
+
+
+

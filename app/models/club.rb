@@ -12,6 +12,8 @@ class Club < ActiveRecord::Base
   #after_create :downcase_path
   before_save :set_club_path
   
+ 
+  
   validates :name,  presence: true, length: { maximum: 70 },
                         uniqueness: { case_sensitive: false }
   validates :description,  presence: true, length: { maximum: 1000 }
@@ -34,7 +36,19 @@ class Club < ActiveRecord::Base
   def is_moderator?(user)
     moderators.include?(user)
   end
+
+#user ILIKE for PostgrSQL
+
+  def self.search(search)
+    where 'name LIKE :search OR description LIKE :search OR genre LIKE :search', :search => "%#{search}%"
+  end
   
+  #def order(order)
+   # @clubs = Club.find(:all)
+  #end
+    
+  
+ 
   private
   
   def downcase_path

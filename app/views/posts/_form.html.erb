@@ -7,15 +7,17 @@
       <%= f.label :context %>
       <%= f.text_area :context, class: 'form-control', rows: "10" %>
     
-      <%= f.label :url %>
+      <%= f.label :url, 'Share a URL' %>
       <%= f.text_field :url, class: 'form-control' %>
 
       <%= hidden_field_tag :club_path, @club.path %>
       
-      <span class="picture">
-            <%= f.file_field :picture %>
-      </span>
+      <%= f.label :picture %>
+      <%= f.file_field :picture %>
       
+      
+
+  	<br>
       <%= f.submit "Create post", class: "btn btn-primary" %>
 
       
