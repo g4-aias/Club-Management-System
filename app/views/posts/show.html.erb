@@ -1,46 +1,9 @@
-<h1 class="headings">
-    <%=@post.club.name %> > <%= @post.title %>
-</h1>
 
+<%= image_tag @post.image.url(:medium) if @post.image? %>
+<%= image_tag @post.picture if @post.picture? %>
 
-<div class="sidebar" >
-  <h1>
-    <%=@post.club.name %>
-  </h1>
-  <ul>
-    <%= link_to 'See All Posts', view_club_path %>
-  </ul>
-</div>
+<h4><%=@post.title%></h4>
+<p><%=@post.context%></p>
 
-<div class="jumbo" >
-
-  
-  <h2>
-    <%= @post.title %>
-  </h2>
-  
-  <%#= link_to gravatar_for(post.user, size: 50), post.user %>
-  <!--<span class="user"><%#= link_to post.user.name, post.user %></span>-->
-  <span> 
-
-    <%= image_tag @post.picture.url if @post.picture? %>
-  </span> 
-  <br>
-  <br>
-  <p>
-    <%= @post.context %>
-  </p>
-    
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(@post.created_at) %> ago.
-    <% if logged_in? %>
-      <% if @post.is_owner?(current_user) %>
-      <%= link_to "delete", @post, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-      <% end %>
-    <% end %>
-  </span>
-
-</div>
-
-
+<br>
+<p>Submitted by <%=@post.user.name%> </p>

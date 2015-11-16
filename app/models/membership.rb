@@ -6,11 +6,11 @@ class Membership < ActiveRecord::Base
   
   
   def self.subscribe!(club, user)
-    membership = Membership.where(club_id: club.id, user_id: user.id).first
+    #checks if the user is already a member
+    membership = Membership.where(club_id: club.id, :user_id => user).first
     return false if membership
-    Membership.create(club_id: club.id, user_id: user.id)
+    Membership.create(club_id: club.id, :user_id => user)
   end
-  
   
   def self.unsubscribe!(club, user)
     membership = Membership.where(club_id: club.id, user_id: user.id).first

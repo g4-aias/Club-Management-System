@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116004916) do
+ActiveRecord::Schema.define(version: 20151116222215) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 20151116004916) do
   end
 
   add_index "clubs", ["user_id"], name: "index_clubs_on_user_id"
+
+  create_table "member_requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "member_requests", ["club_id"], name: "index_member_requests_on_club_id"
+  add_index "member_requests", ["user_id"], name: "index_member_requests_on_user_id"
 
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
@@ -51,9 +61,13 @@ ActiveRecord::Schema.define(version: 20151116004916) do
     t.string   "url"
     t.integer  "user_id"
     t.integer  "club_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "picture"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "posts", ["club_id"], name: "index_posts_on_club_id"

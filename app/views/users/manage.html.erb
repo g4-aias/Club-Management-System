@@ -1,14 +1,12 @@
-<div class="jumbo">
 <% if @user.clubs.any? %>
  <h3>clubs (<%= @user.clubs.count %>)</h3>
 
  <% @clubs.each do |club| %>
     <tr>
     <%if club.is_moderator?(@user) %>
-      <td><%= club.name %></td> 
+      <td><%= link_to club.name, manage_club_path(path: club.path) %></td> 
     <%end%>
     </tr>
 <% end %>
 <% end %>
 
-</div>
