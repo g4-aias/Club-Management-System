@@ -2,6 +2,7 @@ $(window).load(function() {
   loadScript();
 });
 
+
 var map;
 
 function initialize() {
@@ -31,9 +32,13 @@ function initialize() {
   var info = createInfoWindow("Congratulations!");
     google.maps.event.addListener(marker, 'click', function() {
     info.open(map,marker);
+    
+    
   });
   
 }
+
+
 
 var info;
 function codeLatLng(geocoding){
@@ -117,7 +122,9 @@ function loadScript() {
     '&libraries=drawing'+
     '&callback=initialize';
   document.body.appendChild(script);
+  
 }
+
 
 
 

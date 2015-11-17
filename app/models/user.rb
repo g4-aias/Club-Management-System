@@ -10,13 +10,12 @@ class User < ActiveRecord::Base
     has_many :club_requests, through: :member_requests
     has_many :member_requests
     
-    attr_accessor :remember_token, :activation_token, :reset_token
+    attr_accessor :remember_token, :activation_token, :reset_token, :terms
     before_save   :downcase_email
     before_save   :format_email
     before_create :create_activation_digest
     
-    
-    
+  
     has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => ":style/missing.png"
     validates_attachment_content_type :avatar, :content_type => %w(image/jpeg image/jpg image/png)
     
@@ -29,7 +28,7 @@ class User < ActiveRecord::Base
     validates :email, presence: true, length: { maximum: 250 },
                         uniqueness: { case_sensitive: false }
     validates :phone, length: {maximum: 10}
-  
+
                         
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true

@@ -1,0 +1,13 @@
+<h5>Enter an address</h5>
+<div class="search_map">
+      <%= text_field_tag :search, params[:search], placeholder: "Enter a place",  :id => 'search_box_geocoding', class: 'search_box' %>
+      <%= button_tag "Search", id: "submit_button_geocoding", data: { disable_with: "Please wait..." } %> 
+      
+</div>      
+       <div id="search_options">
+    <%#= link_to "Geocding search", geocoding_path, remote: true, id: "geocoding"%>
+    <%#= link_to "Reverse geocding search", reverse_geocoding_path, remote: true, id: "reverse_geocoding"%>
+  </div>
+
+  	<div id="map-canvas"></div>
+  
