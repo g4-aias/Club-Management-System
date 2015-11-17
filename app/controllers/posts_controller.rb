@@ -51,11 +51,7 @@ class PostsController < ApplicationController
     private
     
     def post_params
-<<<<<<< HEAD
         params.require(:post).permit(:context, :title, :url, :club_id, :image, :picture)
-=======
-        params.require(:post).permit(:context, :title, :url, :club_id, :picture, :image)
->>>>>>> 592f51da2629e58bd700a59889f948230fe781d1
     end
     
     def authorized_member?

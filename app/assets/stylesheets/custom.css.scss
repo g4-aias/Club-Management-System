@@ -15,13 +15,6 @@ $gray-medium-light: #eaeaea;
 
 html, body {
   padding-top: 60px;
-<<<<<<< HEAD
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-=======
   margin: 0px auto;
 	padding:0;
 	font-size: 1.0em;
@@ -34,7 +27,6 @@ html, body {
 
 
 
->>>>>>> 592f51da2629e58bd700a59889f948230fe781d1
 .bimage img{
     min-height: 100%; 
     min-width: 1024px; 
@@ -476,17 +468,6 @@ input {
 }
 
 
-<<<<<<< HEAD
-/** global **/
-body.club_body {
-	margin:0px auto;
-	padding:0;
-	
-	font-size: 1.0em;
-	color:#666;
-	margin-bottom: 20px;
-}
-=======
 
 
 
@@ -512,7 +493,6 @@ body.club_body {
 
 
 
->>>>>>> 592f51da2629e58bd700a59889f948230fe781d1
 
 /** body **/
 section#body {
@@ -607,23 +587,22 @@ article h1 {
   }
 }
 
-<<<<<<< HEAD
-/* show specific posts */
-
+/* Show Specific Post */
 #post_show {
-  margin-top: 50px;
 	.panel-heading {
 		padding: 0;
 	}
 	.pin_image {
 		img {
 			max-width: 100%;
-	  	height: auto;
+			width: 100%;
+			display: block;
+			margin: 0 auto;
 		}
 	}
 	.panel-body {
 		padding: 35px;
-		h4 {
+		h1 {
 			margin: 0 0 10px 0;
 		}
 		.description {
@@ -643,30 +622,6 @@ article h1 {
 	}
 }
 
-/*Header Footer Body*/
-
-#header {
-   background: #ff0;
-   padding: 10px;
-}
-
-#wrapper {
-   min-height: 100%;
-   position: relative;
-}
-
-#footer {
-   position: absolute;
-   bottom: 0;
-   width: 100%;
-   height: 60px;   /* Height of the footer */
-   background: #6cf;
-}
-
-#body {
-   padding: 10px;
-   padding-bottom: 60px;   /* Height of the footer */
-=======
 .timestamp {
   color: gray;
   font-size: 10px;
@@ -749,5 +704,5 @@ html {
   margin-bottom: 250px;
   font-size: 13px;
   line-height: 20px;
->>>>>>> 592f51da2629e58bd700a59889f948230fe781d1
 }
+
