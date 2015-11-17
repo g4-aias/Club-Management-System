@@ -11,7 +11,7 @@ class ClubsController < ApplicationController
         #elsif params[:sort].present?
             #@clubs = Club.sort(params[:sort]).paginate(page: params[:page])
         else
-            @clubs = Club.all.paginate(page: params[:page], :per_page => 10)
+            @clubs = Club.all.paginate(page: params[:page], :per_page => 5)
         end
     end
 

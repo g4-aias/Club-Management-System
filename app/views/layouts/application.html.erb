@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+  
+  
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag "application", media: "all",
@@ -11,15 +13,17 @@
   <body>
    
     <%= render 'layouts/header' %>
+
     <div class="container">
       <% flash.each do |message_type, message| %>
         <!-- <div class="alert alert-<%= message_type %>"><%= message %></div> -->
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
       <%= yield %>
-        <span class = "bimage"></span>
-      <%= render 'layouts/footer' %>
+
+     
     </div>
+     <%= render 'layouts/footer' %>
   </body>
 </html>
 
