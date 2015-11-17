@@ -1,9 +1,31 @@
 
-<%= image_tag @post.image.url(:medium) if @post.image? %>
-<%= image_tag @post.picture if @post.picture? %>
+<div id = "post_show" class = "row" >
+    <div class = "col-md-8 col-md-offset-2">
+        <div class = "panel panel-default">
+            <div class = "panel-heading pin_image">
+                <%= image_tag @post.picture if @post.picture? %>
+                <%= image_tag @post.image.url if @post.image? %>
+            </div>
+            <div class = "panel-body">
+                <h4><%=@post.title%></h4>
+                <p class = "description"><%=@post.context%></p>
+            </div>
+            <div class = "panel-footer">
+                <div class = "row">
+                    <div class = "col-md-6">
+                        <p class = "user">Submitted by <%=@post.user.name%> </p>
+                    </div>
+                    <div class = "col-md-6">
+                        <div class = "btn btn-group pull-right">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<h4><%=@post.title%></h4>
-<p><%=@post.context%></p>
 
-<br>
-<p>Submitted by <%=@post.user.name%> </p>
+
+
