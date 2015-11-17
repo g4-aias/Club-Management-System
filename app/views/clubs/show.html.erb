@@ -23,6 +23,8 @@
   <% @post = post %>
   
     <div class = "box panel panel-default">
+        
+        
         <% if @post.picture?  %>
           <%= link_to (image_tag @post.picture), build_post_path(@post) %>
         <% else %>
@@ -34,10 +36,21 @@
         <div class = "panel-body">
             <% if @post.url.blank? %>
                 <h4><%= link_to raw(@post.title), build_post_path(@post)%></h4>
+                <p class="timestamp">
+                  Posted <%= time_ago_in_words(@post.created_at) %> ago.
+                </p>
             <%else%>
-                <h4><%= link_to raw(@post.title), @post.url%></h4>
+                <h4><%= link_to raw(@post.title), build_post_path(@post)%></h4>
+                <p class="timestamp">
+                  Shared a <%= link_to raw("Link"), @post.url%></a>
+                  <br>
+                  Posted <%= time_ago_in_words(@post.created_at) %> ago.
+                </p>
             <%end%>
         </div>
+            
+        
+    
         
     </div>  
     
