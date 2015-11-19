@@ -1,7 +1,7 @@
 
-<h1>Manage <%= @club.name %></h1>
+<h1>Manage Club <i class="glyphicon glyphicon-chevron-right"></i> <%= @club.name %></h1>
 
-<table>
+<!--<table>
     
     <tr>
         <th>Username</th>
@@ -10,20 +10,42 @@
         <th></th>
     </tr>
     
-<% @member_requests.each do |member_request| %>
-    <p><% user = User.find_by(id: (member_request.user_id)) %>
-       <% if @club.is_member?(user) %>
+<%# @member_requests.each do |member_request| %>
+    <p><%# user = User.find_by(id: (member_request.user_id)) %>
+       <%# if @club.is_member?(user) %>
            <!-- Delete Request only if user is a member -->
-           <% member_request.destroy %>
-       <% else %>
-        <tr>
-            <td><%= link_to user.name, '#' %></td>
-            <td><%= user.email %></td>
-            <td><%= link_to 'Approve', memberships_path(club_id: @club.id, target_user_param: user.id), method: :post, class: 'btn btn-success' %></td>
-            <td><%= link_to 'Reject',  member_request_path(0, club_id: @club.id, target_user_param: user.id), method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger' %></td>
+           <%# member_request.destroy %>
+       <%# else %>
+        <!--<tr>
+            <td><%#= link_to user.name, '#' %></td>
+            <td><%#= user.email %></td>
+            <td><%#= link_to 'Approve', memberships_path(club_id: @club.id, target_user_param: user.id), method: :post, class: 'btn btn-success' %></td>
+            <td><%#= link_to 'Reject',  member_request_path(0, club_id: @club.id, target_user_param: user.id), method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger' %></td>
         </tr>
-       <% end %>
+       <%# end %>
     </p>
-<% end %>
+<%# end %>
 
-</table>
+</table>-->
+
+
+
+<div class="management_bar">
+    <article>
+        <h4>Manage Club Members <span class="badge"><%= @club.members.count %></span></h4>
+        <h4><%= link_to "Show All Members", users_path %></h4>
+    </article>
+    <article>
+        <h4>Design Club Homepage</h4>
+    </article>
+    <article>
+        <h4>Manage Posts <span class="badge"><%= @club.posts.count %></span></h4>
+        <% if logged_in? and current_user.memClubs.include?(@club) %>
+            <h4><%= link_to "Create new post", new_club_post_path %></h4>
+            <h4><%= link_to "See All posts", view_club_path %></h4>
+        <% end %>
+    </article>
+ 
+</div>
+
+

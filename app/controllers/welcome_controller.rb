@@ -14,4 +14,10 @@ class WelcomeController < ApplicationController
   def api
   end
 
+ 
+  
+  def home
+   @posts = Post.all
+  end
+  
 end

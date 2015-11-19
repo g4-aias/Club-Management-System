@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     def destroy
         @post.destroy
         flash[:success] = "Post deleted"
-        redirect_to request.referrer || root_url
+        redirect_to request.referrer || view_club_path
     end
 
 

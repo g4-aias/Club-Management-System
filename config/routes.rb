@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#welcomepage'
   
-
+  get 'welcome/home'
   get 'welcome/terms'
   get 'welcome/map'
   get 'welcome/privacy'
@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   
   get 'p/:path/newpost' => 'posts#new', as: :new_club_post
   get 'p/:path/:post_id' => 'posts#show', as: :view_club_post
+  
 
   
 

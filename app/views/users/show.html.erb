@@ -1,30 +1,28 @@
 <% provide(:title, @user.name) %>
 
  
-<h1 class="headings">
-  <%= @user.name %>
-</h1>
 
-<aside class="jumbo2">
+
+
   <div class="row">      
-      <p class="p1">
-        <br>
+      
+      
          <% @user = User.find(params[:id]) %>
-         <%= image_tag(@user.avatar.url(:thumb)) %>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <% @user = User.find(params[:id]) %>
-        <% if @user==current_user %>
-          <span><%= link_to "Edit Profile", edit_user_path %></span>
-          <span><%= link_to "Create new club", commit_path %></span>
-          <span><%= link_to "Manage your clubs", manage_user_path %></span>
-        </p>
-        <% end %>
-      <p class="p2">
-        <span>Email: <%= @user.email %></span>
+          <div class="avatar_edit">
+            <%= image_tag(current_user.avatar.url(:thumb)) %>
+            <span class="username_tag">
+              <h1><%= @user.name %></h1>
+              <p>Email: <%= @user.email %></p>
+            </span>
+          </div>
+          
+
+      <div class="profile_ban">
+        <h1>Profile
+        <span><% @user = User.find(params[:id]) %>
+          <% if @user==current_user %>
+          <%= link_to "Edit Profile", edit_user_path %>
+        <% end %></span></h1>
         <span>First Name: <%= @user.firstname %></span>
         <span>Last Name: <%= @user.lastname %></span>
         <span>Gender: <%= @user.gender %></span>
@@ -32,9 +30,21 @@
         <span>Phone Number: <%= @user.phone %></span>
         <span>Degree: <%= @user.degree %></span>
         <span>Major: <%= @user.major %></span>
-        <span>Clubs:</span>
-      </p>
+        <h1>User Stat
+        <span><% @user = User.find(params[:id]) %>
+          <% if @user==current_user %>
+          <%= link_to "Manage your clubs", manage_user_path %>
+        <% end %></span></h1>
+        
+        <span><% if @user.clubs.any? %>
+           clubs (<%= @user.clubs.count %>)
+           <% end %></span>
+        <span><% if @user.posts.any? %>
+           posts (<%= @user.posts.count %>)
+           <% end %></span>   
+        
+      </div>
+    
 
  
   </div>
-</aside>
