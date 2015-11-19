@@ -8,14 +8,16 @@
 <h4><%= link_to "Create new post", new_club_post_path %></h4>
 <% end %>
 
-<!-- Check if the user is already a member -->
-<% if logged_in? and current_user.memClubs.include?(@club) %>
+<% if logged_in? %>
+  <!-- Check if the user is already a member if yes then do unsubscribe else subscribe -->
+  <% if current_user.memClubs.include?(@club) %> 
       <!--If current user is not a mod , then show the unsubscribe button-->
       <% unless @club.is_moderator?(current_user) %>
         <%= link_to 'unsubscribe', membership_path(0, club_id: @club.id), method: :delete, data: { confirm: "Are you sure you want to leave?" } , class: 'btn btn-danger' %>
       <% end %>  
-    <% else %>
+  <% else %>
       <%= link_to 'subscribe', member_requests_path(club_id: @club.id), method: :post, class: 'btn btn-success' %>
+  <% end %>
 <% end %>
 
 <div id = "posts" class = "transitions-enabled" >
