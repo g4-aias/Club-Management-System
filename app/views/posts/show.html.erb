@@ -1,24 +1,43 @@
 
+<div id="top-link-block">
+    <span class="well well-sm">
+        <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Posts" , view_club_path %>
+    </span>
+</div>
+
+
+
+
+
 <div id = "post_show" class = "row" >
     <div class = "col-md-8 col-md-offset-2">
         <div class = "panel panel-default">
+            <div class = "panel-body">
+                <h4><%=@post.title%></h4>
+            </div>
             <div class = "panel-heading pin_image">
                 <%= image_tag @post.picture if @post.picture? %>
                 <%= image_tag @post.image.url if @post.image? %>
             </div>
+            
             <div class = "panel-body">
-                <h4><%=@post.title%></h4>
                 <p class = "description"><%=@post.context%></p>
             </div>
+            
             <div class = "panel-footer">
                 <div class = "row">
                     <div class = "col-md-6">
+                       
                         <p class = "user">Submitted by <%=@post.user.name%> </p>
+                        <%# if current_user.modClubs.include?(@club) %>
+                                  <%#= link_to "Delete Post", post, method: :delete,
+                                                data: { confirm: "You sure?" } %>
+                        <%# end %>
                     </div>
                     <div class = "col-md-6">
-                        <div class = "btn btn-group pull-right">
-                            
-                        </div>
+                        <!--<div class = "btn btn-group pull-right">
+                             
+                        </div>-->
                     </div>
                 </div>
             </div>

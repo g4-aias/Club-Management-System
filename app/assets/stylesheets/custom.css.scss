@@ -25,10 +25,7 @@ html, body {
    height: 100%;
 }
 
-html {
-    position: relative;
-    min-height: 100%;
-}
+
 
 .bimage img{
     min-height: 100%; 
@@ -119,15 +116,7 @@ aside {
   }
 }
 
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
 
-.gravatar_edit {
-  margin-top: 15px;
-  margin-left: 30px;
-}
 
 /* forms */
 
@@ -185,11 +174,16 @@ input {
 }
 
 
+.avatar_edit {
+  text-align: center;
+}
 
 
-.gravatar_edit img {
+.avatar_edit img {
   border: solid;
   border-width: 3px;
+  width: 230px;
+  border-radius: 50%;
 }
 
 
@@ -245,7 +239,6 @@ input {
   border: solid;
   border-radius: 10em 25px;
   box-shadow: 10px 10px 25px #99cbff;
-  opacity: 1;
   border-color: #cce5ff;
   background-color: #cce5ff;
   width: 750px;
@@ -254,7 +247,7 @@ input {
   margin-left: 80px;
   padding-bottom: 35px;
   padding-top: 15px;
- 
+  
 }
 
 /*vertical menu*/
@@ -472,31 +465,6 @@ input {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /** body **/
 section#body {
 	padding: 0;
@@ -507,9 +475,7 @@ section#body {
 
 /** content+sidebar styles **/
 section#content {
-	margin-left: 250px;
 	padding: 20px;
-
 }
 .column-left {
 	float: left;
@@ -520,7 +486,6 @@ section#content {
 }
 aside#sidebar {
 	width: 250px;
-
 	background: #d2d2df;
 }
 
@@ -528,6 +493,7 @@ article {
   padding: 2px 10px 30px;
 	font-size: 1.2em;
   border-bottom: 1px solid #eee;
+  display: inline block;
  }
 
 
@@ -546,7 +512,7 @@ article h1 {
 #posts {
   margin: 0 auto;
   width: 100%;
-  margin-bottom: 200px;
+
   .box {
 	  margin: 10px;
 	  width: 350px;
@@ -592,6 +558,7 @@ article h1 {
 
 /* Show Specific Post */
 #post_show {
+  margin-bottom: 300px;
 	.panel-heading {
 		padding: 0;
 	}
@@ -642,13 +609,12 @@ article h1 {
 
 
 
+
 footer.nav {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-
-
 }
 
 
@@ -695,6 +661,79 @@ header ul {
    background: #262626;
 }
 
+/* User profile */
+/* User avatar and email tag */
+.username_tag {
+  float: center;
+  display: inline-block;
+  margin-left: 15px;
+  font-size: 23px;
+  color: black;
+  position: relative;
+  top: 70px;
+}
+
+.username_tag h1{
+  font-weight: bold;
+  text-align: left;
+ 
+}
+
+.username_tag p {
+  font-size: 18px;
+}
+
+.profile_ban {
+  margin-bottom: 220px;
+}
+
+.profile_ban h1{
+  text-align: left;
+  font-size: 45px;
+  border-bottom: double #555;
+}
+
+.profile_ban h1 span{
+  text-align: right;
+  font-size: 25px;
+  display: inline-block;
+}
+
+.profile_ban span {
+  font-size: 20px;
+  display: block;
+  color: black;
+  margin-bottom: 20px;
+}
+
+
+/*manage my club page */
+.management_bar {
+  float: left;
+  
+}
+
+.management_bar article {
+  display: block;
+  padding: 5px 10px;
+  position: relative;
+  margin: 15px;
+  background-color: #c2c2d6;
+  box-shadow: 4px 4px 1px #888888;
+  width: 500px;
+  border-style: groove;
+
+}
+
+.management_bar span h4 {
+  border-bottom-style: solid;
+}
+
+
+
+#top-link-block {
+  display: inline;
+}
 .footer-ul {
   font-size: 14px;
   list-style-type: none;

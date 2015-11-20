@@ -1,12 +1,63 @@
-<% if @user.clubs.any? %>
- <h3>clubs (<%= @user.clubs.count %>)</h3>
+<!--<#% if @user.clubs.any? %>
+ <h3>clubs (<%#= @user.clubs.count %>)</h3>
 
- <% @clubs.each do |club| %>
+ <#% @clubs.each do |club| %>
     <tr>
-    <%if club.is_moderator?(@user) %>
-      <td><%= link_to club.name, manage_club_path(path: club.path) %></td> 
-    <%end%>
+    <#%if club.is_moderator?(@user) %>
+      <td><%#= link_to club.name, manage_club_path(path: club.path) %></td> 
+    <#%end%>
     </tr>
-<% end %>
-<% end %>
+<%# end %>
+<%# end %>-->
 
+<div id="top-link-block">
+    <span class="well well-sm">
+        <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Profile" , current_user %>
+    </span>
+</div>
+
+<div class="row">      
+      
+      
+         <% @user = User.find(params[:id]) %>
+          <div class="avatar_edit">
+            <%= image_tag(current_user.avatar.url(:thumb)) %>
+            <span class="username_tag">
+              <h1><%= @user.name %></h1>
+              <p>Email: <%= @user.email %></p>
+            </span>
+          </div>
+          
+        
+        <% if @user.clubs.any? %>
+        <div class="profile_ban">
+            <h1>Manage your Clubs (<%= @user.clubs.count %>)
+            <span><% @user = User.find(params[:id]) %>
+            <% if @user==current_user %>
+                <%= link_to "Create New Club", new_club_path %>
+            <% end %>
+                </span></h1>
+        
+
+            <span><% @clubs.each do |club| %>
+
+                        <%if club.is_moderator?(@user) %>
+                            <span><%= gravatar_forc club, size: 120 %>
+                            <%= link_to club.name, manage_club_path(path: club.path) %></span> 
+                        <% end %>
+                    <% end %>
+                
+        <% else %>
+            <br>
+            <br>
+            <h1>You don't have any club right now.
+            <% if @user==current_user %>
+                <%= link_to "Create New Club", new_club_path %>
+            <% end %></h1>
+        <% end %>
+            
+      </div>
+    
+
+ 
+  </div>

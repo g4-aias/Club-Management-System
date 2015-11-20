@@ -1,10 +1,28 @@
 <% provide(:title, 'All users') %>
+
+<div id="top-link-block">
+    <span class="well well-sm">
+        <i class="glyphicon glyphicon-chevron-left"></i> <%#= link_to "Back to Manage Club" , manage_club_path(path: club.path) %>
+    </span>
+</div>
+
+
 <h1>All users</h1>
 
 <%= will_paginate %>
 
 <ul class="users">
-  <%= render @users %>
+  <%#= render @users %>
+  
+  <% @users.each do |user| %>
+      <% @user = user %>
+      <%= link_to raw(@user.name)%>
+  <%#if club.is_moderator?(@user) %>
+                            <!--<span><%#= gravatar_forc club, size: 120 %>
+                            <%#= link_to club.name, manage_club_path(path: club.path) %></span>--> 
+                        <%# end %>
+                        
+    <% end %>
 </ul>
 
-<%= will_paginate %>
+<%#= will_paginate %>

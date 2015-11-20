@@ -24,7 +24,7 @@ class ClubsController < ApplicationController
         if@club.save
                 flash[:success] = "Club Created" 
                 #redirects to club homepage
-                redirect_to view_club_path(path: @club.path)
+                redirect_to manage_club_path(path: @club.path)
         else
             render 'new'
         end
