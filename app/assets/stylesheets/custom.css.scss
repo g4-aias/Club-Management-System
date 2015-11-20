@@ -13,16 +13,17 @@ $gray-medium-light: #eaeaea;
 
 /* universal */
 
-body {
+html, body {
   padding-top: 60px;
-  margin: 0px auto;
-	padding: 0;
-	font-size: 1.0em;
-	color:#666;
-	margin-bottom: 20px;
+  //margin: 0px auto;
+	//padding:0;
+  //font-size: 1.0em;
+	//color:#666;
+	//margin-bottom: 20px;
+	 margin: 0;
+   padding: 0;
+   height: 100%;
 }
-
-
 
 
 
@@ -511,7 +512,7 @@ article h1 {
 #posts {
   margin: 0 auto;
   width: 100%;
-  margin-bottom: 200px;
+
   .box {
 	  margin: 10px;
 	  width: 350px;
@@ -607,12 +608,7 @@ article h1 {
 }
 
 
-/* application header and footer */
-header.navbar {
-  background: black;
-  width: 100%;
-  margin-top: 0;
-}
+
 
 footer.nav {
   position: absolute;
@@ -621,25 +617,6 @@ footer.nav {
   right: 0;
 }
 
-.footer-ul {
-  font-size: 14px;
-  list-style-type: none;
-  display: inline-block;
-  margin-top: 15px;
-}
-
-.footer-ul li {
-  padding: 10px;
-  display: block;
-  margin: 7px;
-}
-
-
-.footer-info {
-  font-size: 12px;
-  color: white;
-  text-align: center;
-}
 
 /* Logo Image */
 div.headerimg {
@@ -663,13 +640,29 @@ header ul {
   line-height: 19px;
 }
 
-html {
-    position: relative;
-    min-height: 100%;
+
+/* footer */
+
+#wrapper {
+   min-height: 100%;
+   position: relative;
 }
 
+#body {
+   padding: 10px;
+   padding-bottom: 300px;   /* Space between the footer */
+}
+
+#footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 210px;   /* Height of the footer */
+   background: #262626;
+}
 
 .col-md-6 {
+  margin-bottom: 250px;
   font-size: 13px;
   line-height: 20px;
 }
@@ -743,3 +736,31 @@ html {
 }
 
 
+
+#top-link-block {
+  display: inline;
+}
+.footer-ul {
+  font-size: 14px;
+  list-style-type: none;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.footer-ul li {
+  padding: 10px;
+  display: block;
+  margin: 7px;
+}
+
+
+.footer-info {
+  font-size: 12px;
+  color: white;
+  text-align: center;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}

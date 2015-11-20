@@ -29,14 +29,17 @@
           <%= f.label :email, "Email:" %>
           <%= @user.email %>
           <br>
+          <%= f.label :name, "Username" %>
+          <%= @user.name %>
+      
+          <br>
           <%= f.label :firstname, "First Name" %>
           <%= f.text_field :firstname, class: 'form-control' %>
           
           <%= f.label :lastname, "Last Name" %>
           <%= f.text_field :lastname, class: 'form-control' %>
         
-          <%= f.label :name, "Username" %>
-          <%= f.text_field :name, class: 'form-control' %>
+          
           
           <%= f.label :gender, "Gender" %>
         

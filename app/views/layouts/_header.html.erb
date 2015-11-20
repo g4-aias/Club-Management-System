@@ -1,15 +1,34 @@
 <div class="headerimg"><%= image_tag('GitClubLogo.png', id: "logo") %></div>
 
-<header class="navbar">
-  <div class="container">
-
-    <nav>
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "Home",   welcome_home_path %></li>
-        <li><%= link_to "Clubs", clubs_path %></li>
-        <li><%= link_to "Help",   welcome_help_path %></li>
+<nav class = "navbar navbar-inverse">
+  <!--Contents of the nav are contained in a container-->
+  <div class = "container">
+    
+    <!--The Name?-->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>  
+    
+    <!--The remaining links -->
+    <div class="collapse navbar-collapse" id="myNavbar">
+      
+      <!-- Left side links (Always display)-->
+      <ul class = "nav navbar-nav">
+        <li><%= link_to welcome_home_path do %>
+            <span class="glyphicon glyphicon-home"></span>
+            <% end %>
+            <li><%= link_to "Clubs", clubs_path %></li>
+            <li><%= link_to "Help",   welcome_help_path %></li>
+        </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      
+      <!-- Right side links (Display if logged?)-->
+      <ul class = "nav navbar-nav navbar-right">
         <% if logged_in? %>
           <li class="avatar"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
           <li class="dropdown">
@@ -28,10 +47,12 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
-          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to '<i class="glyphicon glyphicon-user"></i> Sign Up'.html_safe, new_user_path %></li>
+          <li><%= link_to '<i class="glyphicon glyphicon-log-in"></i> Login'.html_safe, login_path %> </li>
         <% end %>
       </ul>
-    </nav>
+      
+    </div>
+    
   </div>
-</header>
+</nav>
