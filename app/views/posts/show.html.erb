@@ -14,15 +14,20 @@
         <div class = "panel panel-default">
             <div class = "panel-body">
                 <h4><%=@post.title%></h4>
-                <p class = "description"><%=@post.context%></p>
             </div>
             <div class = "panel-heading pin_image">
                 <%= image_tag @post.picture if @post.picture? %>
                 <%= image_tag @post.image.url if @post.image? %>
             </div>
+            
+            <div class = "panel-body">
+                <p class = "description"><%=@post.context%></p>
+            </div>
+            
             <div class = "panel-footer">
                 <div class = "row">
                     <div class = "col-md-6">
+                       
                         <p class = "user">Submitted by <%=@post.user.name%> </p>
                         <%# if current_user.modClubs.include?(@club) %>
                                   <%#= link_to "Delete Post", post, method: :delete,
