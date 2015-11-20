@@ -1,0 +1,27 @@
+<% provide(:title, 'All users') %>
+
+<div id="top-link-block">
+    <span class="well well-sm">
+        <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Manage Club" , manage_club_path(path: @club.path) %>
+    </span>
+</div>
+
+
+<h1><%= @club.name %><i class="glyphicon glyphicon-chevron-right"></i> Manage Club Members</h1>
+
+
+<% @users.each do |user| %>
+    <% if user.memClubs.include?(@club) %>
+        <%= link_to user.name, user_path(user) %>
+    <% end %>
+<% end %>
+
+
+
+
+<ul class="users">
+  
+
+</ul>
+
+<%#= will_paginate %>

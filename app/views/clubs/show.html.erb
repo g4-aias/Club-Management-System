@@ -15,13 +15,12 @@
 
 
 
-<!--<%# if logged_in? and current_user.memClubs.include?(@club) %>
-<h4><%#= link_to "Create new post", new_club_post_path %></h4>
-<%# end %>-->
+
 
 <% if logged_in? %>
   <!-- Check if the user is already a member if yes then do unsubscribe else subscribe -->
   <% if current_user.memClubs.include?(@club) %> 
+    <%= link_to "Create new post", new_club_post_path %>
       <!--If current user is not a mod , then show the unsubscribe button-->
       <% unless @club.is_moderator?(current_user) %>
         <%= link_to 'unsubscribe', membership_path(0, club_id: @club.id), method: :delete, data: { confirm: "Are you sure you want to leave?" } , class: 'btn btn-danger' %>
@@ -62,7 +61,7 @@
             <%end%>
         </div>
             
-        <% if current_user.modClubs.include?(@club) %>
+        <% if logged_in? and current_user.modClubs.include?(@club) %>
           <%= link_to "Delete Post", post, method: :delete,
                                        data: { confirm: "You sure?" } %>
         <% end %>
@@ -73,6 +72,9 @@
   <% end %>
   <br>
 </div>
+
+
+
 
 
 
