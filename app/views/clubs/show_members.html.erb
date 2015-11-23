@@ -9,19 +9,32 @@
 
 <h1><%= @club.name %><i class="glyphicon glyphicon-chevron-right"></i> Manage Club Members</h1>
 
-
-<% @users.each do |user| %>
+<table class="profile_ban">
+  <tr>
+    <th>Members</th>
+    <th>Email</th>
+    <th>Role</th>
+  </tr>
+  <tr>
+    <% @users.each do |user| %>
     <% if user.memClubs.include?(@club) %>
-        <%= link_to user.name, user_path(user) %>
-    <% end %>
+    <td><%= link_to user.name, user_path(user) %></td>
+    <td><%= user.email %></td>
+    <td><% if user.modClubs.include?(user) %>
+            Member
+        <%else%>
+            Moderator</td>
+        <%end%>
+  </tr>
+  <% end %>
 <% end %>
+</table>
+
+        
+    
 
 
 
 
-<ul class="users">
-  
-
-</ul>
 
 <%#= will_paginate %>
