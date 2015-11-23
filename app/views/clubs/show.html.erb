@@ -15,9 +15,9 @@
 
 
 
-<!--<%# if logged_in? and current_user.memClubs.include?(@club) %>
-<h4><%#= link_to "Create new post", new_club_post_path %></h4>
-<%# end %>-->
+<% if logged_in? and current_user.memClubs.include?(@club) %>
+<h4><%= link_to "Create new post", new_club_post_path %></h4>
+<% end %>
 
 <% if logged_in? %>
   <!-- Check if the user is already a member if yes then do unsubscribe else subscribe -->
@@ -60,7 +60,7 @@
             <%end%>
         </div>
             
-        <% if current_user.modClubs.include?(@club) %>
+        <% if logged_in? and current_user.modClubs.include?(@club) %>
           <%= link_to "Delete Post", post, method: :delete,
                                        data: { confirm: "You sure?" } %>
         <% end %>
