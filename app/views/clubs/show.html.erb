@@ -13,16 +13,6 @@
   Welcome to <%= @club.name%>
 </h1>
 
-
-
-<<<<<<< HEAD
-<% if logged_in? and current_user.memClubs.include?(@club) %>
-<h4><%= link_to "Create new post", new_club_post_path %></h4>
-<% end %>
-=======
-
->>>>>>> dd9d322fb2452d95128740e3a97ed397259e426f
-
 <% if logged_in? %>
   <!-- Check if the user is already a member if yes then do unsubscribe else subscribe -->
   <% if current_user.memClubs.include?(@club) %> 
@@ -77,13 +67,5 @@
 </div>
 
 
-<<<<<<< HEAD
 
-
-
-
-  
-  
-=======
->>>>>>> 76d3c7a148edd0dfbbeca65e3351f5f2673f1282
 <%= will_paginate @posts %>
