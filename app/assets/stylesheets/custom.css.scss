@@ -161,30 +161,6 @@ input {
 }
 
 
-/* Users index */
-
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
-  }
-}
-
-
-.avatar_edit {
-  text-align: center;
-}
-
-
-.avatar_edit img {
-  border: solid;
-  border-width: 3px;
-  width: 230px;
-  border-radius: 50%;
-}
 
 
 
@@ -198,18 +174,6 @@ input {
   padding-bottom: 15px;
 }*/
 
-
-
-
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
-  }
-}
 
 
 
@@ -229,6 +193,21 @@ input {
   margin-right: 0;
   padding: 2px;
 }
+
+
+
+.avatar_edit {
+  text-align: center;
+}
+
+
+.avatar_edit img {
+  border: solid;
+  border-width: 3px;
+  width: 230px;
+  border-radius: 50%;
+}
+
 
 
 .clubindex {
@@ -478,7 +457,6 @@ section#content {
 }
 .column-right {
 	float: center;
-	margin-bottom: 160px;
 }
 aside#sidebar {
 	width: 250px;
@@ -556,7 +534,6 @@ article h1 {
 
 /* Show Specific Post */
 #post_show {
-  margin-bottom: 300px;
 	.panel-heading {
 		padding: 0;
 	}
@@ -681,9 +658,7 @@ header ul {
   font-size: 18px;
 }
 
-.profile_ban {
-  margin-bottom: 220px;
-}
+
 
 .profile_ban h1{
   text-align: left;
@@ -703,6 +678,11 @@ header ul {
   color: black;
   margin-bottom: 20px;
 }
+
+.profile_ban th {
+  font-size: 22px;
+}
+
 
 
 /*manage my club page */
@@ -756,3 +736,12 @@ html {
     position: relative;
     min-height: 100%;
 }
+
+
+/*subscribe table*/
+table {
+  width: 100%;
+}
+
+
+

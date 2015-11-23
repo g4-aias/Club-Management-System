@@ -1,8 +1,15 @@
+<div id="top-link-block">
+    <span class="well well-sm">
+        <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Manage Your Clubs" , manage_club_path %>
+    </span>
+</div>
 
 <h1>Manage Club <i class="glyphicon glyphicon-chevron-right"></i> <%= @club.name %></h1>
 
-<!--<table>
-    
+
+
+<table>
+ <% if @member_requests.count != 0 %>   
     <tr>
         <th>Username</th>
         <th>Email</th>
@@ -10,24 +17,27 @@
         <th></th>
     </tr>
     
-<%# @member_requests.each do |member_request| %>
-    <p><%# user = User.find_by(id: (member_request.user_id)) %>
-       <%# if @club.is_member?(user) %>
+<% @member_requests.each do |member_request| %>
+    <p><% user = User.find_by(id: (member_request.user_id)) %>
+       <% if @club.is_member?(user) %>
            <!-- Delete Request only if user is a member -->
-           <%# member_request.destroy %>
-       <%# else %>
-        <!--<tr>
-            <td><%#= link_to user.name, '#' %></td>
-            <td><%#= user.email %></td>
-            <td><%#= link_to 'Approve', memberships_path(club_id: @club.id, target_user_param: user.id), method: :post, class: 'btn btn-success' %></td>
-            <td><%#= link_to 'Reject',  member_request_path(0, club_id: @club.id, target_user_param: user.id), method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger' %></td>
+           <% member_request.destroy %>
+           
+       <% else %>
+        <tr>
+            <td><%= link_to user.name, '#' %></td>
+            <td><%= user.email %></td>
+            <td><%= link_to 'Approve', memberships_path(club_id: @club.id, target_user_param: user.id), method: :post, class: 'btn btn-success' %></td>
+            <td><%= link_to 'Reject',  member_request_path(0, club_id: @club.id, target_user_param: user.id), method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger' %></td>
         </tr>
-       <%# end %>
+       <% end %>
     </p>
-<%# end %>
+<% end %>
 
-</table>-->
 
+<% end %>
+
+</table>
 
 
 <div class="management_bar">

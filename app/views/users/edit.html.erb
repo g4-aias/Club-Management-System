@@ -48,6 +48,10 @@
    
           <%= f.select(:gender, options_for_select([['Female','♀'],
                               ['Male', '♂']])) %>
+          
+          <%= f.label :birthday %>
+          <%= f.date_select :birthday, :start_year=>1985  %>
+          
                               
           <%= f.label :phone, "Phone Number" %>
           <%= f.text_field :phone, class: 'form-control' %>
