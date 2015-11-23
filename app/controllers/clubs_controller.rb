@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
     before_action :logged_in_user, only: [:create, :new]
-    before_action :find_club_path, only: [:show, :manage]
+    before_action :find_club_path, only: [:show, :manage, :show_members]
     #before_action :show_all_clubs,     only: :index
     
     def index
@@ -11,8 +11,11 @@ class ClubsController < ApplicationController
         #elsif params[:sort].present?
             #@clubs = Club.sort(params[:sort]).paginate(page: params[:page])
         else
-            @clubs = Club.all.paginate(page: params[:page], :per_page => 5)
+            #@clubs = Club.all.paginate(page: params[:page], :per_page => 5)
+            @clubs = Club.order(:name).paginate(page: params[:page], :per_page => 5)
+           
         end
+            
     end
 
     def new 
@@ -42,6 +45,13 @@ class ClubsController < ApplicationController
         @member_requests = @club.member_requests
         
     end
+    
+    
+    def show_members 
+        #@members = @club.users # this will find the group users
+        @users = User.all
+    end
+    
     
     private
     def club_params

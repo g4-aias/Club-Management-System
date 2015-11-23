@@ -189,14 +189,14 @@ input {
 
 
 
-.headings {
+/*.headings {
   text-align: center;
   background-color: white;
   width: 580px;
   margin: auto;
   padding-top: 28px;
   padding-bottom: 15px;
-}
+}*/
 
 
 
@@ -212,15 +212,11 @@ input {
 }
 
 
-.sidebar {
-  border: solid;
-  background: white;
-  width: 220px;
-  position: absolute;
-  left: 20px;
-  top: 190px;
-  border-radius: 12px;
-}
+
+
+
+
+
 
 
 /* user avatar */
@@ -488,6 +484,8 @@ aside#sidebar {
 	width: 250px;
 	background: #d2d2df;
 }
+
+
 
 article {
   padding: 2px 10px 30px;

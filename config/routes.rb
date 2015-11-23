@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   get 'p/:path/:post_id' => 'posts#show', as: :view_club_post
   
 
-  
+  get 'p/:path/manage/members' => 'clubs#show_members', as: :manage_club_members
 
 
   # Example of regular route:
