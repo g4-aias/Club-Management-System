@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  
+  acts_as_votable
   belongs_to :user
   belongs_to :club
   
@@ -15,6 +17,10 @@ class Post < ActiveRecord::Base
 
   has_attached_file :image, styles: { medium: "300x300>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  
+  def is_owner?(user)
+    user.id == user_id
+  end
   
   private 
   

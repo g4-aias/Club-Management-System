@@ -13,6 +13,13 @@
   Welcome to <%= @club.name%>
 </h1>
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> votes
 <% if logged_in? %>
   <!-- Check if the user is already a member if yes then do unsubscribe else subscribe -->
   <% if current_user.memClubs.include?(@club) %> 
@@ -66,4 +73,9 @@
   <br>
 </div>
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> votes
 <%= will_paginate @posts %>
