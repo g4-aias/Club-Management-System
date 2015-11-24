@@ -1,0 +1,10 @@
+
+<span class="avatar"><%= image_tag(current_user.avatar.url(:thumb)) %></span>
+<% if comment.user %>
+  <% author = comment.user.name %>
+<% end %>
+<span class="user"><%= link_to author, comment.user %></span>
+<span class="content"><%= comment.comment %></span>
+<span class="timestamp">
+  Posted <%= (comment.created_at) %> ago.
+</span>

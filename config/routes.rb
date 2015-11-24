@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     member do
       put "like", to: "posts#upvote"
     end
+    resources :comments
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

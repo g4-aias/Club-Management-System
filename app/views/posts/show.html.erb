@@ -5,53 +5,19 @@
     </span>
 </div>
 
+<!-- render content of the post -->
+<%= render 'show' %>
 
+<% if logged_in? %>
+    <%= render 'comments/form' %>
+<% end %>
 
-
-
-<div id = "post_show" class = "row" >
-    <div class = "col-md-8 col-md-offset-2">
-        <div class = "panel panel-default">
-            <div class = "panel-body">
-                <h4><%=@post.title%></h4>
-            </div>
-            <div class = "panel-heading pin_image">
-                <%= image_tag @post.picture if @post.picture? %>
-                <%= image_tag @post.image.url if @post.image? %>
-            </div>
-            
-            <div class = "panel-body">
-                <p class = "description"><%=@post.context%></p>
-            </div>
-            
-            <div class = "panel-footer">
-                <div class = "row">
-                    <div class = "col-md-6">
-                        <p class = "user">Submitted by <%=@post.user.name%> </p>
-                    </div>
-                    <div class = "col-md-6">
-                        <div class = "btn btn-group pull-right">
-                            
-                            <%= link_to like_post_path(@post), method: :put, class: "btn btn-default"  do %>
-                                <span class="glyphicon glyphicon-heart"></span>
-                                <%= @post.get_upvotes.size %>
-                            <% end %>
-                            
-                            <% if logged_in? %>
-                             <% if @post.is_owner?(current_user) %>
-                                 <%= link_to "Edit", '#', class: "btn btn-default" %>
-                                 <%= link_to "Delete Post", post_path(@post), method: :delete,
-                                       data: { confirm: "You sure?" }, class: "btn btn-default" %>
-                             <% end %>
-                            <% end %> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
+<!-- renders all the comments in the current post -->
+<div class="col-md-8">
+    <% if @post.comments.any? %>
+      <h3>Microposts (<%= @post.comments.count %>)</h3>
+      <ol class="microposts">
+        <%= render @post.comments %>
+      </ol>
+    <% end %>
+</div>>
