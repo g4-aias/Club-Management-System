@@ -9,7 +9,7 @@
       
          <% @user = User.find(params[:id]) %>
           <div class="avatar_edit">
-            <%= image_tag(current_user.avatar.url(:thumb)) %>
+            <%= image_tag(@user.avatar.url(:thumb)) %>
             <span class="username_tag">
               <h1><%= @user.name %></h1>
               <p>Email: <%= @user.email %></p>

@@ -1,10 +1,17 @@
+<li id="comment-<%= comment.id %>">
+  
+  <span class="avatar"><%= image_tag(comment.user.avatar.url(:thumb)) %></span>
+  <span class="user"><%= link_to comment.user.name, comment.user %> <span class = "timestamp"><%= time_ago_in_words(comment.created_at) %> ago.</span></span>
+  <span class="content"><%= comment.comment %></span>
+  <span class="options">
+    
+    <%= link_to "Reply", '#' %>
+    
+    <% if current_user?(comment.user) %>
+      <%= link_to "Delete", [comment.post, comment], method: :delete,
+                                       data: { confirm: "You sure?" } %>
+      <%= link_to "Edit", edit_post_comment_path(comment.post, comment) %>
+    <% end %>
+  </span>
 
-<span class="avatar"><%= image_tag(current_user.avatar.url(:thumb)) %></span>
-<% if comment.user %>
-  <% author = comment.user.name %>
-<% end %>
-<span class="user"><%= link_to author, comment.user %></span>
-<span class="content"><%= comment.comment %></span>
-<span class="timestamp">
-  Posted <%= (comment.created_at) %> ago.
-</span>
+</li>

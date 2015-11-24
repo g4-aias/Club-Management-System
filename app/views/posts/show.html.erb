@@ -13,11 +13,11 @@
 <% end %>
 
 <!-- renders all the comments in the current post -->
-<div class="col-md-8">
-    <% if @post.comments.any? %>
-      <h3>Microposts (<%= @post.comments.count %>)</h3>
-      <ol class="microposts">
-        <%= render @post.comments %>
-      </ol>
-    <% end %>
-</div>>
+<div class = "row">
+    <div class="col-md-8 col-md-offset-2 ">
+        <h3>Comments (<%= @post.comments.count %>)</h3>
+        <ol class ="comments">
+            <%= render @post.comments %>
+        </ol>
+    </div>
+</div>
