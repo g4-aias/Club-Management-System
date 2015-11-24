@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
     before_action :logged_in_user, only: [:create, :new]
-    before_action :find_club_path, only: [:show, :manage, :show_members]
+    before_action :find_club_path, only: [:show, :manage, :show_members, :manage_requests]
     #before_action :show_all_clubs,     only: :index
     
     def index
@@ -50,6 +50,11 @@ class ClubsController < ApplicationController
     def show_members 
         #@members = @club.users # this will find the group users
         @users = User.all
+    end
+    
+    
+    def manage_requests
+        @member_requests = @club.member_requests
     end
     
     
