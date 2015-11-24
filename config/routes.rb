@@ -16,7 +16,12 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   
   resources :clubs, only: [:new, :create, :index]
-  resources :posts, only: [:create, :destroy]
+  
+  resources :posts do
+    member do
+      put "like", to: "posts#upvote"
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

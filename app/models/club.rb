@@ -33,7 +33,7 @@ class Club < ActiveRecord::Base
     members.include?(user)
   end
   
-  def is_owner?(the_user)
+  def is_owner?(user)
     user.id == user_id
   end
   

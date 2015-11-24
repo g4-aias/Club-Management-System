@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
     
-    before_action :logged_in_user, only: [:create, :destroy]
+    before_action :logged_in_user, only: [:create, :destroy, :upvote]
+    before_action :set_post, only: [:edit, :update, :destroy, :upvote]
     before_action :correct_user,   only: :destroy
     before_action :authorized_member?, only: :new
     
@@ -44,7 +45,12 @@ class PostsController < ApplicationController
     def destroy
         @post.destroy
         flash[:success] = "Post deleted"
-        redirect_to request.referrer || view_club_path
+        redirect_to build_club_path(@post.club)
+    end
+    
+    def upvote
+        @post.upvote_by current_user
+        redirect_to :back
     end
 
 
@@ -68,5 +74,9 @@ class PostsController < ApplicationController
       redirect_to root_url if @post.nil?
     end
     
+    
+    def set_post
+        @post = Post.find(params[:id])
+    end
     
 end
