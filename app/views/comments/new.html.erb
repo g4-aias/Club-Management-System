@@ -1,8 +1,20 @@
+    <div class = "row">
+        <div class="col-md-8 col-md-offset-2 ">
+            <h3>Reply</h3>
+            <ol class ="comments">
+                <%= render @comment.parent if @comment.parent %>
+            </ol>
+        </div>
+    </div>
+    
 <div class = "row">
       <div class = "col-md-5 col-md-offset-2">
-            <%= form_for([@post, Comment.new]) do |f| %>
+            <%= form_for([@post, @comment]) do |f| %>
             
                   <%= render 'shared/error_messages',object: f.object %>
+                  
+                  <%#= f.hidden_field :parent_id , :value => @comment.parent_id %>
+                  <%= f.hidden_field :parent_id %>
                   
                   <%= f.label :comment %>
                   <%= f.text_area :comment , class: 'form-control', rows: "4"  %>

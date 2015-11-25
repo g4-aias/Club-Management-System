@@ -2,9 +2,20 @@ class CommentsController < ApplicationController
     before_action :logged_in_user
     before_action :authorized_member?
     
+    def new
+        @post = Post.find(params[:post_id]) 
+        #@comment = @post.comments.build
+        #@comment.parent_id = params[:parent_id]
+        
+        
+        @comment = @post.comments.build(parent_id: params[:parent_id])
+
+    end
+    
     def create
+        
         @post = Post.find(params[:post_id])
-        @comment = @post.comments.build(comment_params)
+        @comment = @post.comments.create(comment_params)
         @comment.user = current_user
         
         if @comment.save
@@ -12,6 +23,12 @@ class CommentsController < ApplicationController
         else
             redirect_to build_post_path(@post)
         end
+    end
+    
+    
+    def index
+        @post = Post.find(params[:post_id]) 
+        @comments = @post.comments
     end
     
     def edit
@@ -40,7 +57,7 @@ class CommentsController < ApplicationController
     private
     
     def comment_params
-        params.require(:comment).permit(:comment)
+        params.require(:comment).permit(:comment, :parent_id)
     end
     
     def authorized_member?
