@@ -72,23 +72,29 @@
                 <p style="color:#FF43FF"><%= cur_letter %>:</p>
                 <% end %>
                 <div class= "clubindex">
-                        <%= gravatar_forc club, size: 120 %>
-                        <h3>
-                            <%= link_to club.name, build_club_path(club) %>
-                        </h3>genre:
-                        <%= club.genre %>
-                        <br>description:
+                    
+                        <%= image_tag(club.club_avatar.url(:thumb)) %>
+                       
+                        <span>
+                        <h3><%= link_to club.name, build_club_path(club) %></h3>
+                        
+                         
+                        genre: <%= club.genre %>
+                        <br>
+                        description:
                         <%= club.description %>
-                    </div>
+                        
+                     </span>
+                </div>
                 <% end %>
-                </article>
+            </article>
                
-                </section>
+        </section>
     
-    		</article>
+    </article>
     		
-		</section>
-	</section>
+    </section>
+</section>
 
 
 

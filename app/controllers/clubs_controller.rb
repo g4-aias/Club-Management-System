@@ -43,7 +43,6 @@ class ClubsController < ApplicationController
         #@clubs = @user.clubs
         
         @member_requests = @club.member_requests
-        
     end
     
     
@@ -60,7 +59,7 @@ class ClubsController < ApplicationController
     
     private
     def club_params
-        params.require(:club).permit(:name, :description, :path, :genre)
+        params.require(:club).permit(:name, :description, :path, :genre, :club_avatar)
     end
     
     def find_club_path

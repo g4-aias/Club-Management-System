@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123223627) do
+ActiveRecord::Schema.define(version: 20151124022949) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -19,8 +19,12 @@ ActiveRecord::Schema.define(version: 20151123223627) do
     t.string   "genre"
     t.integer  "user_id"
     t.string   "path"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "club_avatar_file_name"
+    t.string   "club_avatar_content_type"
+    t.integer  "club_avatar_file_size"
+    t.datetime "club_avatar_updated_at"
   end
 
   add_index "clubs", ["user_id"], name: "index_clubs_on_user_id"

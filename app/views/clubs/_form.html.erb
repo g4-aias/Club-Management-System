@@ -1,6 +1,12 @@
 <%= form_for(@club) do |f| %>
       <%= render 'shared/error_messages',object: f.object %>
     
+      
+      <%= f.label :club_avatar, "Logo"  %>
+    
+      <%= f.file_field :club_avatar %>
+      
+      
       <%= f.label :name, "Club's Name" %>
       <%= f.text_field :name, class: 'form-control' %>
       

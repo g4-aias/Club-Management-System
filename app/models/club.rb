@@ -16,6 +16,9 @@ class Club < ActiveRecord::Base
   #after_create :downcase_path
   before_save :set_club_path
   
+  has_attached_file :club_avatar, :styles => { :medium => "400x400>", :thumb => "320x320#" }, :default_url => "missing.jpg"
+  validates_attachment_content_type :club_avatar, :content_type => /\Aimage\/.*\Z/
+  
  
   
   validates :name,  presence: true, length: { maximum: 70 },
