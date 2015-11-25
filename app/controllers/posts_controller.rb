@@ -40,6 +40,7 @@ class PostsController < ApplicationController
             flash[:danger] = 'ERROR: Post does not exist'
             redirect_to root_path and return
         end
+
     end
      
     def destroy

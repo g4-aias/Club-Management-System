@@ -1,0 +1,17 @@
+<div class = "row">
+      <div class = "col-md-5 col-md-offset-2">
+            <h1> Edit </h1>
+            <%= form_for([@post, @comment]) do |f| %>
+                  <%= render 'shared/error_messages',object: f.object %>
+                
+                  <%= f.label :comment %>
+                  <%= f.text_area :comment , class: 'form-control', rows: "4"  %>
+                  
+                  <div class = "row">
+                        <div class = "col-md-3">
+                              <%= f.submit "Submit", class: "btn btn-primary" %>
+                        </div>
+                  </div>
+            <% end %>
+      </div>
+</div>

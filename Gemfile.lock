@@ -59,6 +59,9 @@ GEM
       mime-types (>= 1.16)
     climate_control (0.0.3)
       activesupport (>= 3.0)
+    closure_tree (6.0.0)
+      activerecord (>= 4.1.0)
+      with_advisory_lock (>= 3.0.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
@@ -305,6 +308,9 @@ GEM
       railties (~> 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     will_paginate (3.0.7)
+    with_advisory_lock (3.0.0)
+      activerecord (>= 3.2)
+      thread_safe
 
 PLATFORMS
   ruby
@@ -316,6 +322,7 @@ DEPENDENCIES
   bootstrap-will_paginate (= 0.0.10)
   byebug (= 3.4.0)
   carrierwave (= 0.10.0)
+  closure_tree
   coffee-rails (= 4.1.0)
   faker (= 1.4.2)
   fog (= 1.26.0)

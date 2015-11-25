@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   acts_as_votable
   belongs_to :user
   belongs_to :club
+  has_many :comments, dependent: :destroy
   
   before_save :format_website_url
   before_save :scrape_with_grabbit

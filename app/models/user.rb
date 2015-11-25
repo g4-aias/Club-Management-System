@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
     
     has_many :club_requests, through: :member_requests
     has_many :member_requests
+    has_many :comments
     
     attr_accessor :remember_token, :activation_token, :reset_token, :terms
     before_save   :downcase_email

@@ -14,8 +14,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :build_post_path
   
-
-  
    private
    # Confirms a logged-in user.
     def logged_in_user
@@ -25,6 +23,5 @@ class ApplicationController < ActionController::Base
         redirect_to login_url
       end
     end
-    
 
 end

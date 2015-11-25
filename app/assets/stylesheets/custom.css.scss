@@ -675,6 +675,13 @@ header ul {
   border-bottom: double #555;
 }
 
+.profile_ban img {
+  height: 60px;
+  width: 60px;
+}
+
+
+
 .profile_ban h1 span{
   text-align: right;
   font-size: 25px;
@@ -751,5 +758,40 @@ table {
   width: 100%;
 }
 
+
+/* comments */
+
+
+.comments {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+  }
+  .options{
+
+  }
+  .avatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
 
 
