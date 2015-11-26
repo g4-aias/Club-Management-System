@@ -1,75 +1,18 @@
 <% provide(:title, @club.name) %>
 
-
-
-<div id="top-link-block">
-    <span class="well well-sm">
-        <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Clubs" , clubs_path %>
-    </span>
-</div>
-
-
 <h1 class="headings">
   Welcome to <%= @club.name%>
 </h1>
 
-
-
-
-
-<% if logged_in? %>
-  <!-- Check if the user is already a member if yes then do unsubscribe else subscribe -->
-  <% if current_user.memClubs.include?(@club) %> 
-    <%= link_to "Create new post", new_club_post_path %>
-      <!--If current user is not a mod , then show the unsubscribe button-->
-      <% unless @club.is_moderator?(current_user) %>
-        <%= link_to 'unsubscribe', membership_path(0, club_id: @club.id), method: :delete, data: { confirm: "Are you sure you want to leave?" } , class: 'btn btn-danger' %>
-      <% end %>  
-  <% else %>
-      <%= link_to 'subscribe', member_requests_path(club_id: @club.id), method: :post, class: 'btn btn-success' %>
-  <% end %>
-<% end %>
-
 <div id = "posts" class = "transitions-enabled" >
+  <%= render 'sidebar' %>
   <% @posts.each do |post| %>
   <% @post = post %>
   
-    <div class = "box panel panel-default">
-        <% if @post.picture?  %>
-          <%= link_to (image_tag @post.picture), build_post_path(@post) %>
-        <% else %>
-          <% if @post.image?  %>
-          <%= link_to (image_tag @post.image.url), build_post_path(@post) %>
-          <%end%>
-        <%end%>
-        
-        <div class = "panel-body">
-            <% if @post.url.blank? %>
-                <h4><%= link_to raw(@post.title), build_post_path(@post)%></h4>
-                <p class="timestamp">
-                  Posted <%= time_ago_in_words(@post.created_at) %> ago.
-                </p>
-            <%else%>
-                <h4><%= link_to raw(@post.title), build_post_path(@post)%></h4>
-                <p class="timestamp">
-                  <%= @post.user.name %> Shared a <%= link_to raw("Link"), @post.url%></a>
-                  <br>
-                  Posted <%= time_ago_in_words(@post.created_at) %> ago.
-                </p>
-            <%end%>
-        </div>
-            
-        <% if logged_in? and current_user.modClubs.include?(@club) %>
-          <%= link_to "Delete Post", post, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-        <% end %>
+    <%= render 'posts/heading' %>
     
-        
-    </div>  
   <% end %>
   <br>
 </div>
-
-
 
 <%= will_paginate @posts %>

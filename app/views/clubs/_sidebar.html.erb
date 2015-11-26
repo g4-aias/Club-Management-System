@@ -1,0 +1,26 @@
+<div class = "box panel panel-default">
+    <div class = "sidebar">
+        
+        <div id="top-link-block">
+            <span class="well well-sm">
+                <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Clubs" , clubs_path %>
+            </span>
+        </div>
+        
+        <% if logged_in? %>
+          <!-- Check if the user is already a member if yes then do unsubscribe else subscribe -->
+          <% if current_user.memClubs.include?(@club) %> 
+            <%= link_to "New Post", new_club_post_path , class: 'btn btn-success'  %>
+              <!--If current user is not a mod , then show the unsubscribe button-->
+              <% unless @club.is_moderator?(current_user) %>
+                <%= link_to 'unsubscribe', membership_path(0, club_id: @club.id), method: :delete, data: { confirm: "Are you sure you want to leave?" } , class: 'btn btn-danger' %>
+              <% end %>  
+          <% else %>
+              <%= link_to 'subscribe', member_requests_path(club_id: @club.id), method: :post, class: 'btn btn-success' %>
+          <% end %>
+        <% end %>
+    </div>
+</div>
+
+
+

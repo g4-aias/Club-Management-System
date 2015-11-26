@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
   before_save :scrape_with_grabbit
 
   default_scope -> { order(created_at: :desc) }
+  
   #mount_uploader :picture, PictureUploader
   #validates :url, :format => URI::regexp(%w(http https)), presence: false
   validates :context,  presence: true, length: { maximum: 5000 }
