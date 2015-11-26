@@ -12,7 +12,7 @@ gem "paperclip", "~> 4.3"
 gem 'grabbit', '~> 1.0'
 gem 'jquery-turbolinks', '~> 2.1'
 gem 'acts_as_votable', '~> 0.10.0'
-gem 'closure_tree'
+gem 'ancestry'
 
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bootstrap-sass',          '3.2.0.0'

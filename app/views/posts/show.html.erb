@@ -17,7 +17,10 @@
     <div class="col-md-8 col-md-offset-2 ">
         <h3>Comments (<%= @post.comments.count %>)</h3>
         <ol class ="comments">
-            <%= render @post.comments %>
+            <%#= render @post.comments %>
+            <%= nested_messages @post.comments.arrange(order: 'created_at desc') %>
         </ol>
     </div>
 </div>
+
+
