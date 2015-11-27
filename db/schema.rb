@@ -19,8 +19,12 @@ ActiveRecord::Schema.define(version: 20151126093150) do
     t.string   "genre"
     t.integer  "user_id"
     t.string   "path"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "background_file_name"
+    t.string   "background_content_type"
+    t.integer  "background_file_size"
+    t.datetime "background_updated_at"
     t.string   "club_avatar_file_name"
     t.string   "club_avatar_content_type"
     t.integer  "club_avatar_file_size"

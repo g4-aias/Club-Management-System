@@ -1,6 +1,7 @@
 class ClubsController < ApplicationController
     before_action :logged_in_user, only: [:create, :new]
     before_action :find_club_path, only: [:show, :manage, :show_members, :manage_requests]
+    before_action :set_club, only: [:edit, :update]
     #before_action :show_all_clubs,     only: :index
     
     def index
@@ -39,11 +40,25 @@ class ClubsController < ApplicationController
         
     end
     
+    def edit
+    end
+    
     def manage
         #@user = User.find(params[:id])
         #@clubs = @user.clubs
         
         @member_requests = @club.member_requests
+    end
+    
+    def edit
+    end
+    
+    def update
+        if @club.update(club_params)
+            redirect_to build_club_path(@club)
+        else
+            render :edit
+        end
     end
     
     
@@ -60,11 +75,15 @@ class ClubsController < ApplicationController
     
     private
     def club_params
-        params.require(:club).permit(:name, :description, :path, :genre, :club_avatar)
+        params.require(:club).permit(:name, :description, :path, :genre, :club_avatar, :backgroud)
     end
     
     def find_club_path
         @club = Club.by_path(params[:path])
+    end
+    
+    def set_club
+        @club = Club.find(params[:id])
     end
     
 
