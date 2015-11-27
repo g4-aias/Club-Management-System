@@ -24,9 +24,10 @@
         <h4><%= link_to "Show All Members", manage_club_members_path %></h4>
     </article>
     <article>
+        <h4>&emsp;    </h4>
         <h4>Design Club Homepage</h4>
+        <h4>&emsp;    </h4>
     </article>
-   
     <article>
         <h4>Manage Posts <span class="badge"><%= @club.posts.count %></span></h4>
         <% if logged_in? and current_user.memClubs.include?(@club) %>

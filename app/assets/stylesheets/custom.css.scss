@@ -598,13 +598,6 @@ article h1 {
 
 
 
-footer.nav {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 
 /* Logo Image */
 div.headerimg {
@@ -711,7 +704,7 @@ header ul {
 }
 
 .management_bar article {
-  display: block;
+  display: inline-block;
   padding: 5px 10px;
   position: relative;
   margin: 15px;

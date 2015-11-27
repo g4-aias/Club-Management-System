@@ -8,36 +8,30 @@
 <div class="row">      
       
       
-         <% @user = User.find(params[:id]) %>
-          <div class="avatar_edit">
-            <%= image_tag(current_user.avatar.url(:thumb)) %>
-            <span class="username_tag">
-              <h1><%= @user.name %></h1>
-              <p>Email: <%= @user.email %></p>
-            </span>
-          </div>
+<% @user = User.find(params[:id]) %>
+<div class="avatar_edit">
+    <%= image_tag(current_user.avatar.url(:thumb)) %>
+    <span class="username_tag">
+        <h1><%= @user.name %></h1>
+        <p>Email: <%= @user.email %></p>
+    </span>
+</div>
 
 
 
-    <%= month_calendar events: @posts  do |date, post| %>
-          <%= date.day %>
-        
-            <%# @clubs.each do |club|%>
-            <%#@posts = Post.find_by option: 'false' %>
-                <%# if posts.is_Event?  %>
-        
-                    <% post.each do |post| %>
-                        <div>
-                            <% if post.option =="false" %>
-                                <% @club=post.club %>
-                                <% if @club.is_member?(current_user) %>
-                                  <%= post.title %>
-                                 <%end%>
-                       </div><%end%>
-                    
-                <%# end %>
-            <% end %>
-    <%end%>
+<%= month_calendar events: @posts  do |date, post| %>
+    <%= date.day %>
+    <% post.each do |post| %>
+        <div>
+        <% if post.option =="false" %>
+            <% @club=post.club %>
+            <% if @club.is_member?(current_user) %>
+                <%= post.title %>
+            <%end%>
+        <%end%>
+        </div>
+    <% end %>
+<%end%>
     
    
     
