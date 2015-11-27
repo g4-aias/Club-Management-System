@@ -6,19 +6,14 @@
 
 <h1>Manage Requests</h1>
 
-
-
-
-
-
 <table class="profile_ban">
-  
+<% if @club.member_requests.count != 0 %>
     <tr>
         <th>Username</th>
         <th>Email</th>
     </tr>
     
-<% @member_requests.each do |member_request| %>
+<% @member_requests.each do |member_request| %>  
     <p><% user = User.find_by(id: (member_request.user_id)) %>
        <% if @club.is_member?(user) %>
            <!-- Delete Request only if user is a member -->
@@ -35,7 +30,9 @@
     </p>
 <% end %>
 
-
+<%else%>
+There is currently no requests. 
+<%end%>
 
 
 </table>

@@ -5,6 +5,29 @@
   Welcome to <%= @club.name%>
 </h1>
 
+
+
+  
+    <%= month_calendar events: @posts  do |date, post| %>
+          <%= date.day %>
+        
+            <%# @clubs.each do |club|%>
+            <%#@posts = Post.find_by option: 'false' %>
+                <%# if posts.is_Event?  %>
+            
+                    <% post.each do |post| %>
+                        <div>
+                          <%if post.option == "false" %>
+                          <%= post.title %>
+                       </div>
+                    
+                <%# end %>
+            <% end %>
+            <%end%>
+    <%end%>
+    
+
+
 <div id = "posts" class = "transitions-enabled" >
   <%= render 'sidebar' %>
   <% @posts.each do |post| %>
@@ -15,6 +38,9 @@
   <% end %>
   <br>
 </div>
+
+
+
 
 <%= will_paginate @posts %>
 

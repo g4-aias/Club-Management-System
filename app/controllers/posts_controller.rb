@@ -56,11 +56,13 @@ class PostsController < ApplicationController
         redirect_to :back
     end
 
+    
+
 
     private
     
     def post_params
-        params.require(:post).permit(:context, :title, :url, :club_id, :image, :picture)
+        params.require(:post).permit(:context, :title, :url, :club_id, :image, :picture, :option, :start_time)
     end
     
     def authorized_member?

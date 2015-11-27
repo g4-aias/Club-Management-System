@@ -9,6 +9,33 @@
     
       <%= f.label :url, 'Share a URL' %>
       <%= f.text_field :url, class: 'form-control' %>
+      
+       <%= f.label :option,  "Posts" %>
+       <%= f.radio_button :option, "true", :checked => true%>
+   
+      <%= f.label :option, "Event" %>
+      <%= f.radio_button :option, "false", :onclick => 'render_partial("partial-area");'%>
+         
+<script>
+      $(document).ready(function(){
+        $('input[type="radio"]').click(function(){
+        if($(this).attr("value")=="false"){
+            $("#partial-area").show(); 
+        }
+        if($(this).attr("value")=="true"){
+            $("#partial-area").hide();
+        }
+    });
+});
+</script>
+
+<div id="partial-area" style="display:none;">
+    <%= f.label :start_time %>
+    <%= f.datetime_select :start_time %>
+  
+
+</div>      
+
 
       <%= hidden_field_tag :club_path, @club.path %>
       

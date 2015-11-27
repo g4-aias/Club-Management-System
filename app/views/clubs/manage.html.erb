@@ -1,6 +1,6 @@
 <div id="top-link-block">
     <span class="well well-sm">
-        <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Manage Your Clubs" , :back %>
+        <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Manage Your Clubs" , manage_user_path(current_user) %>
     </span>
 </div>
 
@@ -28,7 +28,6 @@
         <h4><%= link_to "Design hompage", edit_club_path(@club) %></h4>
         <h4> &emsp; </h4>
     </article>
-   
     <article>
         <h4>Manage Posts <span class="badge"><%= @club.posts.count %></span></h4>
         <% if logged_in? and current_user.memClubs.include?(@club) %>

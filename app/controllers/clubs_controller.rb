@@ -38,6 +38,7 @@ class ClubsController < ApplicationController
     def show
         #returns all posts that belongs to the club
         @posts = @club.posts.by_hot_score.latest.five_days_ago.paginate(page: params[:page])
+        
     end
     
     def edit
@@ -48,7 +49,6 @@ class ClubsController < ApplicationController
         #@clubs = @user.clubs
         
         @member_requests = @club.member_requests
-        
     end
     
     def edit
@@ -76,7 +76,7 @@ class ClubsController < ApplicationController
     
     private
     def club_params
-        params.require(:club).permit(:name, :description, :path, :genre, :background)
+        params.require(:club).permit(:name, :description, :path, :genre, :club_avatar, :backgroud)
     end
     
     def find_club_path

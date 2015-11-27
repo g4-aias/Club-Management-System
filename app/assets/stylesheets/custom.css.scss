@@ -218,13 +218,23 @@ input {
   box-shadow: 10px 10px 25px #99cbff;
   border-color: #cce5ff;
   background-color: #cce5ff;
-  width: 750px;
-  margin: auto;
+  width: 730px;
   margin-top: 30px;
   margin-left: 80px;
   padding-bottom: 35px;
-  padding-top: 15px;
-  
+  padding-top: 5px;
+  max-height: 200px;
+}
+
+
+.clubindex img{
+  height: 160px;
+  width: 160px;
+}
+
+.clubindex span{
+  display: inline-block;
+  margin-left: 16px;
 }
 
 /*vertical menu*/
@@ -591,13 +601,6 @@ article h1 {
 
 
 
-footer.nav {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 
 /* Logo Image */
 div.headerimg {
@@ -675,6 +678,13 @@ header ul {
   font-size: 45px;
   border-bottom: double #555;
 }
+
+.profile_ban img {
+  height: 60px;
+  width: 60px;
+}
+
+
 
 .profile_ban h1 span{
   text-align: right;
