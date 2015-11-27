@@ -1,50 +1,13 @@
-
-
 <div id = "posts" class = "transitions-enabled" >
 
   <% @posts.each do |post| %>
   <% @post = post %>
   
-    <div class = "box panel panel-default">
-        
-        
-        <% if @post.picture?  %>
-          <%= link_to (image_tag @post.picture), build_post_path(@post) %>
-        <% else %>
-          <% if @post.image?  %>
-          <%= link_to (image_tag @post.image.url), build_post_path(@post) %>
-          <%end%>
-        <%end%>
-        
-        <div class = "panel-body">
-            <% if @post.url.blank? %>
-                <h4><%= link_to raw(@post.title), build_post_path(@post)%></h4>
-                <p class="timestamp">
-                  Posted by <%= @post.club.name %>
-                  Posted <%= time_ago_in_words(@post.created_at) %> ago.
-                </p>
-            <%else%>
-                <h4><%= link_to raw(@post.title), build_post_path(@post)%></h4>
-                <p class="timestamp">
-                  Posted by <%= @post.club.name %>
-                  <br>
-                  Shared a <%= link_to raw("Link"), @post.url%></a>
-                  <br>
-                  Posted <%= time_ago_in_words(@post.created_at) %> ago.
-                </p>
-            <%end%>
-        </div>
-            
-        <% if current_user.modClubs.include?(@club) %>
-          <%= link_to "Delete Post", post, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-        <% end %>
-    
-        
-    </div>  
+    <%= render 'posts/heading' %>
     
   <% end %>
   <br>
 </div>
 
+<%= will_paginate @posts %>
 
