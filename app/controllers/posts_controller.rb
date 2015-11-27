@@ -51,6 +51,8 @@ class PostsController < ApplicationController
     
     def upvote
         @post.upvote_by current_user
+        @post.hotscore = @post.get_upvotes.size
+        @post.save
         redirect_to :back
     end
 

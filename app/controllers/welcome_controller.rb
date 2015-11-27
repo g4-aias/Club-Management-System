@@ -17,7 +17,7 @@ class WelcomeController < ApplicationController
  
   
   def home
-   @posts = Post.all
+   @posts = Post.all.by_hot_score.latest.five_days_ago.paginate(page: params[:page])
   end
   
 end

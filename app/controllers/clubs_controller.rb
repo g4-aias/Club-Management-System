@@ -35,7 +35,7 @@ class ClubsController < ApplicationController
     
     def show
         #returns all posts that belongs to the club
-        @posts = @club.posts.paginate(page: params[:page])
+        @posts = @club.posts.by_hot_score.latest.five_days_ago.paginate(page: params[:page])
     end
     
     def manage
