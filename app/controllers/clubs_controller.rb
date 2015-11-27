@@ -2,6 +2,7 @@ class ClubsController < ApplicationController
     before_action :logged_in_user, only: [:create, :new]
     before_action :find_club_path, only: [:show, :manage, :show_members, :manage_requests]
     before_action :set_club, only: [:edit, :update]
+    layout 'club' , except: :index
     #before_action :show_all_clubs,     only: :index
     
     def index
