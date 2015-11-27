@@ -25,9 +25,9 @@ module Workspace
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     
+    config.time_zone = 'Central Time (US & Canada)'
     
-    
- 
+    config.beginning_of_week = :sunday
     
     
   end

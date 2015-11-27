@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   
+  
+  
+  
   def build_club_path(club)
         view_club_path(path: club.path)
   end
@@ -15,6 +18,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :build_post_path
   
+  
+
+  
+  
    private
    # Confirms a logged-in user.
     def logged_in_user
@@ -23,6 +30,14 @@ class ApplicationController < ActionController::Base
         flash[:danger] = "Please log in."
         redirect_to login_url
       end
+    end
+    
+    
+    
+
+
+    def set_time_zone
+      Time.zone = current_user.time_zone
     end
 
 end

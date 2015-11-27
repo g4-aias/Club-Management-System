@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126070923) do
+ActiveRecord::Schema.define(version: 20151126093150) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -85,12 +85,9 @@ ActiveRecord::Schema.define(version: 20151126070923) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-<<<<<<< HEAD
     t.string   "option"
     t.datetime "start_time"
-=======
     t.integer  "hotscore",           default: 0
->>>>>>> 022bab0cd98102b08dfccf0532cd886f751d5d70
   end
 
   add_index "posts", ["club_id"], name: "index_posts_on_club_id"

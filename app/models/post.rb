@@ -30,6 +30,8 @@ class Post < ActiveRecord::Base
     user.id == user_id
   end
   
+
+  
   private 
   
   def format_website_url
@@ -47,11 +49,11 @@ class Post < ActiveRecord::Base
     end
   end
   
-  def set_time_to_nil
-    if self.option == "true"
-      self.start_time = nil
-    end
-  end
+  #def set_time_to_nil
+    #if self.option == "true"
+      #self.start_time = nil
+    #end
+  #end
 
   
 end

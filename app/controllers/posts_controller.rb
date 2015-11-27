@@ -56,6 +56,8 @@ class PostsController < ApplicationController
         redirect_to :back
     end
 
+    
+
 
     private
     

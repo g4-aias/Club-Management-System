@@ -19,10 +19,29 @@
 
 
 
-
-
-          
+    <%= month_calendar events: @posts  do |date, post| %>
+          <%= date.day %>
         
+            <%# @clubs.each do |club|%>
+            <%#@posts = Post.find_by option: 'false' %>
+                <%# if posts.is_Event?  %>
+        
+                    <% post.each do |post| %>
+                        <div>
+                            <% if post.option =="false" %>
+                                <% @club=post.club %>
+                                <% if @club.is_member?(current_user) %>
+                                  <%= post.title %>
+                                 <%end%>
+                       </div><%end%>
+                    
+                <%# end %>
+            <% end %>
+    <%end%>
+    
+   
+    
+
         <% if @user.clubs.any? %>
         <div class="profile_ban">
             <h1>Manage your Clubs (<%= @user.clubs.count %>)

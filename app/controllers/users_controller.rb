@@ -53,7 +53,9 @@ class UsersController < ApplicationController
   def manage
     @user = User.find(params[:id])
     @clubs = @user.clubs
-    @posts = @user.posts
+    @posts = Post.all
+    #@posts = is_Event?(@posts)
+    #@posts = Post.find_by option: "false"
     #@group = Group.find(params[:id])
     #@members = @group.users # this will find the group users
   end
