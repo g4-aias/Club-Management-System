@@ -190,6 +190,10 @@ input {
   margin-left: 10px;
   margin-right: 0;
   padding: 2px;
+  -webkit-animation-name: aniava; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
+  animation-name: aniava;
+  animation-duration: 3s;
 }
 
 
@@ -202,7 +206,7 @@ input {
 .avatar_edit img {
   border: solid;
   border-width: 3px;
-  width: 230px;
+  width: 15%;
   border-radius: 50%;
 }
 
@@ -598,6 +602,7 @@ footer.nav {
 /* Logo Image */
 div.headerimg {
   width: 100%;
+  height: 100px;
   background: #c2c2d6;
   margin-top: 0;
 }
@@ -606,6 +611,8 @@ div.headerimg img{
   width: 300px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   display: block;
 }
 
@@ -634,8 +641,9 @@ header ul {
    position: absolute;
    bottom: 0;
    width: 100%;
-   height: 210px;   /* Height of the footer */
+   height: 7%;   /* Height of the footer */
    background: #262626;
+   text-align: center;
 }
 
 /* User profile */
@@ -689,7 +697,7 @@ header ul {
 
 /*manage my club page */
 .management_bar {
-  float: left;
+  float: center;
 }
 
 .management_bar article {
@@ -697,11 +705,32 @@ header ul {
   padding: 5px 10px;
   position: relative;
   margin: 15px;
-  background-color: #c2c2d6;
+  background-color: #b3ffff /*#c2c2d6*/;
   box-shadow: 4px 4px 1px #888888;
-  width: 500px;
-  border-style: groove;
+  width: 400px;
+  height: 110px;
+  border-style: groove #b3ffff;
+  -webkit-transition: width 1s, height 1s;
+  transition: width 1s, height 1s;
+  border-radius: 15px;
 
+}
+
+.management_bar article h4{
+  font-size: 22px;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-transition: font-size 1s;
+  transition: font-size 1s;
+}
+
+.management_bar article:hover {
+    width: 550px;
+    height: 150px;
+    background-color: #66ffff;
+    h4 {
+      font-size: 35px;
+    }
 }
 
 .management_bar span h4 {
@@ -784,4 +813,28 @@ table {
 
 .nested_messages {
   margin-left: 30px;
+}
+
+.nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages{
+  margin-left: 0px;
+}
+
+/*animation*/
+
+@-webkit-keyframes aniava {
+    0%   {width: 50px;}
+    20%  {width: 40px;}
+    40%  {width: 50px;}
+    60%  {width: 50px;}
+    80%  {width: 40px;}
+    100% {width: 50px;}
+}
+
+@keyframes aniava {
+    0%   {width: 50px;}
+    20%  {width: 40px;}
+    40%  {width: 50px;}
+    60%  {width: 50px;}
+    80%  {width: 40px;}
+    100% {width: 50px;}
 }
