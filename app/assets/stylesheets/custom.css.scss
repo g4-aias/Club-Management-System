@@ -191,6 +191,10 @@ input {
   margin-left: 10px;
   margin-right: 0;
   padding: 2px;
+  -webkit-animation-name: aniava; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 3s; /* Chrome, Safari, Opera */
+  animation-name: aniava;
+  animation-duration: 3s;
 }
 
 
@@ -599,6 +603,7 @@ footer.nav {
 /* Logo Image */
 div.headerimg {
   width: 100%;
+  height: 100px;
   background: #c2c2d6;
   margin-top: 0;
 }
@@ -607,6 +612,8 @@ div.headerimg img{
   width: 300px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
   display: block;
 }
 
@@ -811,4 +818,24 @@ table {
 
 .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages .nested_messages{
   margin-left: 0px;
+}
+
+/*animation*/
+
+@-webkit-keyframes aniava {
+    0%   {width: 50px;}
+    20%  {width: 40px;}
+    40%  {width: 50px;}
+    60%  {width: 50px;}
+    80%  {width: 40px;}
+    100% {width: 50px;}
+}
+
+@keyframes aniava {
+    0%   {width: 50px;}
+    20%  {width: 40px;}
+    40%  {width: 50px;}
+    60%  {width: 50px;}
+    80%  {width: 40px;}
+    100% {width: 50px;}
 }
