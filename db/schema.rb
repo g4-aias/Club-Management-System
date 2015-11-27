@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126070923) do
+ActiveRecord::Schema.define(version: 20151127013114) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -19,8 +19,12 @@ ActiveRecord::Schema.define(version: 20151126070923) do
     t.string   "genre"
     t.integer  "user_id"
     t.string   "path"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "background_file_name"
+    t.string   "background_content_type"
+    t.integer  "background_file_size"
+    t.datetime "background_updated_at"
   end
 
   add_index "clubs", ["user_id"], name: "index_clubs_on_user_id"
