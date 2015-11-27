@@ -16,6 +16,9 @@ class Post < ActiveRecord::Base
   validates :user_id, presence: true
   validates :club_id, presence: true
 
+  validates_presence_of :option, :if => ["true","false"]
+
+
   has_attached_file :image, styles: { medium: "300x300>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   
@@ -39,5 +42,12 @@ class Post < ActiveRecord::Base
       self.picture = data.images.first
     end
   end
+  
+  def set_time_to_nil
+    if self.option == "true"
+      self.start_time = nil
+    end
+  end
+
   
 end

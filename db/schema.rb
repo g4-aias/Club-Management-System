@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125020638) do
+ActiveRecord::Schema.define(version: 20151126093150) do
 
   create_table "clubs", force: :cascade do |t|
     t.string   "name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20151125020638) do
     t.string   "ancestry"
   end
 
+  add_index "comments", ["ancestry"], name: "index_comments_on_ancestry"
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
@@ -84,6 +85,8 @@ ActiveRecord::Schema.define(version: 20151125020638) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "option"
+    t.datetime "start_time"
   end
 
   add_index "posts", ["club_id"], name: "index_posts_on_club_id"
