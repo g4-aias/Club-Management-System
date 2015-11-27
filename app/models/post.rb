@@ -8,7 +8,10 @@ class Post < ActiveRecord::Base
   before_save :format_website_url
   before_save :scrape_with_grabbit
 
-  default_scope -> { order(created_at: :desc) }
+  
+  scope :latest, -> { order(created_at: :desc) }
+  scope :by_hot_score, -> { order(hotscore: :desc) }
+  scope :five_days_ago, lambda { where("created_at >= :date", :date => 5.days.ago) }
   
   #mount_uploader :picture, PictureUploader
   #validates :url, :format => URI::regexp(%w(http https)), presence: false
