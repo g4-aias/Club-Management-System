@@ -23,6 +23,10 @@ class Club < ActiveRecord::Base
   validates :description,  presence: true, length: { maximum: 1000 }
   validates :genre,  presence: true, length: { maximum: 50 }
   #validates :user_id, presence: true
+  
+  
+  has_attached_file :background, styles: { :medium => "300x300>", large: "1024x768>" }
+  validates_attachment_content_type :background, content_type: /\Aimage\/.*\Z/
 
   
   def self.by_path(path)
