@@ -7,65 +7,55 @@
 
 <div class="row">      
       
-      
 <% @user = User.find(params[:id]) %>
-<div class="avatar_edit">
-    <%= image_tag(current_user.avatar.url(:thumb)) %>
-    <span class="username_tag">
-        <h1><%= @user.name %></h1>
-        <p>Email: <%= @user.email %></p>
-    </span>
-</div>
 
-
-
-<%= month_calendar events: @posts  do |date, post| %>
-    <%= date.day %>
-    <% post.each do |post| %>
-        <div>
-        <% if post.option =="false" %>
-            <% @club=post.club %>
-            <% if @club.is_member?(current_user) %>
-                <%= post.title %>
+    <div class="avatar_edit">
+        <%= image_tag(current_user.avatar.url(:thumb)) %>
+        <span class="username_tag">
+            <h1><%= @user.name %></h1>
+            <p>Email: <%= @user.email %></p>
+        </span>
+    </div>
+    
+    <%= month_calendar events: @posts  do |date, post| %>
+        <%= date.day %>
+        <% post.each do |post| %>
+            <div>
+            <% if post.option =="false" %>
+                <% @club=post.club %>
+                <% if @club.is_member?(current_user) %>
+                    <%= post.title %>
+                <%end%>
             <%end%>
-        <%end%>
-        </div>
-    <% end %>
-<%end%>
-    
-   
-    
-
-        <% if @user.clubs.any? %>
-        <div class="profile_ban">
-            <h1>Manage your Clubs (<%= @user.clubs.count %>)
-            <span><% @user = User.find(params[:id]) %>
-            <% if @user==current_user %>
-                <%= link_to "Create New Club", new_club_path %>
-            <% end %>
-                </span></h1>
-        
-
-            <span><% @clubs.each do |club| %>
-
-                        <%if club.is_moderator?(@user) %>
-                            <span><%= image_tag(club.club_avatar.url(:thumb)) %>
-                            <%= link_to club.name, manage_club_path(path: club.path) %>
-                            </span> 
-                        <% end %>
-                    <% end %>
-                
-        <% else %>
-            <br>
-            <br>
-            <h1>You don't have any club right now.
-            <% if @user==current_user %>
-                <%= link_to "Create New Club", new_club_path %>
-            <% end %></h1>
+            </div>
         <% end %>
-            
-      </div>
+    <%end%>
     
+    <% if @user.modClubs.any? %>
+    <div class="profile_ban">
+        <h1>Manage your Clubs (<%= @user.modClubs.count %>)
+        <span><% @user = User.find(params[:id]) %>
+        <% if @user==current_user %>
+            <%= link_to "Create New Club", new_club_path %>
+        <% end %>
+            </span></h1>
+        <span><% @clubs.each do |club| %>
+    
+                    <%if club.is_moderator?(@user) %>
+                        <span><%= image_tag(club.club_avatar.url(:thumb)) %>
+                        <%= link_to club.name, manage_club_path(path: club.path) %>
+                        </span> 
+                    <% end %>
+                <% end %>
+    <% else %>
+        <br>
+        <br>
+        <h1>You don't have any club right now.
+        <% if @user==current_user %>
+            <%= link_to "Create New Club", new_club_path %>
+        <% end %></h1>
+    <% end %>
+        
+    </div>
 
- 
-  </div>
+</div>

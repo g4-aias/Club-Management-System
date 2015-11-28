@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  club_id: 
+  inviting_user_id: 1
+
+two:
+  user_id: 
+  club_id: 
+  inviting_user_id: 1

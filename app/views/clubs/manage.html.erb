@@ -25,7 +25,7 @@
     </article>
     <article>
         <h4> &emsp; </h4>
-        <h4><%= link_to "Design hompage", edit_club_path(@club) %></h4>
+        <h4><%= link_to "Manage Club Layouts", edit_club_path(@club) %></h4>
         <h4> &emsp; </h4>
     </article>
     <article>
@@ -34,6 +34,12 @@
             <h4><%= link_to "Create new post", new_club_post_path %></h4>
             <h4><%= link_to "See All posts", view_club_path %></h4>
         <% end %>
+    </article>
+    
+    <article>
+        <h4> &emsp; </h4>
+        <h4><%= link_to "Manage Moderators", add_moderator_club_path %></h4>
+        <h4> &emsp; </h4>
     </article>
  
 </div>

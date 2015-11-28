@@ -6,8 +6,6 @@ class Club < ActiveRecord::Base
   has_many :posts
   has_many :members, through: :memberships
   has_many :memberships
-  
-  
   has_many :requesting_users, through: :member_requests
   has_many :member_requests
   
@@ -46,6 +44,10 @@ class Club < ActiveRecord::Base
   
   def is_moderator?(user)
     moderators.include?(user)
+  end
+  
+  def add_moderator!(new_moderator)
+    Moderation.create!(user_id: new_moderator.id, club_id: id)
   end
 
 #user ILIKE for PostgrSQL

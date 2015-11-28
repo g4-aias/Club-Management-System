@@ -34,8 +34,9 @@ class PostsController < ApplicationController
     
     def show
         #because p/:path/:post_id = post#show
-        #we cant do @post = Post.find(params[:id]) as :id is no longer defined 
+        #we cant do @post = Post.find(params[:id]) as :id is no longer defined
         @post = Post.where(id: params[:post_id]).first
+        
         if @post.nil?
             flash[:danger] = 'ERROR: Post does not exist'
             redirect_to root_path and return
@@ -66,8 +67,14 @@ class PostsController < ApplicationController
     end
     
     def authorized_member?
-        @club = nil
+
         @club = Club.by_path(params[:path]) if params[:path]
+        
+        if @club.nil?
+            flash[:danger] = "Unable to find the specified club" 
+            redirect_to club_index_path
+        end
+        
         unless @club.is_member?(current_user)
             flash[:danger] = "Only members can create posts."
             redirect_to build_club_path(@club)
@@ -78,7 +85,6 @@ class PostsController < ApplicationController
       @post = current_user.posts.find_by(id: params[:id])
       redirect_to root_url if @post.nil?
     end
-    
     
     def set_post
         @post = Post.find(params[:id])

@@ -1,9 +1,9 @@
 class ClubsController < ApplicationController
     before_action :logged_in_user, only: [:create, :new]
-    before_action :find_club_path, only: [:show, :manage, :show_members, :manage_requests]
+    before_action :find_club_path, only: [:show, :manage, :show_members, :manage_requests, :add_moderator, :mod_request, :update_modrequest]
     before_action :set_club, only: [:edit, :update]
     layout 'club' , except: :index
-    #before_action :show_all_clubs,     only: :index
+    #before_action :can_moderate?,     only: [:manage, :edit]
     
     def index
         #@clubs = Club.all
@@ -26,7 +26,7 @@ class ClubsController < ApplicationController
     
     def create
         @club = current_user.clubs.build(club_params)
-        if@club.save
+        if @club.save
                 flash[:success] = "Club Created" 
                 #redirects to club homepage
                 redirect_to manage_club_path(path: @club.path)
@@ -35,8 +35,8 @@ class ClubsController < ApplicationController
         end
     end
     
+    # show by likes
     def show
-        #returns all posts that belongs to the club
         @posts = @club.posts.by_hot_score.latest.five_days_ago.paginate(page: params[:page])
         
     end
@@ -45,13 +45,19 @@ class ClubsController < ApplicationController
     end
     
     def manage
-        #@user = User.find(params[:id])
-        #@clubs = @user.clubs
+        unless @club.is_moderator?(current_user)
+            flash[:danger] = "You are not a moderator of this club" 
+            redirect_to build_club_path(@club)
+        end
         
-        @member_requests = @club.member_requests
+        @member_requests = @club.member_requests 
     end
     
     def edit
+        unless @club.is_moderator?(current_user)
+            flash[:danger] = "You are not a moderator of this club" 
+            redirect_to build_club_path(@club)
+        end
     end
     
     def update
@@ -73,6 +79,71 @@ class ClubsController < ApplicationController
         @member_requests = @club.member_requests
     end
     
+    def add_moderator
+        unless @club.is_moderator?(current_user)
+            flash[:danger] = "You are not a moderator of this club" 
+            redirect_to build_club_path(@club)
+        end
+        
+        @mod_request = ModRequest.new
+    end
+    
+    def mod_request
+        @user = User.by_username_insensitive(params[:username])
+        
+        #function must exit if user is not found, hence the return
+        if @user.nil?
+            flash[:danger] = "User does not exist!" 
+            redirect_to(:back) and return 
+        end
+        
+        if @club.is_moderator?(@user)
+            flash[:danger] = "User is already a moderator of this club" 
+            redirect_to(:back) and return 
+        end
+        
+         @mod_request = ModRequest.new(
+          #target user
+          user_id: @user.id,
+          inviting_user_id: current_user.id,
+          club_id: @club.id
+        )
+        
+        if @mod_request.save
+            flash[:success] = "Moderator request has been sent!"
+            redirect_to :back
+        else
+            flash[:danger] = "Could not send a request at this time, try again later" 
+            redirect_to :back
+        end
+    end
+    
+    def update_modrequest
+        
+        @mod_request = ModRequest.where(user_id: current_user.id, club_id: @club.id)
+                   .first
+                   
+        if @mod_request.nil?
+          flash[:danger] = "Could not find moderator request." 
+          redirect_to(:back) and return
+        end
+        
+        #if the user is not a member, make him a member
+        if @club.is_moderator?(current_user)
+            flash[:danger] = "You are already a moderator of this club."
+            redirect_to build_club_path(@club) and return
+        end
+        
+        unless @club.is_member?(current_user)
+          Membership.create!(user_id: current_user.id, club_id: @club.id)
+        end
+        
+        @club.add_moderator!(current_user)
+        
+        @mod_request.destroy
+        redirect_to build_club_path(@club)
+    end
+    
     
     private
     def club_params
@@ -81,6 +152,11 @@ class ClubsController < ApplicationController
     
     def find_club_path
         @club = Club.by_path(params[:path])
+        
+        if @club.nil?
+            flash[:danger] = "Unable to find the specified club" 
+            redirect_to clubs_path
+        end
     end
     
     def set_club

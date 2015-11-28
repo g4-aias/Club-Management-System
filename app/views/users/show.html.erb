@@ -21,7 +21,8 @@
         <h1>Profile
         <span><% @user = User.find(params[:id]) %>
           <% if @user==current_user %>
-          <%= link_to "Edit Profile", edit_user_path %>
+          <%= link_to "Edit Profile", edit_user_path %> |
+          <%= link_to "Moderator Invitations", moderator_invitations_user_path %> (<%= @user.mod_requests.count %>)
         <% end %></span></h1>
         <span>First Name: <%= @user.firstname %></span>
         <span>Last Name: <%= @user.lastname %></span>
@@ -38,8 +39,8 @@
           <%= link_to "Manage your clubs", manage_user_path %>
         <% end %></span></h1>
         
-        <span><% if @user.clubs.any? %>
-           clubs (<%= @user.clubs.count %>)
+        <span><% if @user.modClubs.any? %>
+           clubs (<%= @user.modClubs.count %>)
            <% end %></span>
            
         <span><% if @user.posts.any? %>

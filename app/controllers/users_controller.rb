@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :manage, :moderator_invitations]
+  before_action :correct_user,   only: [:edit, :update, :manage, :moderator_invitations]
   before_action :admin_user,     only: :destroy
   
 
@@ -52,15 +52,16 @@ class UsersController < ApplicationController
   
   def manage
     @user = User.find(params[:id])
-    @clubs = @user.clubs
+    #@clubs = @user.clubs
+    @clubs = @user.modClubs
     @posts = Post.all
-    #@posts = is_Event?(@posts)
-    #@posts = Post.find_by option: "false"
-    #@group = Group.find(params[:id])
-    #@members = @group.users # this will find the group users
   end
   
-  
+  def moderator_invitations
+    @user = User.find(params[:id])
+    #@user = current_user
+    @mod_requests = current_user.mod_requests
+  end
   
   def destroy
     User.find(params[:id]).destroy

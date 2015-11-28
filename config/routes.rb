@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
      get 'manage'
+     get 'moderator_invitations'
     end
   end
   
@@ -50,17 +51,19 @@ Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
   
+  # club paths
   get 'commit' => 'clubs#new'
-  get 'p/:path' => 'clubs#show', as: :view_club
-  get 'p/:path/manage' => 'clubs#manage', as: :manage_club
-  get 'p/index' => 'clubs#index', as: :club_index
-  
-  get 'p/:path/newpost' => 'posts#new', as: :new_club_post
-  get 'p/:path/:post_id' => 'posts#show', as: :view_club_post
-  
-
   get 'p/:path/manage/members' => 'clubs#show_members', as: :manage_club_members
   get 'p/:path/manage/manage_requests' => 'clubs#manage_requests', as: :manage_requests
+  get 'p/:path' => 'clubs#show', as: :view_club
+  get 'p/:path/manage' => 'clubs#manage', as: :manage_club
+  get 'p/:path/manage/add_moderator' => 'clubs#add_moderator', as: :add_moderator_club
+  post 'p/:path/manage/mod_request' => 'clubs#mod_request', as: :mod_request_club
+  post 'p/:path/update_modrequest' => 'clubs#update_modrequest', as: :update_modrequest_club
+  
+  # post paths
+  get 'p/:path/newpost' => 'posts#new', as: :new_club_post
+  get 'p/:path/:post_id' => 'posts#show', as: :view_club_post
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

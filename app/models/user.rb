@@ -6,10 +6,11 @@ class User < ActiveRecord::Base
     has_many :posts
     has_many :memClubs, through: :memberships
     has_many :memberships, dependent: :destroy
-    
+    has_many :mod_requests
     has_many :club_requests, through: :member_requests
     has_many :member_requests
     has_many :comments
+
     
     attr_accessor :remember_token, :activation_token, :reset_token, :terms
     before_save   :downcase_email
@@ -76,9 +77,9 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(digest).is_password?(token)
   end
   
-  # 
-  def display_clubs(user, club)
-    
+  # Find user by username
+  def self.by_username_insensitive(name)
+    User.where('LOWER(name) = ?', name.downcase).first
   end
   
    # Forgets a user.
