@@ -53,9 +53,9 @@ Rails.application.routes.draw do
   
   # club paths
   get 'commit' => 'clubs#new'
+  get 'p/:path' => 'clubs#show', as: :view_club
   get 'p/:path/manage/members' => 'clubs#show_members', as: :manage_club_members
   get 'p/:path/manage/manage_requests' => 'clubs#manage_requests', as: :manage_requests
-  get 'p/:path' => 'clubs#show', as: :view_club
   get 'p/:path/manage' => 'clubs#manage', as: :manage_club
   get 'p/:path/manage/add_moderator' => 'clubs#add_moderator', as: :add_moderator_club
   post 'p/:path/manage/mod_request' => 'clubs#mod_request', as: :mod_request_club

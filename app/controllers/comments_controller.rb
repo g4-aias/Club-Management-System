@@ -1,15 +1,15 @@
 class CommentsController < ApplicationController
     before_action :logged_in_user
-    before_action :authorized_member?
+    before_action :authorized_member?, only: [:new, :create]
     
+    
+    # New acts as Reply
     def new
         @post = Post.find(params[:post_id]) 
         #@comment = @post.comments.build
         #@comment.parent_id = params[:parent_id]
-        
-        
+    
         @comment = @post.comments.build(parent_id: params[:parent_id])
-
     end
     
     def create
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
         end
     end
     
-    
+    # unused method
     def index
         @post = Post.find(params[:post_id]) 
         @comments = @post.comments
@@ -34,13 +34,22 @@ class CommentsController < ApplicationController
     def edit
         @post = Post.find(params[:post_id])
         @comment = @post.comments.find(params[:id])
+        
+        unless @comment.is_owner?(current_user)
+            redirect_to build_post_path(@post)
+        end
     end
     
     def update
         @post = Post.find(params[:post_id])
         @comment = @post.comments.find(params[:id])
         
+        unless @comment.is_owner?(current_user)
+            redirect_to build_post_path(@post) and return
+        end
+        
         if @comment.update(comment_params)
+            flash[:success] = "Comment Updated!"
             redirect_to build_post_path(@post)
         else
             render 'edit'
@@ -50,6 +59,12 @@ class CommentsController < ApplicationController
     def destroy
         @post = Post.find(params[:post_id])
         @comment = @post.comments.find(params[:id])
+        @club = @post.club
+        
+        unless @comment.is_owner?(current_user) || @club.is_moderator?(current_user) 
+            redirect_to build_post_path(@post) and return
+        end
+        
         @comment.destroy
         redirect_to build_post_path(@post)
     end

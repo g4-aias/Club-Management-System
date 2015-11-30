@@ -35,8 +35,9 @@
   
 
 </div>      
-
-
+      
+      <%#= f.hidden_field :clubpath , :value => @club.path %> 
+      <%#= f.text_field :clubpath, class: 'form-control' %>
       <%= hidden_field_tag :club_path, @club.path %>
       
       <%= f.label :image %>

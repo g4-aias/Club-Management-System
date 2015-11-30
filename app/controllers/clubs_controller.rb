@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-    before_action :logged_in_user, only: [:create, :new]
+    before_action :logged_in_user, except: [:show, :index]
     before_action :find_club_path, only: [:show, :manage, :show_members, :manage_requests, :add_moderator, :mod_request, :update_modrequest]
     before_action :set_club, only: [:edit, :update]
     layout 'club' , except: :index
@@ -38,10 +38,6 @@ class ClubsController < ApplicationController
     # show by likes
     def show
         @posts = @club.posts.by_hot_score.latest.five_days_ago.paginate(page: params[:page])
-        
-    end
-    
-    def edit
     end
     
     def manage
@@ -68,17 +64,30 @@ class ClubsController < ApplicationController
         end
     end
     
-    
+    # shows all members that belong in the club
     def show_members 
-        #@members = @club.users # this will find the group users
+        #@users = @club.members
+        unless @club.is_moderator?(current_user)
+            flash[:danger] = "You are not a moderator of this club" 
+            redirect_to build_club_path(@club)
+        end
+        
         @users = User.all
     end
     
-    
+    # manage membership requests
     def manage_requests
+        
+        unless @club.is_moderator?(current_user)
+            flash[:danger] = "You are not a moderator of this club" 
+            redirect_to build_club_path(@club)
+        end
+        
         @member_requests = @club.member_requests
     end
     
+    # view where the moderators can add new moderators to their club
+    # the new function for moderator invitations
     def add_moderator
         unless @club.is_moderator?(current_user)
             flash[:danger] = "You are not a moderator of this club" 
@@ -88,6 +97,7 @@ class ClubsController < ApplicationController
         @mod_request = ModRequest.new
     end
     
+    # the create function for moderator invitations
     def mod_request
         @user = User.by_username_insensitive(params[:username])
         
@@ -118,6 +128,7 @@ class ClubsController < ApplicationController
         end
     end
     
+    # the update/destroy function for moderator invitations
     def update_modrequest
         
         @mod_request = ModRequest.where(user_id: current_user.id, club_id: @club.id)
@@ -161,6 +172,11 @@ class ClubsController < ApplicationController
     
     def set_club
         @club = Club.find(params[:id])
+        
+        if @club.nil?
+            flash[:danger] = "Unable to find the specified club" 
+            redirect_to clubs_path
+        end
     end
     
 
