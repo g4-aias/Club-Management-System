@@ -1,3 +1,9 @@
-<h1><%=@club.name%> Manage Moderators</h1>
+<div id="top-link-block">
+    <span class="well well-sm">
+        <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Manage Club" , manage_club_path %>
+    </span>
+</div>
+
+<h1><%=@club.name%> <i class="glyphicon glyphicon-chevron-right"></i> Manage Moderators</h1>
 
 <%= render 'modform' %>

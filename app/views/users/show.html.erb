@@ -12,11 +12,27 @@
             <%= image_tag(@user.avatar.url(:thumb)) %>
             <span class="username_tag">
               <h1><%= @user.name %></h1>
-              <p>Email: <%= @user.email %></p>
+              <p>&emsp;</p>
             </span>
+          
           </div>
           
 
+       
+    <%= month_calendar events: @posts  do |date, post| %>
+        <%= date.day %>
+        <% post.each do |post| %>
+            <div>
+            <% if post.option =="isEvent" %>
+                <% @club=post.club %>
+                <% if @club.is_member?(current_user) %>
+                    <%= link_to post.title, build_post_path(post) %>
+                <%end%>
+            <%end%>
+            </div>
+        <% end %>
+    <%end%>
+    
       <div class="profile_ban">
         <h1>Profile
         <span><% @user = User.find(params[:id]) %>
@@ -24,6 +40,7 @@
           <%= link_to "Edit Profile", edit_user_path %> |
           <%= link_to "Moderator Invitations", moderator_invitations_user_path %> (<%= @user.mod_requests.count %>)
         <% end %></span></h1>
+        <span>Email: <%= @user.email %></span>
         <span>First Name: <%= @user.firstname %></span>
         <span>Last Name: <%= @user.lastname %></span>
         <span>Gender: <%= @user.gender %></span>

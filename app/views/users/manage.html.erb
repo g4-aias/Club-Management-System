@@ -16,20 +16,7 @@
             <p>Email: <%= @user.email %></p>
         </span>
     </div>
-    
-    <%= month_calendar events: @posts  do |date, post| %>
-        <%= date.day %>
-        <% post.each do |post| %>
-            <div>
-            <% if post.option =="false" %>
-                <% @club=post.club %>
-                <% if @club.is_member?(current_user) %>
-                    <%= post.title %>
-                <%end%>
-            <%end%>
-            </div>
-        <% end %>
-    <%end%>
+   
     
     <% if @user.modClubs.any? %>
     <div class="profile_ban">
@@ -43,7 +30,7 @@
     
                     <%if club.is_moderator?(@user) %>
                         <span><%= image_tag(club.club_avatar.url(:thumb)) %>
-                        <%= link_to club.name, manage_club_path(path: club.path) %>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to club.name, manage_club_path(path: club.path) %>
                         </span> 
                     <% end %>
                 <% end %>

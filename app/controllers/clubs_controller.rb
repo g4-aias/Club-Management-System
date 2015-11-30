@@ -58,6 +58,7 @@ class ClubsController < ApplicationController
             flash[:danger] = "You are not a moderator of this club" 
             redirect_to build_club_path(@club)
         end
+
     end
     
     def update

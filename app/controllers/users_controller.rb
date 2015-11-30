@@ -13,6 +13,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @clubs = @user.modClubs
+    @posts = Post.all
   end
   
   def new

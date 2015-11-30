@@ -21,14 +21,14 @@ ActiveRecord::Schema.define(version: 20151128020944) do
     t.string   "path"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.string   "background_file_name"
-    t.string   "background_content_type"
-    t.integer  "background_file_size"
-    t.datetime "background_updated_at"
     t.string   "club_avatar_file_name"
     t.string   "club_avatar_content_type"
     t.integer  "club_avatar_file_size"
     t.datetime "club_avatar_updated_at"
+    t.string   "background_file_name"
+    t.string   "background_content_type"
+    t.integer  "background_file_size"
+    t.datetime "background_updated_at"
   end
 
   add_index "clubs", ["user_id"], name: "index_clubs_on_user_id"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20151128020944) do
     t.string   "ancestry"
   end
 
+  add_index "comments", ["ancestry"], name: "index_comments_on_ancestry"
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 

@@ -7,7 +7,7 @@
 
 
 	<section id="body" class="width">
-		<aside id="sidebar" class="column-left">
+		<!--<aside id="sidebar" class="column-left">
     		<header>
     				<h1>Club Directory</h1>
     		</header>
@@ -18,49 +18,19 @@
                             <%= text_field_tag :search, params[:search], placeholder: "Search Clubs" %>
                             <%= submit_tag "Search" %>
                         <% end %>
-                       <!--<li><a href=' <%= clubs_path %>'>All Clubs</a></li>
-                       <li class='active has-sub'><a href='#'>Sort Clubs</a>
-                          <ul>
-                             <li class='has-sub'><a href='#'>by Alphabetical Order</a>
-                                <ul>
-                                   <li><a href='#'>Ascending</a></li>
-                                   <li class='last'><a href='#'>Descending</a></li>
-                                </ul>
-                             </li>
-                             <li class='has-sub'><a href='#'>by Genre</a>
-                                <ul>
-                                   <li><a href=' # '>Arts</a></li>
-                                   <li class='last'><a href= >Art</a></li>
-                                </ul>
-                             </li>
-                          </ul>
-                       </li>
-                       <li><a href='#'>About</a></li>
-                       <li class='last'><a href='#'>Contact</a></li>-->
+
                     </ul>
                 </nav>
-		</aside>
+		</aside>-->
 		<section id="content" class="column-right">
     	    <article>
     			<h1>All Clubs</h1>
-                <!--<%# if @clubs.present? %>
-                    <%#= render @clubs %>
-                <%# else %>
-                    <p>There are no results found.</p>
-                <%# end %>
-    
-                <%# @clubs.each do |club| %>
-                    <%# @club = club %>
-                    <div class= "clubindex">
-                        <%#= gravatar_forc club, size: 120 %>
-                        <h3>
-                            <%#= link_to club.name, build_club_path(club) %>
-                        </h3>
-                        <%#= club.genre %>
-                        <br>
-                        <%#= club.description %>
-                    </div>
-                <%# end %>-->
+    			<div class="search_bar">
+                <%= form_tag(clubs_path, :method => "get", id: "search-form") do %>
+                            <%= text_field_tag :search, params[:search], placeholder: "Search Clubs" %>
+                            <%= submit_tag "Search" %>
+                <% end %>
+                </div>
                 <%= will_paginate @clubs %>
     
     
@@ -69,7 +39,7 @@
                 <% title_letter = club.name[0].capitalize.match(/[A-Z]/) ? club.name[0].capitalize : "#" %>
                 <% if title_letter != cur_letter %>
                 <% cur_letter = title_letter %>
-                <p style="color:#FF43FF"><%= cur_letter %>:</p>
+                <!--<p style="color:black"><%#= cur_letter %>:</p>-->
                 <% end %>
                 <div class= "clubindex">
                     
@@ -95,33 +65,5 @@
     		
     </section>
 </section>
-
-
-
-
-
-<!--<%# if @clubs.present? %>
-  <%#= render @clubs %>
-<%# else %>
-  <p>There are no results found.</p>
-<%# end %>
-
-  
-<%# @clubs.each do |club| %>
-  <%# @club = club %>
-  <div class= "clubindex">
-    <%#= gravatar_forc club, size: 120 %>
-    <h3>
-      <%#= link_to club.name, build_club_path(club) %>
-    </h3>
-    <%#= club.genre %>
-    <br>
-    <%#= club.description %>
-  </div>
-<%# end %>
-<%#= will_paginate @clubs %>-->
-
-
-
 
 

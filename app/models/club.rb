@@ -16,7 +16,6 @@ class Club < ActiveRecord::Base
   
   has_attached_file :club_avatar, :styles => { :medium => "400x400>", :thumb => "320x320#" }, :default_url => "missing.jpg"
   validates_attachment_content_type :club_avatar, :content_type => /\Aimage\/.*\Z/
-  
  
   
   validates :name,  presence: true, length: { maximum: 70 },
@@ -24,11 +23,16 @@ class Club < ActiveRecord::Base
   validates :description,  presence: true, length: { maximum: 1000 }
   validates :genre,  presence: true, length: { maximum: 50 }
   #validates :user_id, presence: true
+
   
   
   has_attached_file :background, styles: { :medium => "300x300>", large: "1024x768>" }
   validates_attachment_content_type :background, content_type: /\Aimage\/.*\Z/
 
+
+  
+  
+  
   
   def self.by_path(path)
     Club.where('path=?', path).first

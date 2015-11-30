@@ -216,14 +216,18 @@ input {
 }
 
 
+.search_bar {
+  width: 250px;
+  margin-left: 80px;
+}
+
+
 
 .clubindex {
-  border: solid;
-  border-radius: 10em 25px;
-  box-shadow: 10px 10px 25px #99cbff;
-  border-color: #cce5ff;
-  background-color: #cce5ff;
-  width: 730px;
+
+
+  background-color: #e1e1ea;
+
   margin-top: 30px;
   margin-left: 80px;
   padding-bottom: 35px;
@@ -235,6 +239,7 @@ input {
 .clubindex img{
   height: 160px;
   width: 160px;
+  margin-left: 20px;
 }
 
 .clubindex span{
@@ -702,6 +707,7 @@ header ul {
   display: block;
   color: black;
   margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 .profile_ban th {
@@ -852,4 +858,105 @@ table {
     60%  {width: 50px;}
     80%  {width: 40px;}
     100% {width: 50px;}
+}
+
+
+/* calendar */
+.simple-calendar {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+
+
+
+.simple-calendar thead {
+  font-size: 17px;
+}
+
+.simple-calendar table {
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 15px;
+  }
+
+.simple-calendar  tr {
+    border-collapse: collapse;
+ 
+  }
+
+.simple-calendar  th {
+    padding: 6px;
+    border-bottom: 2px solid rgb(221, 221, 221);
+    border-collapse: collapse;
+    border-left: 1px solid rgb(221, 221, 221);
+    border-right: 1px solid rgb(221, 221, 221);
+    border-top: 0px none rgb(51, 51, 51);
+    text-align: left;
+  }
+
+.simple-calendar  td {
+    padding: 6px;
+    vertical-align: top;
+    width: 14%;
+     
+    border: 1px solid #ddd;
+    border-top-color: rgb(221, 221, 221);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(221, 221, 221);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(221, 221, 221);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(221, 221, 221);
+    border-left-style: solid;
+    border-left-width: 1px;
+  }
+
+.simple-calendar  .day {
+    height: 80px;
+  }
+
+
+
+.simple-calendar  .today {
+    background: #FFFFC0
+  }
+
+
+
+.simple-calendar  .prev-month {
+    background: #DDD;
+  }
+.simple-calendar  .next-month {
+    background: #DDD;
+  }
+  
+.simple-calendar {
+  .current-month {
+    color: blue;
+  }
+
+  .has-events {
+    color: red;
+  }
+  
+  .event {
+    border:solid;
+  }
+}
+
+
+/*posts form*/
+
+.radio-inline {
+  display: inline-block;
+  width: 400px;
+
 }
