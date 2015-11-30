@@ -7,8 +7,9 @@ first_post:
   user_id: 1
   club_id: 1
   created_at: <%= 20.minutes.ago %>
+  
   club: first_club
-  user: first_user
+  user: third_user
 
 second_post:
   context: the second post

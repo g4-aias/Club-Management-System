@@ -28,7 +28,7 @@
                             
                             <% if logged_in? %>
                              <% if @post.is_owner?(current_user) %>
-                                 <%= link_to "Edit", '#', class: "btn btn-default" %>
+                                 <%= link_to "Edit", edit_post_path(@post), class: "btn btn-default" %>
                                  <%= link_to "Delete Post", post_path(@post), method: :delete,
                                        data: { confirm: "You sure?" }, class: "btn btn-default" %>
                              <% end %>

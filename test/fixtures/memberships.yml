@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+member_one:
   user_id: 
   club_id: 
+  member: third_user
+  memClub: first_club
 
-two:
-  user_id: 
-  club_id: 
+

@@ -23,8 +23,11 @@
             <%end%>
             <span class="timestamp">
               <%= link_to "Comments", build_post_path(@post)%>  
-                <% if logged_in? and current_user.modClubs.include?(@club) %>
-                  | <%= link_to "Delete Post", post_path(@post), method: :delete,
+                <% if logged_in? and @post.is_owner?(current_user) %>
+                  | <%= link_to "Edit", edit_post_path(@post) %> 
+                <% end %>
+                <% if logged_in? and (current_user.modClubs.include?(@club) or @post.is_owner?(current_user)) %>
+                  | <%= link_to "Delete", post_path(@post), method: :delete,
                                                data: { confirm: "You sure?" } %>
                 <% end %>
               <br>

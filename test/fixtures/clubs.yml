@@ -7,6 +7,7 @@ first_club:
   user_id: 1
   path: bobsfirstclub
 
+
 second_club:
   name: BobsSecondClub
   description: Only join if you're named Bobby Chan
