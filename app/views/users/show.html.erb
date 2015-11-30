@@ -18,7 +18,8 @@
           </div>
           
 
-       
+    <% if logged_in? %>
+      <% if @user==current_user %>
     <%= month_calendar events: @posts  do |date, post| %>
         <%= date.day %>
         <% post.each do |post| %>
@@ -32,7 +33,8 @@
             </div>
         <% end %>
     <%end%>
-    
+    <%end%>
+    <%end%>
       <div class="profile_ban">
         <h1>Profile
         <span><% @user = User.find(params[:id]) %>

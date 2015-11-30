@@ -38,6 +38,7 @@ class ClubsController < ApplicationController
     # show by likes
     def show
         @posts = @club.posts.by_hot_score.latest.five_days_ago.paginate(page: params[:page])
+        @moderators = @club.moderators
     end
     
     def manage

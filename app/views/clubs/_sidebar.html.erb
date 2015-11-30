@@ -9,12 +9,12 @@
         <br>
         <br>
       
-        <br>
+      
         <% if logged_in? %>
           <!-- Check if the user is already a member if yes then do unsubscribe else subscribe -->
           <% if current_user.memClubs.include?(@club) %> 
             <%= link_to "New Post", new_club_post_path , class: 'btn btn-success'  %>
-            <br>
+            &emsp;
               <!--If current user is not a mod , then show the unsubscribe button-->
               <% unless @club.is_moderator?(current_user) %>
                 <%= link_to 'unsubscribe', membership_path(0, club_id: @club.id), method: :delete, data: { confirm: "Are you sure you want to leave?" } , class: 'btn btn-danger' %>
@@ -24,7 +24,17 @@
           <% end %>
         <% end %>
         <br>
-        Club Description: <%= @club.description %>
+        <br>
+        <span style="background-color: #3366ff; color: white; padding: 2px;">
+        Club Moderators: 
+        </span>
+      
+        
+        <% @moderators.each do |moderator| %>
+
+           <span  style="background-color: orange; color: white; padding: 2px" ><i class="glyphicons glyphicons-user"></i> <%= moderator.name %></span>
+          <%end%>
+          
     </div>
 </div>
 
