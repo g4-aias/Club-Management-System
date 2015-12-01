@@ -55,7 +55,9 @@
         <h1>User Stat
         <span><% @user = User.find(params[:id]) %>
           <% if @user==current_user %>
+            <% if current_user.modClubs.any? %>
           <%= link_to "Manage your clubs", manage_user_path %>
+          <%end%>
         <% end %></span></h1>
         
         <span><% if @user.modClubs.any? %>
@@ -65,6 +67,10 @@
         <span><% if @user.posts.any? %>
            posts (<%= @user.posts.count %>)
            <% end %></span>   
+        
+        
+
+        
         
       </div>
     

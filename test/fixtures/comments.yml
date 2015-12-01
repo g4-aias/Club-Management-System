@@ -6,8 +6,20 @@ first_comment:
   post_id: 
   user: third_user
   post: first_post
+  created_at: <%= 10.minutes.ago %>
   
 second_comment:
-  comment: MyText
+  comment: Hihihihihi
   user_id: 
   post_id: 
+  user: second_user
+  post: first_post
+  created_at: <%= 5.minutes.ago %>
+
+most_recent:
+  comment: Hihihihihi
+  user_id: 
+  post_id: 
+  user: second_user
+  post: first_post
+  created_at: <%= Time.zone.now %>

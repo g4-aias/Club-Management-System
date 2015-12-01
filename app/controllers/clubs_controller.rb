@@ -160,7 +160,7 @@ class ClubsController < ApplicationController
     
     private
     def club_params
-        params.require(:club).permit(:name, :description, :path, :genre, :club_avatar, :backgroud)
+        params.require(:club).permit(:name, :description, :path, :genre, :club_avatar, :background)
     end
     
     def find_club_path

@@ -112,7 +112,7 @@ class PostsController < ApplicationController
         
         if @club.nil?
             flash[:danger] = "Unable to find the specified club" 
-            redirect_to club_index_path
+            redirect_to clubs_path
         end
         
         unless @club.is_member?(current_user)

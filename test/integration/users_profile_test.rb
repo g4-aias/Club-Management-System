@@ -14,6 +14,9 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
      assert_template 'users/show'
      #assert_select 'title', text: @user.name
      #looks for the h1 tag and checks if @user.name is there
-     assert_select 'h1', text: @user.name 
+     assert_select 'h1', text: @user.name
    end
+
+   
+        
 end
