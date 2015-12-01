@@ -1,7 +1,6 @@
 
 <% if @mod_requests.any? %>
 
-<<<<<<< HEAD
 <% @mod_requests.each do |mod_request| %>
 
     <% user = User.find(mod_request.inviting_user_id) %>
@@ -11,17 +10,6 @@
 
 
 <% end %>
-=======
-    <% @mod_requests.each do |mod_request| %>
-    
-        <% user = User.find(mod_request.inviting_user_id) %>
-     <p>You've been invited to to become a mod for <%= mod_request.club.name %> invited by <%= user.name %> </p>
-     <p><%= link_to "Click here to become a mod!" , update_modrequest_club_path(club_id: mod_request.club_id, path: mod_request.club.path, target_club_params: mod_request.club_id), method: :post %></p>
-     
-    
-    
-    <% end %>
->>>>>>> 6de0a569c6e4db56d67976ce1ff6ebdebe83a681
 
 <% else %>
 

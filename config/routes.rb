@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     member do
      get 'manage'
      get 'moderator_invitations'
+     get 'my_clubs'
     end
   end
   
