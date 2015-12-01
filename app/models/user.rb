@@ -22,15 +22,16 @@ class User < ActiveRecord::Base
     validates_attachment_content_type :avatar, :content_type => %w(image/jpeg image/jpg image/png)
     
     
-    validates :firstname,  presence: true, length: { maximum: 50 }
-    validates :lastname,  presence: true, length: { maximum: 50 }
-    validates :name,  presence: true, length: { maximum: 50 },
+    validates :firstname,  length: { maximum: 30 }
+    validates :lastname,  length: { maximum: 30 }
+    validates :name,  presence: true, length: { maximum: 20 },
                         uniqueness: { case_sensitive: false }
     
-    validates :email, presence: true, length: { maximum: 250 },
+    validates :email, presence: true, length: { maximum: 50 },
                         uniqueness: { case_sensitive: false }
     validates :phone, length: {maximum: 10}
-    validates :terms, :acceptance => true
+    
+    validates :terms, acceptance: true
                         
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true

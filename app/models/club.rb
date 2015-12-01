@@ -24,7 +24,7 @@ class Club < ActiveRecord::Base
   validates :name,  presence: true, length: { maximum: 70 },
                         uniqueness: { case_sensitive: false }
   validates :description,  presence: true, length: { maximum: 1000 }
-  validates :genre,  presence: true, length: { maximum: 50 }
+
   #validates :user_id, presence: true
 
   

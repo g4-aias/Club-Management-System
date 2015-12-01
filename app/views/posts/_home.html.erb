@@ -1,0 +1,45 @@
+<div class = "box panel panel-default">
+        <% if @post.picture?  %>
+          <%= link_to (image_tag @post.picture), build_post_path(@post) %>
+        <% else %>
+          <% if @post.image?  %>
+          <%= link_to (image_tag @post.image.url), build_post_path(@post) %>
+          <%end%>
+        <%end%>
+        
+        <div class = "panel-body">
+            <% if @post.url.blank? %>
+                <h4><%= link_to raw(@post.title), build_post_path(@post)%></h4>
+                <span class = "timestamp">
+                  Posted By: <%= link_to @post.user.name, @post.user %> from <%= link_to @post.club.name, build_club_path(@post.club) %>
+                  <br>
+                </span>
+            <%else%>
+                <h4><%= link_to raw(@post.title), @post.url %></h4>
+                <span class = "timestamp">
+                  Posted By: <%= link_to @post.user.name, @post.user %> | Has Shared a <%= link_to raw("Link"), @post.url%>
+                  <br>
+                  Owned By: <%= link_to @post.club.name, club_path %>
+                  <br>
+                </span>
+            <%end%>
+            <span class="timestamp">
+              <%= link_to "Comments", build_post_path(@post)%>  
+                <% if logged_in? and @post.is_owner?(current_user) %>
+                  | <%= link_to "Edit", edit_post_path(@post) %> 
+                <% end %>
+                <% if logged_in? and (current_user.modClubs.include?(@club) or @post.is_owner?(current_user)) %>
+                  | <%= link_to "Delete", post_path(@post), method: :delete,
+                                               data: { confirm: "You sure?" } %>
+                <% end %>
+              <br>
+              Posted <%= time_ago_in_words(@post.created_at) %> ago.
+            </span>
+            
+            <div class = "btn btn-group pull-right">
+              <span class="glyphicon glyphicon-heart"></span>
+              <%= @post.get_upvotes.size %>
+            </div>
+
+        </div>
+</div>  

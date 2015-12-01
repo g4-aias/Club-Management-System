@@ -21,21 +21,12 @@ function initialize() {
         };
         // initializing map
         map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
-        
+
    // geocoding 
       var geocoding  = new google.maps.Geocoder();
       $("#submit_button_geocoding").click(function(){
         codeAddress(geocoding);
       });
-
-       // add infowindow when clicking on the simple marker marker
-  var info = createInfoWindow("Congratulations!");
-    google.maps.event.addListener(marker, 'click', function() {
-    info.open(map,marker);
-    
-    
-  });
-  
 }
 
 
@@ -111,6 +102,7 @@ function codeAddress(geocoding){
   }
 }
 
+
 function loadScript() {
 	console.log("map loading ...");
   var script = document.createElement('script');
@@ -166,23 +158,4 @@ $("#submit_button_geocoding").click(function(){
 $("#submit_button_reverse").click(function(){
   codeLatLng(geocoding);
 });
-
-function codeAddress(geocoding){
-  var address = $("#search_box_geocoding").val();
-  if(address.length > 0){
-    geocoding.geocode({'address': address},function(results, status){
-      if(status == google.maps.GeocoderStatus.OK){
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-        });
-      } else {
-        alert("Geocode was not successful for the following reason: " + status);
-      }
-    });
-  } else {
-    alert("Search field can't be blank");
-  }
-}
 

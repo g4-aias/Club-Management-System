@@ -14,3 +14,11 @@ second_club:
   genre: Political
   user_id: 1
   path: bobssecondclub
+
+
+second_club:
+  name: BobsThirdClub
+  description: Only join if you're named Bobby
+  genre: Political
+  user_id: 1
+  path: bobsthirdclub

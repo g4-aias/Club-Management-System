@@ -16,15 +16,7 @@ class UserTest < ActiveSupport::TestCase
   
   #presence test
   
-  test "firstname should be present" do
-    @user.firstname = "     "
-    assert_not @user.valid?
-  end
-  
-  test "lastname should be present" do
-    @user.lastname = "     "
-    assert_not @user.valid?
-  end
+
   
   test "name should be present" do
     @user.name = "     "
@@ -92,6 +84,5 @@ class UserTest < ActiveSupport::TestCase
     #assert_not @user.authenticated?('')
     assert_not @user.authenticated?(:remember, '')
   end
-  
   
 end
