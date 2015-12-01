@@ -58,6 +58,11 @@ class UsersController < ApplicationController
     @posts = Post.all
   end
   
+  def my_clubs
+    @user = User.find(params[:id])
+    @clubs = @user.memClubs
+  end
+  
   def moderator_invitations
     @user = User.find(params[:id])
     #@user = current_user

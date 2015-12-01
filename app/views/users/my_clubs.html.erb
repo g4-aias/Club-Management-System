@@ -1,0 +1,14 @@
+<div class="profile_ban">
+    <h1>Your Clubs</h1>
+        <span>
+            <% if @user.memClubs.any? %>
+              <% @clubs.each do |club| %>
+                  <span><%= image_tag(club.club_avatar.url(:thumb)) %>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to club.name, build_club_path(club) %>
+                  </span> 
+              <% end %>
+            <% else %>
+              <span>You are not a member of any clubs <%= link_to "Click here to join one!", clubs_path %></span>
+            <% end %>
+        </span>
+</div>

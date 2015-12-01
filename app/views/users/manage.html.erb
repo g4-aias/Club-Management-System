@@ -1,4 +1,3 @@
-
 <div id="top-link-block">
     <span class="well well-sm">
         <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Profile" , current_user %>
@@ -23,7 +22,7 @@
         <h1>Manage your Clubs (<%= @user.modClubs.count %>)
         <span><% @user = User.find(params[:id]) %>
         <% if @user==current_user %>
-            <%= link_to "Create New Club", new_club_path %>
+            <%= link_to "Create New Club", commit_path %>
         <% end %>
             </span></h1>
         <span><% @clubs.each do |club| %>

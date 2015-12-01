@@ -11,7 +11,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="#">GitClub</a>
+      <%= link_to "GitClub", welcome_home_path, class: "navbar-brand"%>
+      
     </div>  
     
     <!--The remaining links -->
@@ -19,11 +20,10 @@
       
       <!-- Left side links (Always display)-->
       <ul class = "nav navbar-nav">
-        <li><%= link_to welcome_home_path do %>
-            <span class="glyphicon glyphicon-home"></span>
-            <% end %>
-            <li><%= link_to "Clubs", clubs_path %></li>
-        </li>
+          <li><%= link_to "All Clubs", clubs_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to "My Clubs", my_clubs_user_path(current_user) %></li>
+          <% end %>
       </ul>
       
       <!-- Right side links (Display if logged?)-->
