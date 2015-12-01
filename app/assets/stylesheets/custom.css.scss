@@ -205,7 +205,7 @@ input {
 
 
 .avatar_edit img {
-  border: solid;
+  border: none;
   border-width: 3px;
   width: 15%;
   border-radius: 50%;
@@ -223,7 +223,8 @@ input {
 
 
   background-color: #e1e1ea;
-
+  
+  box-shadow: 4px 4px 10px #b3b3b3;
   margin-top: 30px;
   margin-left: 80px;
   padding-bottom: 35px;
@@ -233,8 +234,8 @@ input {
 
 
 .clubindex img{
-  height: 160px;
-  width: 160px;
+  height: 15%/*160px*/;
+  width: 15%/*160px*/;
   margin-left: 20px;
 }
 
@@ -606,8 +607,6 @@ article h1 {
 
 
 
-
-
 /* Logo Image */
 div.clubheader {
   width: 100%;
@@ -732,6 +731,7 @@ header ul {
 
 /*manage my club page */
 .management_bar {
+  text-align: center;
   float: center;
 }
 
@@ -740,8 +740,8 @@ header ul {
   padding: 5px 10px;
   position: relative;
   margin: 15px;
-  background-color: #b3ffff /*#c2c2d6*/;
-  box-shadow: 4px 4px 1px #888888;
+  background-color: #e6e6e6 /*#c2c2d6*/;
+  box-shadow: 4px 4px 10px #b3b3b3;
   width: 400px;
   height: 110px;
   border-style: groove #b3ffff;
@@ -762,7 +762,7 @@ header ul {
 .management_bar article:hover {
     width: 550px;
     height: 150px;
-    background-color: #66ffff;
+    background-color: #cccccc;
     h4 {
       font-size: 35px;
     }
