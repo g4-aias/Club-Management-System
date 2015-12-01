@@ -16,14 +16,18 @@
                   <% if @post.option == "isEvent" %>
                   | <i style = "color: white; background-color: green">Event</i>
                   <% end %>
+                  Owned By: <%= link_to @post.club.name, build_club_path(@post.club) %>
                   <br>
                 </span>
             <%else%>
                 <h4><%= link_to raw(@post.title), @post.url %></h4>
                 <span class = "timestamp">
-                  Posted By: <%= link_to @post.user.name, @post.user %> | Has Shared a <%= link_to raw("Link"), @post.url%>
-                  <br>
-                  Owned By: <%= link_to @post.club.name, club_path %>
+                   Posted By: <%= link_to @post.user.name, @post.user %> | Has Shared a <%= link_to raw("Link"), @post.url%>
+                  <%= link_to @post.club.name, build_club_path(@post.club) %>
+                  <% if @post.option == "isEvent" %>
+                  | <i style = "color: white; background-color: green">Event</i>
+                  <% end %>
+                  Owned By: <%= link_to @post.club.name, build_club_path(@post.club) %>
                   <br>
                 </span>
             <%end%>
