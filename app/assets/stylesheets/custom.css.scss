@@ -608,15 +608,38 @@ article h1 {
 
 
 /* Logo Image */
+div.clubheader {
+  width: 100%;
+  height: 10%;
+  background-size: 100% 900%;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 0;
+}
+
+div.clubheader img{
+  height: 150px;
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
 div.headerimg {
   width: 100%;
+<<<<<<< HEAD
   height: 100px;
   background: #262626;
+=======
+  height: 150px;
+  background: #c2c2d6;
+>>>>>>> 4322a5f46b50dcee17d6ad5dab0438f52d122fd1
   margin-top: 0;
 }
 
 div.headerimg img{
-  width: 300px;
+  height: 150px;
+  width: 450px;
   margin-left: auto;
   margin-right: auto;
   margin-top: auto;
@@ -836,6 +859,10 @@ table {
   margin-left: 0px;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4322a5f46b50dcee17d6ad5dab0438f52d122fd1
 
 
 /* calendar */

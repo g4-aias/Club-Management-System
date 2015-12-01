@@ -59,7 +59,10 @@ class ClubsController < ApplicationController
     end
     
     def update
+        #params[:club][:remove_bg] == '1' ? @club.background = nil : @club.background
+        
         if @club.update(club_params)
+            flash[:success] = "Club Updated!" 
             redirect_to build_club_path(@club)
         else
             render :edit
@@ -160,7 +163,7 @@ class ClubsController < ApplicationController
     
     private
     def club_params
-        params.require(:club).permit(:name, :description, :path, :genre, :club_avatar, :backgroud)
+        params.require(:club).permit(:name, :description, :path, :genre, :club_avatar, :background, :banner, :remove_bg, :remove_banner)
     end
     
     def find_club_path

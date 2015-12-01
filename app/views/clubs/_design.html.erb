@@ -7,8 +7,22 @@
       <%= f.label :background, "Club Background" %>
       <%= f.file_field :background %>
       
-       
-
+      <%= f.label :banner, "Club Banner" %>
+      <%= f.file_field :banner %>
+      
+      <% if @club.background? %>
+            <%= f.label :remove_bg, class: "checkbox inline" do %>
+            <%= f.check_box :remove_bg %>
+                      &nbsp; &nbsp; Remove Background
+            <% end %>
+      <% end %>
+      
+      <% if @club.banner? %>
+            <%= f.label :remove_banner, class: "checkbox inline" do %>
+            <%= f.check_box :remove_banner %>
+                      &nbsp; &nbsp; Remove Banner
+            <% end %>
+      <% end %>
       
       <%= f.submit "Commit Update", class: "btn btn-primary" %>
 <% end %>
