@@ -14,7 +14,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 html, body {
-  padding-top: 60px;
+  padding-top: 70px;
   //margin: 0px auto;
 	//padding:0;
   //font-size: 1.0em;
@@ -25,9 +25,12 @@ html, body {
    height: 100%;
 }
 
-body.club {
- 
+.navbar {
+  margin-bottom: 0;
+}
 
+.container {
+  padding-top: 7px;
 }
 
 
@@ -244,189 +247,6 @@ input {
   display: inline-block;
   margin-left: 16px;
 }
-
-/*vertical menu*/
-.verticalmenu {
-  
-  background: #d2d2df;
-}
-
-
-.verticalmenu ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: block;
-  line-height: 35px;
-  font-size: 15px;
-}
-
-.verticalmenu ul li {
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-.verticalmenu ul li a {
-  text-decoration: none;
-  cursor: pointer;
-}
-.verticalmenu > ul > li > a {
-  color: #dddddd;
-  text-transform: uppercase;
-  display: block;
-  padding: 20px;
-  border-top: 1px solid #a2a2c3;
-  border-left: 1px solid #a2a2c3;
-  border-right: 1px solid #a2a2c3;
-  background: #9393b9;
-  box-shadow: inset 0 1px 0 white;
-  letter-spacing: 1px;
-  font-size: 16px;
-  font-weight: 300;
-  -webkit-transition: all 0.25s ease-in;
-  -moz-transition: all 0.25s ease-in;
-  -ms-transition: all 0.25s ease-in;
-  -o-transition: all 0.25s ease-in;
-  transition: all 0.25s ease-in;
-  position: relative;
-}
-.verticalmenu > ul > li:first-child > a {
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.verticalmenu > ul > li:last-child > a {
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-bottom: 1px solid #64649b;
-}
-.verticalmenu > ul > li:hover > a,
-.verticalmenu > ul > li.open > a,
-.verticalmenu > ul > li.active > a {
-  background: #64649b;
-  color: #ffffff;
-}
-.verticalmenu ul > li.has-sub > a::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  border-top: 13px solid #64649b;
-  border-left: 125px solid transparent;
-  border-right: 125px solid transparent;
-  left: 0;
-  bottom: -13px;
-  bottom: 0px;
-  z-index: 1;
-  opacity: 0;
-  -webkit-transition: all .2s ease;
-  -moz-transition: all .2s ease;
-  -ms-transition: all .2s ease;
-  -o-transition: all .2s ease;
-  transition: all .2s ease;
-}
-.verticalmenu ul > li.has-sub > a:before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 0;
-  height: 0;
-  border-top: 13px solid #64649b;
-  border-bottom: 13px solid transparent;
-  border-left: 125px solid transparent;
-  border-right: 125px solid transparent;
-  left: 0;
-  bottom: -12px;
-  bottom: -1px;
-  z-index: 3;
-  opacity: 0;
-  -webkit-transition: all .2s ease;
-  -moz-transition: all .2s ease;
-  -ms-transition: all .2s ease;
-  -o-transition: all .2s ease;
-  transition: all .2s ease;
-}
-.verticalmenu ul > li.has-sub:after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: 7px solid transparent;
-  border-top-color: #dddddd;
-  z-index: 2;
-  right: 20px;
-  top: 24.5px;
-
-}
-.verticalmenu ul > li:hover:after,
-.verticalmenu ul > li.active:after,
-.verticalmenu ul > li.open:after {
-  border-top-color: #ffffff;
-}
-.verticalmenu ul > li.has-sub.open > a::after {
-  opacity: 1;
-  bottom: -13px;
-}
-.verticalmenu ul > li.has-sub.open > a::before {
-  opacity: 1;
-  bottom: -12px;
-}
-.verticalmenu ul ul {
-  display: none;
-}
-.verticalmenu ul ul li {
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-}
-.verticalmenu ul ul li a {
-  background: #f1f1f1;
-  display: block;
-  position: relative;
-  font-size: 15px;
-  padding: 14px 20px;
-  border-bottom: 1px solid #dddddd;
-  color: #777777;
-  font-weight: 300;
-  -webkit-transition: all 0.25s ease-in;
-  -moz-transition: all 0.25s ease-in;
-  -ms-transition: all 0.25s ease-in;
-  -o-transition: all 0.25s ease-in;
-  transition: all 0.25s ease-in;
-}
-.verticalmenu ul ul li:first-child > a {
-  padding-top: 18px;
-}
-.verticalmenu ul ul ul li {
-  border: 0;
-}
-.verticalmenu ul ul li:hover > a,
-.verticalmenu ul ul li.open > a,
-.verticalmenu ul ul li.active > a {
-  background: #e4e4e4;
-  color: #666666;
-}
-.verticalmenu ul ul > li.has-sub > a::after {
-  border-top: 13px solid #dddddd;
-}
-.verticalmenu ul ul > li.has-sub > a::before {
-  border-top: 13px solid #e4e4e4;
-}
-.verticalmenu ul ul ul li a {
-  padding-left: 30px;
-}
-.verticalmenu ul ul > li.has-sub::after {
-  top: 18.5px;
-  border-width: 6px;
-  border-top-color: #777777;
-}
-.verticalmenu ul ul > li:hover::after,
-.verticalmenu ul ul > li.active::after,
-.verticalmenu ul ul > li.open::after {
-  border-top-color: #666666;
-}
-
-
 
 
 

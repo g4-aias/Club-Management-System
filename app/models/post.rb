@@ -44,7 +44,7 @@ class Post < ActiveRecord::Base
   def scrape_with_grabbit
     unless url.blank?
       data = Grabbit.url(url)
-      self.context = data.description 
+      #self.context = data.description 
       self.picture = data.images.first
     end
   end

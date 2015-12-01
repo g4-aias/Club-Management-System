@@ -4,6 +4,7 @@ class PostsController < ApplicationController
     before_action :set_post, only: [:edit, :update, :destroy, :upvote]
     #before_action :correct_user, only: [:edit]
     before_action :authorized_member?, only: :new
+    layout 'post' , only: :show
     
     def new
         @club = nil

@@ -48,8 +48,7 @@ Rails.application.routes.draw do
   
 
  
-  get 'password_resets/new'
-  get 'password_resets/edit'
+
   
   # club paths
   get 'commit' => 'clubs#new'

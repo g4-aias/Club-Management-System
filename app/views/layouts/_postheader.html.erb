@@ -1,0 +1,70 @@
+<% if @post.club.banner? %>
+
+<!-- user banner -->
+<div class="clubheader" style = "background-image: url(<%= @post.club.banner.url %>); height: 150px"></div>
+
+<% else %>
+
+<!-- default banner -->
+<div class="clubheader" style = "background-image: url(/assets/banner.jpg)"><%= image_tag('GitClubLogo.png', id: "logo") %></div>
+
+<% end %>
+
+
+
+<nav class = "navbar navbar-inverse">
+  <!--Contents of the nav are contained in a container-->
+  <div class = "container">
+    
+    <!--The Name?-->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">GitClub</a>
+    </div>  
+    
+    <!--The remaining links -->
+    <div class="collapse navbar-collapse" id="myNavbar">
+      
+      <!-- Left side links (Always display)-->
+      <ul class = "nav navbar-nav">
+        <li><%= link_to welcome_home_path do %>
+            <span class="glyphicon glyphicon-home"></span>
+            <% end %>
+            <li><%= link_to "Clubs", clubs_path %></li>
+            <li><%= link_to "Help",   welcome_help_path %></li>
+        </li>
+      </ul>
+      
+      <!-- Right side links (Display if logged?)-->
+      <ul class = "nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li class="avatar"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= current_user.name %> <b class="caret"></b>
+            </a>
+          
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Club Management", manage_user_path(current_user) %></li>
+
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to '<i class="glyphicon glyphicon-user"></i> Sign Up'.html_safe, new_user_path %></li>
+          <li><%= link_to '<i class="glyphicon glyphicon-log-in"></i> Login'.html_safe, login_path %> </li>
+        <% end %>
+      </ul>
+      
+    </div>
+    
+  </div>
+</nav>
