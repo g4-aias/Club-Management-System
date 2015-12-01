@@ -16,7 +16,6 @@
                   <% if @post.option == "isEvent" %>
                   | <i style = "color: white; background-color: green">Event</i>
                   <% end %>
-                  Owned By: <%= link_to @post.club.name, build_club_path(@post.club) %>
                   <br>
                 </span>
             <%else%>
@@ -27,7 +26,6 @@
                   <% if @post.option == "isEvent" %>
                   | <i style = "color: white; background-color: green">Event</i>
                   <% end %>
-                  Owned By: <%= link_to @post.club.name, build_club_path(@post.club) %>
                   <br>
                 </span>
             <%end%>
