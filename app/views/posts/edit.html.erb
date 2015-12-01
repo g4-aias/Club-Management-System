@@ -11,6 +11,9 @@
               <%= f.label :context %>
               <%= f.text_area :context, class: 'form-control', rows: "10" %>
             
+              <%= f.label :url, 'Share a URL' %>
+              <%= f.text_field :url, class: 'form-control' %>    
+                
               <%= hidden_field_tag :club_path, @club.path %>
               
               <%= f.label :image %>

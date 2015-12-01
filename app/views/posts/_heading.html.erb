@@ -12,12 +12,18 @@
                 <h4><%= link_to raw(@post.title), build_post_path(@post)%></h4>
                 <span class = "timestamp">
                   Posted By: <%= link_to @post.user.name, @post.user %>
+                  <% if @post.option == "isEvent" %>
+                  | <i style = "color: white; background-color: green">Event</i>
+                  <% end %>
                   <br>
                 </span>
             <%else%>
                 <h4><%= link_to raw(@post.title), @post.url %></h4>
                 <span class = "timestamp">
                   Posted By: <%= link_to @post.user.name, @post.user %> | Has Shared a <%= link_to raw("Link"), @post.url%>
+                  <% if @post.option == "isEvent" %>
+                  | <i style = "color: white; background-color: green">Event</i>
+                  <% end %>
                   <br>
                 </span>
             <%end%>
