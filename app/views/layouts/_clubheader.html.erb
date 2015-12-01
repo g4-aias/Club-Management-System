@@ -1,4 +1,16 @@
-<div class="headerimg"><%= image_tag('GitClubLogo.png', id: "logo") %></div>
+<% if @club.banner? %>
+
+<!-- user banner -->
+<div class="clubheader" style = "background-image: url(<%= @club.banner.url %>); height: 150px"></div>
+
+<% else %>
+
+<!-- default banner -->
+<div class="clubheader" style = "background-color: #c2c2d6"><%= image_tag('GitClubLogo.png', id: "logo") %></div>
+
+<% end %>
+
+
 
 <nav class = "navbar navbar-inverse">
   <!--Contents of the nav are contained in a container-->
