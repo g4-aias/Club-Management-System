@@ -52,28 +52,20 @@
         <span>Major: <%= @user.major %></span>
         
      
-        <h1>User Stat
-        <span><% @user = User.find(params[:id]) %>
-          <% if @user==current_user %>
-            <% if current_user.modClubs.any? %>
-          <%= link_to "Manage your clubs", manage_user_path %>
-          <%end%>
-        <% end %></span></h1>
+        <h1>Your Clubs</h1>
         
-        <span><% if @user.modClubs.any? %>
-           clubs (<%= @user.modClubs.count %>)
-           <% end %></span>
+          <span>
+            <% if @user.memClubs.any? %>
+              <% @clubs.each do |club| %>
+                  <span><%= image_tag(club.club_avatar.url(:thumb)) %>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<%= link_to club.name, build_club_path(club) %>
+                  </span> 
+              <% end %>
+            <% else %>
+              <span>You are not a member of any clubs <%= link_to "Click here to join one!", clubs_path %></span>
+            <% end %>
+          </span>
            
-        <span><% if @user.posts.any? %>
-           posts (<%= @user.posts.count %>)
-           <% end %></span>   
-        
-        
 
-        
-        
       </div>
-    
-
- 
-  </div>
+</div>

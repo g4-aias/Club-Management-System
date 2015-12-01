@@ -1,6 +1,7 @@
 class Club < ActiveRecord::Base
+  attr_accessor :remove_bg, :remove_banner
+  
   belongs_to :user
-
   has_many :moderators,through: :moderations
   has_many :moderations
   has_many :posts
@@ -13,6 +14,8 @@ class Club < ActiveRecord::Base
   after_create :make_owner_member
   #after_create :downcase_path
   before_save :set_club_path
+  before_save :delete_background, if: -> {remove_bg == '1' && !background_updated_at_changed?}
+  before_save :delete_banner, if: -> {remove_banner == '1' && !banner_updated_at_changed?}
   
   has_attached_file :club_avatar, :styles => { :medium => "400x400>", :thumb => "320x320#" }, :default_url => "missing.jpg"
   validates_attachment_content_type :club_avatar, :content_type => /\Aimage\/.*\Z/
@@ -27,9 +30,10 @@ class Club < ActiveRecord::Base
   
   
   has_attached_file :background, styles: { :medium => "300x300>", large: "1024x768>" }
-  validates_attachment_content_type :background, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :background, :content_type => /\Aimage\/.*\Z/
 
-
+  has_attached_file :banner, styles: { :medium => "300x300>", large: "1024x768>" }
+  validates_attachment_content_type :banner, :content_type => /\Aimage\/.*\Z/
   
   
   
@@ -64,7 +68,6 @@ class Club < ActiveRecord::Base
    # @clubs = Club.find(:all)
   #end
     
-  
  
   private
   
@@ -85,6 +88,11 @@ class Club < ActiveRecord::Base
     Membership.create!(user_id: user_id, club_id: id)
   end
   
+  def delete_background
+    self.background = nil
+  end 
   
-  
+  def delete_banner
+    self.banner = nil
+  end 
 end
