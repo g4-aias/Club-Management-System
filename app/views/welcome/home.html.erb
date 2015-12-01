@@ -3,10 +3,15 @@
 
   <% @posts.each do |post| %>
   <% @post = post %>
-  
+  <% if @post.option=="isEvent" %>
+     <div class = "box panel panel-default" style="border-color: green; border-width: 2px;">
     <%= render 'posts/home' %>
-    
-    
+    </div>
+    <%else%>
+    <div class = "box panel panel-default">
+     <%= render 'posts/home' %>
+     </div>
+    <%end%>
   <% end %>
   <br>
 </div>
