@@ -9,9 +9,15 @@
   <%= render 'sidebar' %>
   <% @posts.each do |post| %>
   <% @post = post %>
-  
+     <% if @post.option=="isEvent" %>
+     <div class = "box panel panel-default" style="border-color: green; border-width: 2px;">
     <%= render 'posts/heading' %>
-    
+    </div>
+    <%else%>
+    <div class = "box panel panel-default">
+     <%= render 'posts/heading' %>
+     </div>
+    <%end%>
   <% end %>
   <br>
 </div>

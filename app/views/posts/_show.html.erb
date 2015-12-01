@@ -10,6 +10,9 @@
             </div>
             
             <div class = "panel-body">
+                <% if @post.option=="isEvent" %>
+                    Event time: <%=@post.start_time %>
+                <%end%>
                 <p class = "description"><%=@post.context%></p>
             </div>
             

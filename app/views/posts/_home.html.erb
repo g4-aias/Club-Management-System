@@ -1,4 +1,4 @@
-<div class = "box panel panel-default">
+
         <% if @post.picture?  %>
           <%= link_to (image_tag @post.picture), build_post_path(@post) %>
         <% else %>
@@ -11,7 +11,11 @@
             <% if @post.url.blank? %>
                 <h4><%= link_to raw(@post.title), build_post_path(@post)%></h4>
                 <span class = "timestamp">
-                  Posted By: <%= link_to @post.user.name, @post.user %> from <%= link_to @post.club.name, build_club_path(@post.club) %>
+                   Posted By: <%= link_to @post.user.name, @post.user %> | 
+                  <%= link_to @post.club.name, build_club_path(@post.club) %>
+                  <% if @post.option == "isEvent" %>
+                  | <i style = "color: white; background-color: green">Event</i>
+                  <% end %>
                   <br>
                 </span>
             <%else%>
@@ -42,4 +46,4 @@
             </div>
 
         </div>
-</div>  
+ 
