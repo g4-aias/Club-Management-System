@@ -40,11 +40,11 @@
 });
 </script>
 
-<div id="partial-area" style="display:none;">
+<div id="partial-area" style = "display: none;">
     <%= f.label :start_time %>
-    <%= f.datetime_select :start_time %>
-  
-
+    <span id = "time-select" style = "display: flex;">
+        <%= f.datetime_select :start_time %>
+    </span>
 </div>      
       
       <%#= f.hidden_field :clubpath , :value => @club.path %> 
