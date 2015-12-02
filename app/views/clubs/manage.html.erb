@@ -1,14 +1,6 @@
-<div id="top-link-block">
-    <span class="well well-sm">
-        <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Manage Your Clubs" , manage_user_path(current_user) %>
-    </span>
-</div>
-
-<h1>Manage Club <i class="glyphicon glyphicon-chevron-right"></i> <%= @club.name %></h1>
-
-
-
-
+<h1 class="headings">
+  <%= link_to 'Club Management', manage_user_path(current_user) %> > <%= @club.name %>
+</h1>
 
 
 <div class="management_bar">

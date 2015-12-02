@@ -1,6 +1,6 @@
 
         <% if @post.picture?  %>
-          <%= link_to (image_tag @post.picture), build_post_path(@post) %>
+          <%= link_to (image_tag @post.picture), @post.url %>
         <% else %>
           <% if @post.image?  %>
           <%= link_to (image_tag @post.image.url), build_post_path(@post) %>
@@ -18,7 +18,7 @@
                   <br>
                 </span>
             <%else%>
-                <h4><%= link_to raw(@post.title), @post.url %></h4>
+                <h4><%= link_to raw(@post.title), build_post_path(@post) %></h4>
                 <span class = "timestamp">
                   Posted By: <%= link_to @post.user.name, @post.user %> | Has Shared a <%= link_to raw("Link"), @post.url%>
                   <% if @post.option == "isEvent" %>

@@ -2,6 +2,7 @@ class ClubsController < ApplicationController
     before_action :logged_in_user, except: [:show, :index]
     before_action :find_club_path, only: [:show, :manage, :show_members, :manage_requests, :add_moderator, :mod_request, :update_modrequest]
     before_action :set_club, only: [:edit, :update]
+    before_action :admin_only, only: [:new, :create]
     layout 'club' , except: :index
     #before_action :can_moderate?,     only: [:manage, :edit]
     
@@ -184,6 +185,12 @@ class ClubsController < ApplicationController
         end
     end
     
+    def admin_only
+      unless current_user.admin?
+        flash[:danger] = "Admin only function."
+        redirect_to(root_url)
+      end
+    end
 
 end
 

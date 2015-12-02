@@ -5,7 +5,9 @@
                 <h4><%=@post.title%></h4>
             </div>
             <div class = "panel-heading pin_image">
-                <%= image_tag @post.picture if @post.picture? %>
+                <% if @post.picture?  %>
+                     <%= link_to (image_tag @post.picture), @post.url %>
+                <% end %>
                 <%= image_tag @post.image.url if @post.image? %>
             </div>
             

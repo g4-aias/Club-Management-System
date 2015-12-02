@@ -1,30 +1,12 @@
-<div id="top-link-block">
-    <span class="well well-sm">
-        <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Profile" , current_user %>
-    </span>
-</div>
-
 <div class="row">      
       
 <% @user = User.find(params[:id]) %>
 
-    <div class="avatar_edit">
-        <%= image_tag(current_user.avatar.url(:thumb)) %>
-        <span class="username_tag">
-            <h1><%= @user.name %></h1>
-            <p>Email: <%= @user.email %></p>
-        </span>
-    </div>
-   
-    
     <% if @user.modClubs.any? %>
     <div class="profile_ban">
         <h1>Manage your Clubs (<%= @user.modClubs.count %>)
-        <span><% @user = User.find(params[:id]) %>
-        <% if @user==current_user %>
-            <%= link_to "Create New Club", commit_path %>
-        <% end %>
-            </span></h1>
+            <span><% @user = User.find(params[:id]) %></span>
+        </h1>
         <span><% @clubs.each do |club| %>
     
                     <%if club.is_moderator?(@user) %>
@@ -36,10 +18,16 @@
     <% else %>
         <br>
         <br>
-        <h1>You don't have any club right now.
-        <% if @user==current_user %>
-            <%= link_to "Create New Club", new_club_path %>
-        <% end %></h1>
+        <h1>
+            You don't have any club right now.
+            <% if @user == current_user %>
+                <% if current_user.admin? %>
+                    <%= link_to "Create New Club", new_club_path %>
+                <% else %>
+                    <%= link_to "Click here to join one!", clubs_path %>
+                <% end %>    
+            <% end %>
+        </h1>
     <% end %>
         
     </div>

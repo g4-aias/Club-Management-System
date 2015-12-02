@@ -1,9 +1,7 @@
 
-<div id="top-link-block">
-    <span class="well well-sm">
-        <i class="glyphicon glyphicon-chevron-left"></i> <%= link_to "Back to Posts" , view_club_path %>
-    </span>
-</div>
+<h1 class="headings">
+  <%= link_to @post.club.name, build_club_path(@post.club) %> > New Post
+</h1>
 
 <!-- render content of the post -->
 <%= render 'show' %>
