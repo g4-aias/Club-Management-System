@@ -20,7 +20,7 @@ class MemberRequestsController < ApplicationController
     return false unless member_request
     member_request.destroy
     flash[:success] = "Request Rejected!"
-    redirect_to manage_club_path(path: @club.path)
+    redirect_to manage_requests_path(path: @club.path)
   end
   
   private

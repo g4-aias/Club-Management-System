@@ -6,7 +6,7 @@ class MembershipsController < ApplicationController
     target_user = params[:target_user_param]
     if Membership.subscribe!(@club, target_user)
       flash[:success] = "Request Approved" 
-      redirect_to manage_club_path(path: @club.path)
+      redirect_to manage_requests_path(path: @club.path)
     else
       flash[:danger] = 'ERROR: There was an error processing your request'
       redirect_to root_url
