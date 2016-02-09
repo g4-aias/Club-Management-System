@@ -45,7 +45,7 @@ class Post < ActiveRecord::Base
     unless url.blank?
       data = Grabbit.url(url)
       #self.context = data.description 
-      self.picture = data.images.first
+      self.picture = data.images
     end
   end
   

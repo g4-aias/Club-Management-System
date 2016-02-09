@@ -4,7 +4,7 @@
 
     <% if @user.modClubs.any? %>
     <div class="profile_ban">
-        <h1>Manage your Clubs (<%= @user.modClubs.count %>)
+        <h1>Manage your Clubs (<%= @user.modClubs.count %>) 
             <span><% @user = User.find(params[:id]) %></span>
         </h1>
         <span><% @clubs.each do |club| %>
